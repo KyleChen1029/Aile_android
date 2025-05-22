@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:background="@drawable/bg_todo_alarm_alert"
+        android:orientation="vertical"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <tw.com.chainsea.custom.view.image.CircleImageView
+                android:id="@+id/img_avatar"
+                android:src="@drawable/custom_default_avatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:gravity="center_vertical"
+                android:id="@+id/txt_name"
+                android:textColor="#4a4a4a"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:gravity="center_vertical"
+                android:text="需接續服務"
+                tools:ignore="HardcodedText"
+                android:textColor="#4a4a4a"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:id="@+id/txt_reason"
+            android:textColor="#4a4a4a"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:background="#d6d6d6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/btn_go"
+            android:text="按此前往"
+            tools:ignore="HardcodedText"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColor="#4a4a4a"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

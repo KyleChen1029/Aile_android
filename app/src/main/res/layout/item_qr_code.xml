@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/avatar_icon"
+        android:layout_height="@dimen/avatar_icon"
+        android:elevation="10dp"
+        android:src="@drawable/custom_default_avatar"
+        app:layout_constraintBottom_toTopOf="@+id/cl_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cl_main" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_radius_12_white"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="9dp"
+        android:outlineProvider="background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideLine_top">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxEms="10"
+            android:singleLine="true"
+            android:textColor="#4a4a4a"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideLine_avatar" />
+
+        <TextView
+            android:id="@+id/tv_duty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="#4a4a4a"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_tenant_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="#4a4a4a"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_duty" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_qrcode"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_notice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tenant_name">
+
+            <ImageView
+                android:id="@+id/qr_code"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:contentDescription="@null"
+                android:src="@mipmap/icon_fake_qr_qr_code"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                android:id="@+id/ic_logo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:src="@drawable/custom_default_avatar"
+                app:layout_constraintBottom_toBottomOf="@id/qr_code"
+                app:layout_constraintEnd_toEndOf="@id/qr_code"
+                app:layout_constraintStart_toStartOf="@id/qr_code"
+                app:layout_constraintTop_toTopOf="@id/qr_code" />
+
+            <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                android:id="@+id/ic_cant_use"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_cant_use"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/qr_code"
+                app:layout_constraintEnd_toEndOf="@id/qr_code"
+                app:layout_constraintStart_toStartOf="@id/qr_code"
+                app:layout_constraintTop_toTopOf="@id/qr_code" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/iv_progress_bar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_qr_code_loading"
+                app:layout_constraintBottom_toBottomOf="@id/qr_code"
+                app:layout_constraintEnd_toEndOf="@id/qr_code"
+                app:layout_constraintStart_toStartOf="@id/qr_code"
+                app:layout_constraintTop_toTopOf="@id/qr_code" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tv_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:textColor="#4a4a4a"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

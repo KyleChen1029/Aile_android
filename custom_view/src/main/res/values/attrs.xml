@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="UnderlinedTextView" tools:ignore="ResourceName">
+        <attr name="underlineWidth" format="dimension" />
+        <attr name="underlineColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView" tools:ignore="ResourceName">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <!--圓角圖片設計-->
+    <attr name="borderRadiusAll" format="dimension" tools:ignore="ResourceName" />
+
+    <attr name="borderRadiusTop" format="dimension" tools:ignore="ResourceName" />
+    <attr name="borderRadiusLeft" format="dimension" tools:ignore="ResourceName" />
+    <attr name="borderRadiusBottom" format="dimension" tools:ignore="ResourceName" />
+    <attr name="borderRadiusRight" format="dimension" tools:ignore="ResourceName" />
+
+
+    <attr name="type" tools:ignore="ResourceName">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <declare-styleable name="RoundImageView" tools:ignore="ResourceName">
+        <attr name="borderRadiusAll" />
+        <attr name="borderRadiusTop" />
+        <attr name="borderRadiusLeft" />
+        <attr name="borderRadiusBottom" />
+        <attr name="borderRadiusRight" />
+        <attr name="type" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MaxHeightScrollView" tools:ignore="ResourceName">
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
+
+    <!--**************** WMDragImageFloatingButton ******************-->
+    <declare-styleable name="DragImageFloatingButton" tools:ignore="ResourceName">
+        <!-- 預設靜止 icon -->
+        <attr name="stillRes" format="dimension|reference" />
+        <!--  動作中 icon -->
+        <attr name="actionRes" format="dimension|reference" />
+        <!-- 拖曳 alpha 值 -->
+        <attr name="moveAlpha" format="float" />
+        <!-- 拖曳是否使用 alpha 值 -->
+        <attr name="useMoveAlpha" format="boolean" />
+        <!-- 是否使用拖曳功能 -->
+        <attr name="useDrag" format="boolean" />
+    </declare-styleable>
+    <attr name="DragImageFloatingButtonStyle" format="reference" tools:ignore="ResourceName" />
+
+
+    <!--**************** WMRefreshLayout ******************-->
+    <declare-styleable name="RefreshLayout" tools:ignore="ResourceName">
+        <!-- RefreshView的初始offset -->
+        <attr name="refreshInitOffset" format="dimension" />
+        <!-- 刷新時RefreshView的offset -->
+        <attr name="refreshEndOffset" format="dimension" />
+        <!-- TargetView(ListView或者ScrollView等)的初始位置 -->
+        <attr name="targetInitOffset" format="dimension" />
+        <!-- 刷新時TargetView(ListView或者ScrollView等)的位置-->
+        <attr name="targetRefreshOffset" format="dimension" />
+        <!-- 是否自動根據RefreshView的高度計算RefreshView的初始位置-->
+        <attr name="autoCalculateRefreshInitOffset" format="boolean" />
+        <!-- 是否自動根據TargetView在刷新時的位置計算RefreshView的結束位置-->
+        <attr name="autoCalculateRefreshEndOffset" format="boolean" />
+        <!-- TargetView的刷新位置與RefreshView高度相等-->
+        <attr name="equalTargetRefreshOffsetToRefreshViewHeight" format="boolean" />
+        <!-- 設置在下拉過程中 RefreshView 的偏移量-->
+        <attr name="offsetCalculator" format="enum">
+            <enum name="preset" value="0" />
+            <enum name="center" value="1" />
+            <enum name="follow" value="2" />
+        </attr>
+        <!-- 設置在下拉過程中 RefreshView 樣式 -->
+        <attr name="refreshView" format="enum">
+            <enum name="preset" value="0" />
+            <enum name="text" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <!-- 設置在下拉後執行 onRefresh 的反饋設定-->
+        <attr name="sensorFeedback" format="enum">
+            <enum name="none" value="0" />
+            <enum name="bounce" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+
+    </declare-styleable>
+    <attr name="RefreshLayoutStyle" format="reference" tools:ignore="ResourceName" />
+
+
+    <declare-styleable name="WheelPicker" tools:ignore="ResourceName">
+        <attr name="wheel_data" format="reference" />
+        <attr name="wheel_selected_item_position" format="integer" />
+        <attr name="wheel_item_text_size" format="dimension" />
+        <attr name="wheel_item_text_color" format="color" />
+        <attr name="wheel_selected_item_text_color" format="color" />
+        <attr name="wheel_same_width" format="boolean" />
+        <attr name="wheel_maximum_width_text" format="string" />
+        <attr name="wheel_maximum_width_text_position" format="integer" />
+        <attr name="wheel_visible_item_count" format="integer" />
+        <attr name="wheel_item_space" format="dimension" />
+        <attr name="wheel_cyclic" format="boolean" />
+        <attr name="wheel_indicator" format="boolean" />
+        <attr name="wheel_indicator_color" format="color" />
+        <attr name="wheel_indicator_size" format="dimension" />
+        <attr name="wheel_curtain" format="boolean" />
+        <attr name="wheel_curtain_color" format="color" />
+        <attr name="wheel_atmospheric" format="boolean" />
+        <attr name="wheel_curved" format="boolean" />
+        <attr name="wheel_item_align" format="enum">
+            <enum name="center" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="wheel_font_path" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="waveView" tools:ignore="ResourceName">
+        <attr name="waveColor" format="color" />
+        <attr name="texture_bg_waveColor" format="color" />
+        <attr name="waveViewOffset" format="dimension" />
+        <attr name="waveViewCount" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ShimmerLayout" tools:ignore="ResourceName">
+        <attr name="shimmer_color" format="color|reference" />
+        <attr name="shimmer_animation_duration" format="integer|reference" />
+        <attr name="shimmer_auto_start" format="boolean|reference" />
+        <attr name="shimmer_angle" format="integer|reference" />
+        <attr name="shimmer_mask_width" format="float|reference" />
+        <attr name="shimmer_gradient_center_color_width" format="float|reference" />
+        <attr name="shimmer_reverse_animation" format="boolean|reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="BannerLayout" tools:ignore="ResourceName">
+        <!--attr name="interval" />
+        <attr name="showIndicator" />
+        <attr name="orientation" />
+        <attr name="autoPlaying"/-->
+        <attr name="itemSpace" format="integer" />
+        <attr name="centerScale" format="float" />
+        <attr name="moveSpeed" format="float" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ShadowConstraintLayout_Layout" tools:ignore="ResourceName">
+        <attr name="layout_xOffset" format="dimension" />
+        <attr name="layout_yOffset" format="dimension" />
+        <attr name="layout_shadowColor" format="color" />
+        <attr name="layout_shadowRadius" format="dimension" />
+        <attr name="layout_shadowRoundRadius" format="dimension" />
+    </declare-styleable>
+</resources>

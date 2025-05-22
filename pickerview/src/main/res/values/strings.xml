@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="pickerview_cancel" tools:ignore="ButtonCase,ResourceName" translatable="false">cancel</string>
+    <string name="pickerview_submit" tools:ignore="ResourceName" translatable="false">submit</string>
+    <string name="pickerview_year" tools:ignore="ResourceName" translatable="false">y</string>
+    <string name="pickerview_month" tools:ignore="ResourceName" translatable="false">m</string>
+    <string name="pickerview_day" tools:ignore="ResourceName" translatable="false">day</string>
+    <string name="pickerview_hours" tools:ignore="ResourceName" translatable="false">h</string>
+    <string name="pickerview_minutes" tools:ignore="ResourceName" translatable="false">m</string>
+    <string name="pickerview_seconds" tools:ignore="ResourceName" translatable="false">s</string>
+    <string name="pickerview_ampm" tools:ignore="ResourceName" translatable="false">.</string>
+</resources>

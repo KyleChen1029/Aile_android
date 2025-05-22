@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    <tw.com.chainsea.custom.view.recyclerview.MaxHeightRecyclerView-->
+    <!--        android:id="@+id/mrv_rich_menu"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:background="@color/colorPrimary"-->
+    <!--        android:choiceMode="multipleChoiceModal"-->
+    <!--        android:fadeScrollbars="false"-->
+    <!--        android:overScrollMode="never"-->
+    <!--        android:scrollbarSize="6dp"-->
+    <!--        android:scrollbarStyle="outsideOverlay"-->
+    <!--        android:scrollbarThumbVertical="@drawable/style_scrollbar_location"-->
+    <!--        android:scrollbarTrackVertical="@drawable/style_scrollbar"-->
+    <!--        android:scrollbars="none"-->
+    <!--        android:verticalScrollbarPosition="right"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/cl_area"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="45dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!--  left function btn-->
+        <LinearLayout
+            android:id="@+id/ll_left_fun_box"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:gravity="center|bottom"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/et_input"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.legacy.widget.Space
+                android:layout_weight="1"
+                android:id="@+id/s_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <!-- camera 相機 -->
+            <ImageView
+                android:id="@+id/iv_camera"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:src="@drawable/slector_camera" />
+
+            <!-- pic 照片 -->
+            <ImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:src="@drawable/slector_pic" />
+
+            <!-- video 錄影 -->
+            <ImageView
+                android:id="@+id/iv_video"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:src="@drawable/slector_video" />
+
+            <!-- media 多媒體 -->
+            <ImageView
+                android:id="@+id/iv_media"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:src="@drawable/slector_pin" />
+
+
+            <!-- expand 展開功能-->
+            <ImageView
+                android:id="@+id/iv_fun_expand"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:visibility="gone"
+                android:src="@drawable/slector_next" />
+
+        </LinearLayout>
+
+
+        <!--输入框-->
+        <tw.com.chainsea.chat.keyboard.view.HadEditText
+            android:id="@+id/et_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/recording_n"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="start|bottom"
+            android:hint="輸入訊息"
+            tools:ignore="HardcodedText"
+            android:maxLines="4"
+            android:imeOptions="actionSend"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="4dp"
+            android:paddingStart="8dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="39dp"
+            android:paddingBottom="6dp"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:textColor="@color/black"
+            android:textColorHint="@color/keyboard_root_input"
+            android:textCursorDrawable="@drawable/edit_cursor_color"
+            android:textSize="16sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ll_right_fun_box"
+            app:layout_constraintStart_toEndOf="@+id/ll_left_fun_box"
+            app:layout_constraintTop_toTopOf="parent">
+            <!--            <requestFocus />-->
+        </tw.com.chainsea.chat.keyboard.view.HadEditText>
+
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/et_input"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:layout_marginBottom="5dp"-->
+        <!--            android:background="@drawable/recording_n"-->
+        <!--            android:hint="輸入訊息"-->
+        <!--            android:imeOptions="actionSend"-->
+        <!--            android:inputType="textMultiLine"-->
+        <!--            android:lineSpacingExtra="4dp"-->
+        <!--            android:maxLines="4"-->
+        <!--            android:paddingStart="8dp"-->
+        <!--            android:paddingTop="6dp"-->
+        <!--            android:paddingEnd="39dp"-->
+        <!--            android:gravity="start|bottom"-->
+        <!--            android:paddingBottom="6dp"-->
+        <!--            android:scrollbars="vertical"-->
+        <!--            android:singleLine="false"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textColorHint="@color/keyboard_root_input"-->
+        <!--            android:textCursorDrawable="@drawable/edit_cursor_color"-->
+        <!--            android:textSize="16sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/ll_right_fun_box"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/ll_left_fun_box"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!-- facial 表情 -->
+        <ImageView
+            android:id="@+id/iv_facial"
+            android:layout_width="31dp"
+            android:layout_height="33dp"
+            android:layout_margin="0dp"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/slector_face_2"
+
+            app:layout_constraintBottom_toBottomOf="@+id/et_input"
+            app:layout_constraintEnd_toEndOf="@+id/et_input"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+        <!--  right function btn-->
+        <LinearLayout
+            android:id="@+id/ll_right_fun_box"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingEnd="6dp"
+            android:paddingStart="6dp"
+            android:gravity="bottom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/et_input">
+
+            <!-- expand 輸入框展開　-->
+            <ImageView
+                android:id="@+id/iv_input_expand"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:src="@drawable/expand_white"
+                android:visibility="visible" />
+
+            <androidx.legacy.widget.Space
+                android:id="@+id/s_right"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <!-- send 發送　-->
+            <ImageView
+                android:id="@+id/iv_send"
+                android:layout_width="34dp"
+                android:layout_height="42dp"
+                android:layout_margin="0dp"
+                android:paddingTop="8dp"
+                android:contentDescription="@null"
+                android:paddingBottom="8dp"
+                android:paddingEnd="6dp"
+                android:paddingStart="6dp"
+                android:src="@drawable/slector_send"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+
+        <tw.com.chainsea.custom.view.recyclerview.MaxHeightRecyclerView
+            android:id="@+id/mrv_rich_menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:choiceMode="multipleChoiceModal"
+            android:fadeScrollbars="false"
+            android:overScrollMode="never"
+            android:scrollbarSize="6dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@drawable/style_scrollbar_location"
+            android:scrollbarTrackVertical="@drawable/style_scrollbar"
+            android:scrollbars="none"
+            android:verticalScrollbarPosition="right"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

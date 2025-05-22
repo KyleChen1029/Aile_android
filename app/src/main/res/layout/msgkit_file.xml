@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rootCL"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:maxWidth="165dp">
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/fileIconCIV"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@null"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_file_icon_word_61dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fileNameTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <tw.com.chainsea.chat.widget.LoadingBar
+            android:id="@+id/progressBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:padding="0dp"
+            android:progress="0"
+            android:visibility="gone"
+            app:loading_bar_isCapRounded="true"
+            app:loading_bar_mode="circle"
+            app:loading_bar_radius="20dp"
+            app:loading_bar_reachedColor="#ffffff"
+            app:loading_bar_reachedHeight="4dp"
+            app:loading_bar_textColor="#ffffff"
+            app:loading_bar_textSize="14sp"
+            app:loading_bar_unReachedHeight="2dp" />
+
+        <TextView
+            android:id="@+id/fileTypeNameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/fileIconCIV"
+            app:layout_constraintEnd_toEndOf="@+id/fileIconCIV"
+            app:layout_constraintBottom_toBottomOf="@+id/fileIconCIV"
+            app:layout_constraintTop_toTopOf="@id/fileIconCIV" />
+
+
+        <TextView
+            android:id="@+id/fileNameTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="0dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintBottom_toTopOf="@+id/fileSizeTV"
+            app:layout_constraintStart_toEndOf="@+id/fileIconCIV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fileSizeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/fileNameTV"
+            app:layout_constraintStart_toEndOf="@+id/fileIconCIV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/fileStatusTV" />
+
+        <TextView
+            android:id="@+id/fileStatusTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@+id/fileSizeTV"
+            app:layout_constraintStart_toEndOf="@+id/fileIconCIV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

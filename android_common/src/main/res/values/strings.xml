@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="debug_log_file_name" tools:ignore="ResourceName" translatable="false">debug.log</string>
+    <string name="info_log_file_name" tools:ignore="ResourceName" translatable="false">info.log</string>
+    <string name="warning_log_file_name" tools:ignore="ResourceName" translatable="false">warning.log</string>
+    <string name="error_log_file_name" tools:ignore="ResourceName" translatable="false">error.log</string>
+    <string name="message_log_file_name" tools:ignore="ResourceName" translatable="false">message.log</string>
+    <string name="part2" tools:ignore="ResourceName" translatable="false">887706</string>
+    <string name="text_notification_badge" tools:ignore="ResourceName" translatable="false">角標提醒</string>
+</resources>

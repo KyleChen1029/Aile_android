@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="tw.com.chainsea.chat.searchfilter.viewmodel.SearchFilterSharedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_FAFAFA">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scopeGlobalSearch"
+            app:layout_constraintVertical_bias="0.0"
+            app:navGraph="@navigation/nav_search_filter" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scopeGlobalSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="?attr/secondaryColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scopeSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/scopeEmit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/bg_search_view_radius_white"
+                android:layout_marginStart="20dp"
+                android:layout_marginVertical="10dp">
+
+                <ImageView
+                    android:id="@+id/ivSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_new_search"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/etSearch"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/hint_color"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:text="@={viewModel.etGlobalSearchInput}"
+                    android:background="@color/transparent"
+                    app:layout_constraintStart_toEndOf="@id/ivSearch"
+                    app:layout_constraintTop_toTopOf="@id/ivSearch"
+                    app:layout_constraintBottom_toBottomOf="@id/ivSearch"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/clearInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_input_clear"
+                    android:layout_marginEnd="10dp"
+                    android:visibility="gone"
+                    android:onClick="clearInputText"
+                    app:layout_constraintTop_toTopOf="@id/etSearch"
+                    app:layout_constraintEnd_toEndOf="@id/etSearch"
+                    app:layout_constraintBottom_toBottomOf="@id/etSearch"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scopeEmit"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintTop_toTopOf="@id/scopeSearch"
+                app:layout_constraintBottom_toBottomOf="@id/scopeSearch"
+                app:layout_constraintStart_toEndOf="@id/scopeSearch"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivEmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_global_search_close"
+                    android:contentDescription="@null"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

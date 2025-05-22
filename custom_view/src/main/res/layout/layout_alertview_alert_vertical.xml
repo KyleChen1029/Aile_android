@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tw.com.chainsea.custom.view.recyclerview.ConstraintHeightListView xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alertButtonListView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:listSelector="@drawable/bg_alertbutton_none"
+    android:cacheColorHint="@android:color/transparent"
+    android:divider="@null"
+    android:scrollbars="none" />

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ResourceName">
+
+    <gradient
+        android:type="radial"
+        android:gradientRadius="360"
+        android:endColor="@color/bgColor_alertview_alert"
+        android:startColor="@color/bgColor_alertview_alert_start" />
+
+    <corners android:radius="@dimen/radius_alertview"/>
+
+</shape>

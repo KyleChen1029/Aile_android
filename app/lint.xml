@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <!-- 忽略資源命名規則警告 -->
+    <issue id="ResourceName" severity="ignore" />
+</lint>

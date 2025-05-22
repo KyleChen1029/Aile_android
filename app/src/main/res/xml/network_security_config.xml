@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false"/>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">ailegw.qbicloud.com</domain>
+        <domain includeSubdomains="true">cp.aile.cloud</domain>
+        <domain includeSubdomains="true">3.1.243.80</domain>
+    </domain-config>
+</network-security-config>

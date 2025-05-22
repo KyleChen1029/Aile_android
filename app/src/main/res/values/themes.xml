@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 基礎主題 -->
+    <style name="Theme.Aile.Base" parent="">
+        <item name="sideBar">@color/color_36495F</item>
+        <item name="primaryColor">@color/color_586F89</item>
+        <item name="secondaryColor">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="unReadIndicatorColor">@color/colorPrimary</item>
+        <item name="shadowBackgroundColor">@color/colorAccent</item>
+        <item name="topBackgroundColor">@color/color_7ED3FD</item>
+        <item name="newChatRoomButtonColor">@color/blue_light</item>
+        <item name="newChatRoomTextColor">@color/blue_light</item>
+        <item name="todoHistoryTextColor">@color/select_date_color</item>
+        <item name="todoHistoryButtonColor">@color/select_date_color</item>
+        <item name="aileIconResource">@drawable/ce_icon</item>
+        <item name="clContentCellResource">@drawable/selector_item_list</item>
+        <item name="civTopSmallIcon">@drawable/ic_s_top</item>
+        <item name="radioButtonResource">@drawable/custom_radio_style</item>
+        <item name="radioButtonTransferResource">@drawable/s_radiobutton_transfer</item>
+        <item name="createTenantCancelResource">@drawable/bg_oval_blue_full</item>
+        <item name="tenantGuarantorResource">@drawable/ic_join_team_head_blue</item>
+        <item name="currentTenantCheckBoxResource">@drawable/icon_checkbox_check</item>
+        <item name="accountTitle">@string/system_setting_item_account_title</item>
+        <item name="aboutTitle">@string/system_setting_item_about</item>
+        <item name="logoutTitle">@string/alert_logout</item>
+        <item name="logoutMessage">@string/alert_logout_remind</item>
+        <item name="todoCreateButtonResource">@drawable/add_member</item>
+        <item name="scannerConfirmResource">@drawable/bg_radius_00a0e9</item>
+        <item name="todoIconResource">@drawable/res_check_list_circle_def</item>
+        <item name="loadMoreButtonColor">@color/blue_light</item>
+        <item name="deleteAccountRbResource">@drawable/radio_button</item>
+        <item name="deleteAccountIconResource">@drawable/icon_im_aile_off</item>
+        <item name="deleteAccountNextResource">@drawable/btn_bg_blue</item>
+        <item name="deleteAccountMessage">@string/delete_account_term2</item>
+        <item name="deleteAccountTitle">@string/delete_aile_account</item>
+        <item name="dragImageFloatingButtonResource">@drawable/going_down</item>
+        <item name="isMuteImageColor">@color/color_A5C2E5</item>
+        <item name="mediaPreviewSelectColor">@color/key_word</item>
+        <item name="mediaPreviewSendColor">@color/color_2A5E9B</item>
+        <item name="serviceNumberConsultColor">@color/color_82B2D3</item>
+        <item name="personRoomAvatarBackgroundColor">@color/color_82B2D3</item>
+    </style>
+
+    <!-- 自定義主題 - Green -->
+    <style name="Theme.Aile.Green" parent="Theme.Aile.Base">
+        <item name="sideBar">@color/color_00332F</item>
+        <item name="primaryColor">@color/color_015F57</item>
+        <item name="secondaryColor">@color/color_015F57</item>
+        <item name="android:statusBarColor">@color/color_015F57</item>
+        <item name="unReadIndicatorColor">@color/color_06B4A5</item>
+        <item name="shadowBackgroundColor">@color/color_06B4A5</item>
+        <item name="topBackgroundColor">@color/color_06DFCC</item>
+        <item name="newChatRoomButtonColor">@color/color_D9D9D9</item>
+        <item name="newChatRoomTextColor">@color/black</item>
+        <item name="todoHistoryTextColor">@color/color_06B4A5</item>
+        <item name="todoHistoryButtonColor">@color/color_06B4A5</item>
+        <item name="aileIconResource">@drawable/ic_aile_logo_green</item>
+        <item name="clContentCellResource">@drawable/selector_item_list_green</item>
+        <item name="civTopSmallIcon">@drawable/ic_top_green</item>
+        <item name="radioButtonResource">@drawable/custom_radio_style_green</item>
+        <item name="radioButtonTransferResource">@drawable/s_radiobutton_transfer_green</item>
+        <item name="createTenantCancelResource">@drawable/btn_bg_green</item>
+        <item name="tenantGuarantorResource">@drawable/ic_join_team_head_green</item>
+        <item name="currentTenantCheckBoxResource">@drawable/icon_checkbox_check_green</item>
+        <item name="accountTitle">@string/text_settings_account_title</item>
+        <item name="aboutTitle">@string/text_settings_about</item>
+        <item name="logoutTitle">@string/text_logout_title_green</item>
+        <item name="logoutMessage">@string/text_logout_message_green</item>
+        <item name="todoCreateButtonResource">@drawable/ic_add_todo_green</item>
+        <item name="scannerConfirmResource">@drawable/bg_radius_06b4a5</item>
+        <item name="todoIconResource">@drawable/res_check_list_circle_def_green</item>
+        <item name="loadMoreButtonColor">@color/color_06B4A5</item>
+        <item name="deleteAccountRbResource">@drawable/radio_button_green</item>
+        <item name="deleteAccountIconResource">@drawable/ic_app_green</item>
+        <item name="deleteAccountNextResource">@drawable/btn_bg_green</item>
+        <item name="deleteAccountMessage">@string/text_term_delete_aile_account</item>
+        <item name="deleteAccountTitle">@string/welcome_tip_04</item>
+        <item name="dragImageFloatingButtonResource">@drawable/ic_arrow_downward_green</item>
+        <item name="isMuteImageColor">@color/color_06B4A5</item>
+        <item name="mediaPreviewSelectColor">@color/color_06B4A5</item>
+        <item name="mediaPreviewSendColor">@color/color_06B4A5</item>
+        <item name="serviceNumberConsultColor">@color/color_6BC2BA</item>
+        <item name="personRoomAvatarBackgroundColor">@color/color_06B4A5</item>
+    </style>
+</resources>

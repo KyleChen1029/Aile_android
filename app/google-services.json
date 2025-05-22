@@ -1,0 +1,170 @@
+{
+    "project_info": {
+        "project_number": "652527193208",
+        "project_id": "aile-419002",
+        "storage_bucket": "aile-419002.firebasestorage.app"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:652527193208:android:84fbba2dc1eae7033d318d",
+                "android_client_info": {
+                    "package_name": "com.cloud.aile.aiwow"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyC4Uy2vXM2qjlb5__52LirelBCzZxdh26E"
+                },
+                {
+                    "current_key": "AIzaSyBtuIc_PzXWW-65fCNYiHnqZdQJWCqEaFY"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:652527193208:android:e0dc7f49bc3254a93d318d",
+                "android_client_info": {
+                    "package_name": "tw.com.chainsea.chat"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyC4Uy2vXM2qjlb5__52LirelBCzZxdh26E"
+                },
+                {
+                    "current_key": "AIzaSyBtuIc_PzXWW-65fCNYiHnqZdQJWCqEaFY"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:652527193208:android:28a08f40f9911afd3d318d",
+                "android_client_info": {
+                    "package_name": "tw.com.chainsea.chat.dev"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyC4Uy2vXM2qjlb5__52LirelBCzZxdh26E"
+                },
+                {
+                    "current_key": "AIzaSyBtuIc_PzXWW-65fCNYiHnqZdQJWCqEaFY"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:652527193208:android:c1e80265bec5a3d13d318d",
+                "android_client_info": {
+                    "package_name": "tw.com.chainsea.chat.qa"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyC4Uy2vXM2qjlb5__52LirelBCzZxdh26E"
+                },
+                {
+                    "current_key": "AIzaSyBtuIc_PzXWW-65fCNYiHnqZdQJWCqEaFY"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:652527193208:android:92416f5d0fd686d83d318d",
+                "android_client_info": {
+                    "package_name": "tw.com.chainsea.chat.uat"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyC4Uy2vXM2qjlb5__52LirelBCzZxdh26E"
+                },
+                {
+                    "current_key": "AIzaSyBtuIc_PzXWW-65fCNYiHnqZdQJWCqEaFY"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "652527193208-k7l48bbb05dvjaki42mi1unc78rppjfe.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}

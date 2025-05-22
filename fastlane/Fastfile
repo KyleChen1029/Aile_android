@@ -1,0 +1,189 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(
+      task: "test",
+      flags: "--configuration-cache"
+    )
+  end
+
+  desc "Build apk for development"
+  lane :testBuild do
+    gradle(
+      task: "assembleDebug",
+      flags: "--configuration-cache"
+     )
+  end
+
+  desc "Build apk for production"
+  lane :productionBuild do
+    gradle(
+      task: "assembleRelease",
+      flags: "--configuration-cache"
+    )
+  end
+
+  desc "Build app for QA testing and upload to GCS"
+  lane :qaBuild do
+    gradle(
+      task: "assembleQaRelease",
+      flags: "--configuration-cache"
+    )
+    now = Time.now.strftime("%Y%m%d")
+    google_cloud_storage_upload(
+      project: "aile-infra-common",
+      bucket: "aile-distribute",
+      keyfile: ENV["AILE_SERVICE_KEY"],
+      content_path: lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
+      destination_path: "Android/QA/#{now}"
+    )
+    teams_card(
+      workflow_url: ENV["TEAMS_WORKFLOW_URL"],
+      title: "QA Android Build",
+      text: "A new release is ready for testing!",
+      image: "https://raw.githubusercontent.com/fastlane/boarding/master/app/assets/images/fastlane.png",
+      image_title: "Fastlane",
+      open_url: "https://storage.googleapis.com/aile-distribute/Android/QA/#{now}/#{File.basename(lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH])}",
+      facts: [
+        {
+          "title" => "Environment",
+          "value" => "QA"
+        },
+        {
+          "title" => "File Name",
+          "value" => "#{File.basename(lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH])}"
+        }
+      ]
+    )
+  end
+
+  desc "Build app for UAT testing and upload to GCS"
+  lane :uatBuild do
+    gradle(
+      task: "assembleUatRelease",
+      flags: "--configuration-cache"
+    )
+    now = Time.now.strftime("%Y%m%d")
+    google_cloud_storage_upload(
+      project: "aile-infra-common",
+      bucket: "aile-distribute",
+      keyfile: ENV["AILE_SERVICE_KEY"],
+      content_path: lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
+      destination_path: "Android/UAT/#{now}"
+    )
+    teams_card(
+      workflow_url: ENV["TEAMS_WORKFLOW_URL"],
+      title: "UAT Android Build",
+      text: "A new release is ready for testing!",
+      image: "https://raw.githubusercontent.com/fastlane/boarding/master/app/assets/images/fastlane.png",
+      image_title: "Fastlane",
+      open_url: "https://storage.googleapis.com/aile-distribute/Android/UAT/#{now}/#{File.basename(lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH])}",
+      facts: [
+        {
+          "title" => "Environment",
+          "value" => "UAT"
+        },
+        {
+          "title" => "File Name",
+          "value" => "#{File.basename(lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH])}"
+        }
+      ]
+    )
+  end
+
+  desc "Create Google Play Store bundle for production and upload to beta track"
+  lane :beta do
+    gradle(
+      task: "bundleBetaRelease",
+      properties: {
+        "android.injected.signing.store.file" => "#{ENV["CI_PROJECT_DIR"]}/tw.com.chainsea.chat.jks",
+        "android.injected.signing.store.password" => ENV["KEYSTORE_PASSWORD"],
+        "android.injected.signing.key.alias" => "key",
+        "android.injected.signing.key.password" => ENV["KEYSTORE_PASSWORD"]
+      },
+      flags: "--configuration-cache"
+    )
+    now = Time.now.strftime("%Y%m%d")
+    google_cloud_storage_upload(
+      project: "aile-infra-common",
+      bucket: "aile-distribute",
+      keyfile: ENV["AILE_SERVICE_KEY"],
+      content_path: lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH],
+      destination_path: "Android/Beta/#{now}"
+    )
+    upload_to_play_store(
+      track: "beta",
+      json_key: ENV["AILE_SERVICE_KEY"]
+    )
+    teams_card(
+      workflow_url: ENV["TEAMS_WORKFLOW_URL"],
+      title: "Aile Android Play Store Beta",
+      text: "A new release has been uploaded to the Play Store Beta track!",
+      image: "https://raw.githubusercontent.com/fastlane/boarding/master/app/assets/images/fastlane.png",
+      image_title: "Fastlane",
+      open_url: "https://play.google.com/store/apps/details?id=tw.com.chainsea.chat",
+      facts: [
+        {
+          "title" => "Environment",
+          "value" => "Play Store Beta"
+        }
+      ]
+    )
+  end
+
+  desc "Create Google Play Store bundle for production and upload to production track"
+  lane :production do
+    gradle(
+      task: "bundleProdRelease",
+      properties: {
+        "android.injected.signing.store.file" => "#{ENV["CI_PROJECT_DIR"]}/tw.com.chainsea.chat.jks",
+        "android.injected.signing.store.password" => ENV["KEYSTORE_PASSWORD"],
+        "android.injected.signing.key.alias" => "key",
+        "android.injected.signing.key.password" => ENV["KEYSTORE_PASSWORD"]
+      },
+      flags: "--configuration-cache"
+    )
+    now = Time.now.strftime("%Y%m%d")
+    google_cloud_storage_upload(
+      project: "aile-infra-common",
+      bucket: "aile-distribute",
+      keyfile: ENV["AILE_SERVICE_KEY"],
+      content_path: lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH],
+      destination_path: "Android/Production/#{now}"
+    )
+    upload_to_play_store(
+      track: "production",
+      json_key: ENV["AILE_SERVICE_KEY"],
+    )
+    teams_card(
+      workflow_url: ENV["TEAMS_WORKFLOW_URL"],
+      title: "Aile Android Play Store Production",
+      text: "A new release has been uploaded to the Play Store Production track! And we pick the luckiest 10% of users to receive the update first. (Rollout)",
+      image: "https://raw.githubusercontent.com/fastlane/boarding/master/app/assets/images/fastlane.png",
+      image_title: "Fastlane",
+      open_url: "https://play.google.com/store/apps/details?id=tw.com.chainsea.chat",
+      facts: [
+        {
+          "title" => "Environment",
+          "value" => "Play Store Production"
+        }
+      ]
+    )
+  end
+end

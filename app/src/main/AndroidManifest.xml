@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="tw.com.chainsea.chat"
+    android:installLocation="internalOnly">
+    <!-- tools:overrideLibrary="com.facebook.react"> -->
+    <dist:module dist:instant="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32" />
+
+    <uses-permission
+        android:name="androoid.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="SystemPermissionTypo" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Google Sensitive permissions -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_SMS" /> -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" /> <!-- WeChat Share -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Samsung -->
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- HTC -->
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- Sony -->
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- Apex -->
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- Solid -->
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- Huawei -->
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="false"
+        android:autoVerify="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:defaultToDeviceProtectedStorage="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:preserveLegacyExternalStorage="true"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/WelcomeTheme"
+        tools:replace="android:allowBackup"
+        tools:targetApi="s"
+        tools:ignore="DiscouragedApi,LockedOrientationActivity">
+
+        <activity
+            android:name=".mediagallery.view.MediaGalleryActivity"
+            android:exported="false"
+            android:theme="@style/WelcomeTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".mainpage.view.MainPageActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+
+        <activity
+            android:name=".view.chart.DrawChartGraphActivity"
+            android:label="@string/title_activity_draw_chart_graph"
+            android:theme="@style/WelcomeTheme.NoActionBar" />
+        <activity
+            android:name=".refactor.welcomePage.WelcomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.EcologyActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".ui.activity.TermsActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".searchfilter.view.activity.SearchMessageListActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".refactor.loginPage.LoginCpActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.LoginOtherDeviceActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.vision.barcode.ScannerActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.group.GroupCreateActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.group.GroupWaitConfirmActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.group.GroupWaitActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.group.GuarantorWaitActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.account.ChangeTenantActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.qrcode.QrCodeActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.vision.base.BaseVisionPreviewActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.homepage.SelfInformationHomepageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.homepage.EmployeeInformationHomepageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.homepage.VisitorHomepageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.homepage.BossServiceNumberHomepageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".searchfilter.view.activity.CreateGroupActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".searchfilter.view.activity.CreateDiscussActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".searchfilter.view.activity.MemberInvitationActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".searchfilter.view.activity.GlobalSearchNewActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".service.ServiceTopicSelectorActivity"
+            android:theme="@style/NoTitleTheme"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.service.ServiceNumberManageMoreSettingsActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".keyboard.media.MediaSelectorPreviewActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.gallery.ScreenshotsPreviewActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.homepage.SubscribeInformationHomepageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.service.ServiceNumberAgentsManageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.service.ServiceNumberManageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.enlarge.EnLargeMessageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.movie.MovieActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.OutSideShareInActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- <data android:mimeType="text/plain" /> -->
+                <!-- <data android:mimeType="image/*" /> -->
+                <!-- <data android:mimeType="text/plain" /> -->
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.ChatActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi">
+            <intent-filter>
+                <action android:name="tw.com.chainsea.action.CHAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.ChatNormalActivity"
+            android:exported="false"
+            android:theme="@style/NoTitleTheme"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi">
+            <intent-filter>
+                <action android:name="tw.com.chainsea.action.CHAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.consultai.ConsultAIActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".ui.activity.FileExplorerActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" /> <!-- Facebook login begin -->
+        <activity android:name=".ui.activity.ImageConfirmActivity" />
+        <activity
+            android:name=".view.base.HomeActivity"
+            android:launchMode="standard"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".zxing.activity.CaptureActivity"
+            android:theme="@style/NoTitleTheme" />
+        <activity
+            android:name=".view.setting.AboutActivity"
+            android:theme="@style/NoTitleTheme"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".ui.activity.UploadAvaterActivity"
+            android:theme="@style/NoTitleTheme" />
+        <activity
+            android:name=".ui.activity.ComplaintActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.setting.RepairsActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".ui.activity.RecordActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".ui.utils.countrycode.CountryActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity android:name=".pchat.ui.activity.QRCodeDetailActivity" />
+        <activity android:name=".ui.activity.ClipImageActivity" />
+        <activity
+            android:name=".view.service.ServiceBroadcastEditorActivity"
+            android:theme="@style/NoTitleTheme" />
+        <activity
+            android:name=".view.gallery.PhotoGalleryActivity"
+            android:hardwareAccelerated="false"
+            android:theme="@style/NoTitleTheme" />
+        <activity
+            android:name=".aiff.AiffDialog"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AiffTheme"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.account.homepage.ServicesNumberManagerHomepageActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" /> <!-- android:name="BUG_HD_SDK_GENERAL_KEY" -->
+        <!-- android:value="035355a341e212988222f0c3829db2eb" /> -->
+        <activity
+            android:name=".account.AccountDeleteActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.account.fragments.SystemSettingActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.homepage.bind.BindThirdPartActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi" />
+        <activity
+            android:name=".view.qrcode.ServiceNumberQrCodeActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar" />
+        <activity
+            android:name=".chatroomfilter.ChatRoomFilterActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.TodoListActivity"
+            android:theme="@style/NoTitleTheme.NoActionBar" />
+
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" /> <!-- <meta-data -->
+        <!-- android:name="com.facebook.sdk.ApplicationId" -->
+        <!-- android:value="@string/facebook_app_id" /> -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ce_notification_icon" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/app_name" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+
+        <receiver
+            android:name=".receiver.DirectBootReceiver"
+            android:directBootAware="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="alarm.TIMER_ACTION" />
+                <action android:name="alarm.DELAY" />
+                <action android:name="alarm.NOTIFY_ACTION" />
+                <action android:name="alarm.CONFIRM" />
+                <action android:name="alarm.TIMER_ACTION_REPEATING" />
+                <!-- <action android:name="com.e_eduspace.TIMER_ACTION" /> -->
+            </intent-filter>
+        </receiver> <!-- <service android:name=".service.RingtonePlayingService" -->
+        <!-- android:exported="false"> -->
+        <!-- </service> -->
+        <service
+            android:name=".service.fcm.AileFireBaseMessagingService"
+            android:exported="false"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- Update the digital keep-alive service layer -->
+        <service
+            android:name=".service.BadgeServer"
+            android:exported="false"
+            android:label="通知使用權測試程式"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.AiffDbInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.CELogInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.ClientsManagerInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.CommonLibInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.DaVinciInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.PlayerManagerInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="tw.com.chainsea.chat.initalizer.SdkInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <!-- Required: set your sentry.io project identifier (DSN) -->
+        <meta-data
+            android:name="io.sentry.dsn"
+            android:value="https://c94312dd86e7e0c131489e92126e4d43@o4507570367037440.ingest.us.sentry.io/4507570385453056" />
+        <meta-data
+            android:name="io.sentry.auto-init"
+            android:value="true" />
+        <!-- enable automatic breadcrumbs for user interactions (clicks, swipes, scrolls) -->
+        <meta-data
+            android:name="io.sentry.traces.user-interaction.enable"
+            android:value="true" />
+        <!-- enable screenshot for crashes (could contain sensitive/PII data) -->
+        <meta-data
+            android:name="io.sentry.attach-screenshot"
+            android:value="true" />
+        <!-- enable view hierarchy for crashes -->
+        <meta-data
+            android:name="io.sentry.attach-view-hierarchy"
+            android:value="true" />
+
+        <!-- enable the performance API by setting a sample-rate, adjust in production env -->
+        <meta-data
+            android:name="io.sentry.traces.sample-rate"
+            android:value="1.0" />
+        <!-- enable profiling when starting transactions, adjust in production env -->
+        <meta-data
+            android:name="io.sentry.traces.profiling.sample-rate"
+            android:value="0.0" />
+    </application>
+
+</manifest>

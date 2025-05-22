@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#82b2d3" />
+            <size
+                android:width="45dp"
+                android:height="45dp" />
+        </shape>
+    </item>
+
+    <item
+        android:drawable="@drawable/ic_check_list_22dp"
+        android:height="25dp"
+        android:gravity="center"
+        android:width="25dp">
+    </item>
+</layer-list>
+
+
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:shape="rectangle">-->
+<!--<corners android:radius="10dp"/>-->
+<!--<solid android:color="#439aff"/>-->
+<!--</shape>-->

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout
+            android:id="@+id/esLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:contentView="@+id/clAppendContentView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rightMenuView="@+id/clRightMenu">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAppendContentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                    android:id="@+id/civ_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/custom_default_avatar"
+                    app:civ_circle_background_color="@android:color/transparent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivIdentity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_owner"
+                    android:contentDescription="@null"
+                    app:layout_constraintStart_toStartOf="@id/civ_icon"
+                    app:layout_constraintTop_toTopOf="@id/civ_icon" />
+
+
+                <TextView
+                    android:id="@+id/tv_member_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#4a4a4a"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toEndOf="@+id/civ_icon"
+                    app:layout_constraintTop_toTopOf="@+id/civ_icon" />
+
+                <TextView
+                    android:id="@+id/tv_member_duty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/civ_icon"
+                    app:layout_constraintStart_toEndOf="@+id/civ_icon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRightMenu"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_del_member"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#f0485d"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/icon_del_white"
+                        android:contentDescription="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

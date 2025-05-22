@@ -1,0 +1,54 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="title_size">18sp</dimen>
+    <dimen name="avatar_size">54dp</dimen>
+    <dimen name="actionBarSize">51dp</dimen>
+    <dimen name="small_distance">13dp</dimen>
+    <dimen name="medium_distance">17dp</dimen>
+    <dimen name="distance_16">20dp</dimen>
+    <dimen name="distance_20">24dp</dimen>
+    <dimen name="distance_30">32dp</dimen>
+    <dimen name="item_text_size">18sp</dimen>
+    <dimen name="base_line_width_1">10dp</dimen>
+    <dimen name="px_1">10dp</dimen>
+    <dimen name="px_5">10.25dp</dimen>
+    <dimen name="px_6">10.5dp</dimen>
+    <dimen name="px_10">11.5dp</dimen>
+    <dimen name="px_12">12dp</dimen>
+    <dimen name="px_15">12.75dp</dimen>
+    <dimen name="px_20">9dp</dimen>
+    <dimen name="px_25">15.25dp</dimen>
+    <dimen name="px_30">16.5dp</dimen>
+    <dimen name="px_36">23sp</dimen>
+    <dimen name="px_42">19.5dp</dimen>
+    <dimen name="px_45">20.25dp</dimen>
+    <dimen name="px_55">22.75dp</dimen>
+    <dimen name="px_60">24dp</dimen>
+    <dimen name="px_120">39dp</dimen>
+    <dimen name="px_138">43.5dp</dimen>
+    <dimen name="list_item_height">74dp</dimen>
+    <dimen name="list_item_title_size">22sp</dimen>
+    <dimen name="contact_list_item_title_size">16sp</dimen>
+    <dimen name="list_item_content_size">20sp</dimen>
+    <dimen name="list_item_avatar_size">53dp</dimen>
+
+    <dimen name="image_text_margin">26dp</dimen>
+    <dimen name="image_text_padding">19dp</dimen>
+    <dimen name="page_back_size">49dp</dimen>
+    <dimen name="page_back_padding">19dp</dimen>
+
+    <!--<dimen name="activity_horizontal_margin">16dp</dimen>-->
+    <!--<dimen name="activity_vertical_margin">16dp</dimen>-->
+
+    <dimen name="indicator_size">8dp</dimen>
+    <dimen name="indicator_margin">5dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_35">35dp</dimen>
+    <dimen name="sp_13">13sp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="avatar_icon">96.25dp</dimen>
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingHorizontal="7dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="4dp">
+
+        <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+            android:id="@+id/iv_avatar"
+            android:layout_marginBottom="1dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/member_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/custom_default_avatar" />
+
+        <TextView
+            android:id="@+id/tvAvatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@drawable/circle_blue_bg"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+            app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/member_name"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+
+        <ImageView
+            android:id="@+id/iv_owner"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignStart="@+id/iv_avatar"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_group_owner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_manager"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignStart="@+id/iv_avatar"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_manager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignEnd="@+id/iv_avatar"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:contentDescription="@null"
+            android:src="@drawable/del2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

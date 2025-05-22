@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/guarantorWaitMemberFragment">
+
+    <fragment
+        android:id="@+id/guarantorWaitMemberFragment"
+        android:name="tw.com.chainsea.chat.view.group.GuarantorWaitMemberFragment"
+        android:label="GuarantorWaitMemberFragment" >
+<!--        <action-->
+<!--            android:id="@+id/action_groupWaitMemberFragment_to_groupWaitReadyFragment"-->
+<!--            app:destination="@id/groupWaitReadyFragment" />-->
+    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/groupWaitReadyFragment"-->
+<!--        android:name="tw.com.chainsea.chat.view.group.GroupWaitReadyFragment"-->
+<!--        android:label="GroupWaitReadyFragment" />-->
+
+
+</navigation>

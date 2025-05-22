@@ -1,0 +1,176 @@
+image: fabernovel/android:api-34-v1.8.0
+
+# We temporarily use SAAS runner at the moment (Gradle build complains about self-hosted runner)
+
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
+  - template: Jobs/Code-Quality.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
+  - remote: 'https://gitlab.com/Ivan.Huang1520/gitlab-sast-tracking/-/raw/main/jira-export.gitlab-ci.yml'
+
+stages:
+  - build
+  - test
+  - test_export
+  - publish
+
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+
+before_script:
+  - git config --global http.postBuffer 524288000
+
+code_quality:
+  before_script:
+    - apk add git
+  tags:
+    - dind
+  services:
+    - name: docker:24.0.5-dind
+      command: [ "--tls=false" ]
+      variables:
+        HEALTHCHECK_TCP_PORT: "2375"
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+  rules:
+    - if: $CI_COMMIT_SHA
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+semgrep-sast:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  artifacts:
+    name: sast
+    paths:
+      - gl-sast-report.json
+    reports:
+      sast: gl-sast-report.json
+    when: always
+
+export_vulns:
+  variables:
+    JIRA_PROJECT: INTE
+    PLATFORM: Android
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  dependencies:
+    - semgrep-sast
+
+secret_detection:
+  tags:
+    - dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+develop:environment:switch:
+  stage: publish
+  script:
+    - exit 0
+  environment:
+    name: Development
+    deployment_tier: development
+  only:
+    - develop
+
+build:qa:
+  tags:
+    - saas-linux-medium-amd64
+  stage: build
+  before_script:
+    - bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs $(nproc)
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - export JAVA_HOME=/.jenv/versions/openjdk64-17.0.9
+  script:
+    - bundle exec fastlane qaBuild
+  artifacts:
+    untracked: false
+    when: on_success
+    access: all
+    expire_in: "30 days"
+    paths:
+      - app/build/outputs/apk/qa/release/*.apk
+  cache:
+    paths:
+      - .gradle
+    policy: pull-push
+  environment:
+    name: QA-GCS-testing
+    deployment_tier: testing
+  only:
+    - qa
+
+build:uat:
+  tags:
+    - saas-linux-medium-amd64
+  stage: build
+  before_script:
+    - bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs $(nproc)
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - export JAVA_HOME=/.jenv/versions/openjdk64-17.0.9
+  script:
+    - bundle exec fastlane uatBuild
+  artifacts:
+    untracked: false
+    when: on_success
+    access: all
+    expire_in: "30 days"
+    paths:
+      - app/build/outputs/apk/uat/release/*.apk
+  cache:
+    paths:
+      - .gradle
+    policy: pull-push
+  environment:
+    name: UAT-GCS-testing
+    deployment_tier: staging
+  only:
+    - uat
+
+GooglePlayStore:beta:
+  tags:
+    - saas-linux-medium-amd64
+  stage: publish
+  before_script:
+    - bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs $(nproc)
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - export JAVA_HOME=/.jenv/versions/openjdk64-17.0.9
+  script:
+    - bundle exec fastlane beta
+  only:
+    - beta
+  cache:
+    paths:
+      - .gradle
+    policy: pull-push
+  environment:
+    name: GooglePlayStore-Beta
+    deployment_tier: staging
+  when: manual
+
+GooglePlayStore:production:
+  tags:
+    - saas-linux-medium-amd64
+  stage: publish
+  before_script:
+    - bundle check --path vendor/bundle || bundle install --path vendor/bundle --jobs $(nproc)
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+    - export JAVA_HOME=/.jenv/versions/openjdk64-17.0.9
+  script:
+    - bundle exec fastlane production
+  only:
+    - master
+  cache:
+    paths:
+      - .gradle
+    policy: pull-push
+  environment:
+    name: GooglePlayStore-Production
+    deployment_tier: production
+  when: manual

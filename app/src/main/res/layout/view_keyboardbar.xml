@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:clipChildren="false">
+
+        <!-- Bottom Rich menu -->
+        <tw.com.chainsea.custom.view.recyclerview.MaxHeightRecyclerView
+            android:id="@+id/bottomRichMenuRV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:choiceMode="multipleChoiceModal"
+            android:fadeScrollbars="false"
+            android:overScrollMode="never"
+            android:scrollbarSize="6dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@drawable/style_scrollbar_location"
+            android:scrollbarTrackVertical="@drawable/style_scrollbar"
+            android:scrollbars="none"
+            android:verticalScrollbarPosition="right"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/keyboardToolbarCL"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/keyboardToolbarCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/keyboard_base"
+            android:clipChildren="false"
+            android:minHeight="45dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/lineView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottomRichMenuRV"
+            tools:visibility="visible">
+
+            <!--  Left vertical feature list -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/leftVerticalFeatureCL"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/leftHorizontalFeatureCL"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.legacy.widget.Space
+                    android:id="@+id/leftVerticalSpace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_margin="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/verticalMentionIV"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- mention @AT -->
+                <ImageView
+                    android:id="@+id/verticalMentionIV"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_margin="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/at_gary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/verticalExpandIV"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/leftVerticalSpace"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Expand -->
+                <ImageView
+                    android:id="@+id/verticalExpandIV"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:contentDescription="@null"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="7dp"
+                    android:padding="6dp"
+                    android:src="@drawable/slector_next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/verticalMentionIV" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--  Left horizontal feature list -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/leftHorizontalFeatureCL"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginEnd="5dp"
+
+                android:maxHeight="45dp"
+                android:minHeight="45dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/inputHET"
+                app:layout_constraintStart_toEndOf="@+id/leftVerticalFeatureCL">
+
+                <!-- mention @AT -->
+                <ImageView
+                    android:id="@+id/horizontalMentionIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/at_gary"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalPlusIV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/horizontalPlusIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/selector_extra"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalCameraIV"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalMentionIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- camera -->
+                <ImageView
+                    android:id="@+id/horizontalCameraIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    tools:src="@drawable/slector_camera"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalPicIV"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalPlusIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- pic photo -->
+                <ImageView
+                    android:id="@+id/horizontalPicIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    tools:src="@drawable/slector_pic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalVideoIV"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalCameraIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/horizontalVideoIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    android:src="@drawable/slector_video"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/horizontalMoreIV"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalPicIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <!-- more -->
+                <ImageView
+                    android:id="@+id/horizontalMoreIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_attachment"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalConsultIV"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalVideoIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Consult -->
+                <ImageView
+                    android:id="@+id/horizontalConsultIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/slector_consult"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalExpandIV"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalMoreIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Expand -->
+                <ImageView
+                    android:id="@+id/horizontalExpandIV"
+                    android:layout_width="31dp"
+                    android:layout_height="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/slector_next"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalConsultIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- input -->
+            <tw.com.chainsea.chat.keyboard.view.HadEditText
+                android:id="@+id/inputHET"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/recording_n"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="start|bottom"
+                android:hint="輸入訊息"
+                tools:ignore="HardcodedText"
+                android:imeOptions="actionSend"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="4"
+                android:paddingStart="8dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="39dp"
+                android:paddingBottom="6dp"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:textColor="@color/black"
+                android:textColorHint="@color/keyboard_root_input"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:textSize="16sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rightHorizontalFeatureCL"
+                app:layout_constraintStart_toEndOf="@+id/leftHorizontalFeatureCL"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- facial -->
+            <ImageView
+                android:id="@+id/facialIV"
+                android:layout_width="31dp"
+                android:layout_height="33dp"
+                android:layout_margin="0dp"
+                android:padding="6dp"
+                android:contentDescription="@null"
+                android:src="@drawable/slector_face"
+                app:layout_constraintBottom_toBottomOf="@+id/inputHET"
+                app:layout_constraintEnd_toEndOf="@+id/inputHET"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <!--  Right horizontal feature list -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rightHorizontalFeatureCL"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:focusableInTouchMode="true"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/inputHET">
+
+
+                <ImageView
+                    android:id="@+id/rightVerticalExpandIV"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_margin="0dp"
+                    android:padding="6dp"
+                    android:visibility="gone"
+                    android:contentDescription="@null"
+                    android:src="@drawable/expand_white"
+                    app:layout_constraintEnd_toEndOf="@+id/horizontalSendIV"
+                    app:layout_constraintStart_toStartOf="@+id/horizontalSendIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <!-- send -->
+                <ImageView
+                    android:id="@+id/horizontalSendIV"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:enabled="false"
+                    android:contentDescription="@null"
+                    android:padding="6dp"
+                    android:layout_marginBottom="7dp"
+                    android:src="@drawable/slector_send"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/horizontalRecordIV"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <!-- record -->
+                <ImageView
+                    android:id="@+id/horizontalRecordIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_margin="0dp"
+                    android:padding="6dp"
+                    android:contentDescription="@null"
+                    tools:src="@drawable/slector_mic"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/horizontalSendIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- Has been blocked and cannot send messages -->
+            <LinearLayout
+                android:id="@+id/ll_bar_blocking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/bar_blocking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ae000000"
+                    android:text="已被封鎖，無法發送消息"
+                    tools:ignore="HardcodedText"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_bar_chat_control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- maskBtn -->
+                <Button
+                    android:id="@+id/btn_chat_disable_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ae000000"
+                    android:text="qbi通路無法離線回覆"
+                    tools:ignore="HardcodedText"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/lineView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/ly_foot_func"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/keyboardToolbarCL" />
+
+        <LinearLayout
+            android:id="@+id/ly_foot_func"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/keyboard_base"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scope_message_boss_room"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/color_AE0000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                tools:text="@string/text_boss_exit_room_cannot_reply"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/meta_overtime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/loading_background"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@+id/keyboardToolbarCL"
+            app:layout_constraintBottom_toBottomOf="@+id/keyboardToolbarCL"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_meta_overtime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/facebook_overtime"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@+id/keyboardToolbarCL"
+            app:layout_constraintBottom_toBottomOf="@+id/keyboardToolbarCL"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/meta_overtime_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="meta_overtime,tv_meta_overtime" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

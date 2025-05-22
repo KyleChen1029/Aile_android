@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/msg_theme"
+    android:layout_width="123dp"
+    android:layout_height="100dp"
+    android:gravity="center_vertical">
+
+    <tw.com.chainsea.custom.view.image.CircleImageView
+        android:id="@+id/msg_theme_avatar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/qbi_icon" />
+
+    <TextView
+        android:id="@+id/msg_theme_content"
+        android:layout_width="76dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/msg_theme_avatar"
+        android:maxEms="30"
+        tools:text="要不要先給我們講義這樣比較不用怕跟不上...^^"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/msg_theme_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="6dp"
+        android:layout_alignParentBottom="true"
+        android:background="#D8D8D8" />
+
+</RelativeLayout>

@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" translatable="false">Aile</string>
+    <!-- welcome page-->
+    <string name="welcome_tip_01" translatable="false">專屬商務號、全通路串連、客戶互動管理</string>
+    <string name="welcome_title_01" translatable="false">讓您聊天就能做生意</string>
+    <string name="welcome_tip_02" translatable="false">整合網路、社群平台、通訊APP</string>
+    <string name="welcome_title_02" translatable="false">單一平台即時回覆</string>
+    <string name="welcome_tip_03" translatable="false">集合各種進線資訊</string>
+    <string name="welcome_title_03" translatable="false">精準辨識整合歸戶</string>
+    <string name="welcome_tip_04" translatable="false">.</string>
+    <string name="welcome_title_04" translatable="false">為您打造\n不同凡響的客戶服務</string>
+    <string name="start_use" translatable="false">開始使用</string>
+
+    <string name="title_activity_draw_chart_graph" translatable="false">DrawChartGraphActivity</string>
+    <string name="country_code" translatable="false">+886</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="contact_items">
+        <item>加入好友</item>
+        <item>社團列表</item>
+    </string-array>
+
+    <string name="warning_added" translatable="false">已添加</string>
+    <string name="have_selected_files" translatable="false">已選擇<xliff:g id="num">%1$s</xliff:g>個文件</string>
+    <string name="send_file" translatable="false">送出<xliff:g id="num">%1$s</xliff:g></string>
+    <string name="file_too_big" translatable="false">選擇的檔案超過(<xliff:g id="size">%1$s</xliff:g>M)限制</string>
+    <string name="warning_camera" translatable="false">照相機</string>
+    <string name="warning_photos" translatable="false">相簿</string>
+
+    <string name="network_error" translatable="false">網路連接錯誤，請檢查後再試試</string>
+
+
+    <!--个人信息主页-->
+    <string name="mobile_connection" translatable="false">當前是 移動數據連接</string>
+    <string name="wifi_connection" translatable="false">當前是 wifi連接</string>
+    <string name="no_connection" translatable="false">當前無網路連接，請檢查您的網路</string>
+    <!--<string name="first_msg">我們已經是好友啦，來聊聊天吧！</string>-->
+    <!--FaceBook Login App Id-->
+
+    <!--refresh-->
+    <string name="bruce_photo_save" translatable="false">已儲存至%1$s</string>
+    <string name="bruce_photo_save_failed" translatable="false">圖片儲存失敗</string>
+
+    <!--system notice-->
+    <string name="name_length_tip" translatable="false">暱稱不能超過20個字</string>
+    <string name="tenant_name_length_tip" translatable="false">團隊名稱不能超過20個字</string>
+    <string name="mood_length_tip" translatable="false">心情不能超過100個字</string>
+    <string name="description_length_tip" translatable="false">團隊說明不能超過150個字</string>
+    <string name="photo_save_to_phone" translatable="false">已儲存至手機</string>
+    <string name="photo_save_to_photo" translatable="false">已儲存至照片</string>
+
+
+    <!--    <string name="retract_error">收回失败</string>-->
+    <!--    <string name="has_sent">已送出</string>-->
+    <!--    <string name="has_sent_fail">送出失敗</string>-->
+
+
+    <string name="warning_downloading" translatable="false">下載中…</string>
+    <string name="warning_uploading" translatable="false">上傳中…</string>
+    <string name="stop_service" translatable="false">結束服務</string>
+    <string name="cancel" translatable="false">取消</string>
+    <string name="switch_identity_toast" translatable="false">使用%s身份服務</string>
+    <string name="switch_identity_failed_toast" translatable="false">切換身份失敗</string>
+    <string name="recording_cancel" translatable="false">鬆開手指，取消發送</string>
+    <string name="recording_cancel_notice" translatable="false">手指上滑，取消發送</string>
+
+    <!--  wording-->
+    <string name="wording_searching" translatable="false">搜索中…</string>
+    <string name="wording_transfering" translatable="false">轉發中…</string>
+    <string name="wording_loading" translatable="false">加載中…</string>
+    <string name="wording_processing" translatable="false">處理中…</string>
+
+    <!--  repairs-->
+    <string name="repairs_issue_options_text_room" translatable="false">聊天室</string>
+    <string name="repairs_issue_options_text_addressbook" translatable="false">聯絡人</string>
+    <string name="repairs_issue_options_text_message" translatable="false">消息</string>
+    <string name="repairs_issue_options_text_call" translatable="false">通話</string>
+    <string name="repairs_issue_options_text_video" translatable="false">影片</string>
+    <string name="repairs_issue_options_text_other" translatable="false">其它</string>
+
+    <!-- date selector text-->
+    <string name="date_selector_text_plus_8_sec" translatable="false">+8秒</string>
+    <string name="date_selector_text_plus_10_minute" translatable="false">+10分</string>
+    <string name="date_selector_text_plus_30_minute" translatable="false">+30分</string>
+    <string name="date_selector_text_plus_1_hour" translatable="false">+1小時</string>
+    <string name="date_selector_text_plus_1_day" translatable="false">+1天</string>
+    <string name="date_selector_text_plus_2_day" translatable="false">+2天</string>
+    <string name="date_selector_text_plus_3_day" translatable="false">+3天</string>
+    <string name="date_selector_text_1_week" translatable="false">+1週</string>
+    <string name="date_selector_text_2_week" translatable="false">+2週</string>
+    <string name="date_selector_text_1_month" translatable="false">+1個月</string>
+
+    <!--  base toolbar  -->
+    <string name="toolbar_chat_title" translatable="false">聊天</string>
+    <string name="toolbar_service_number_title" translatable="false">服務號</string>
+    <string name="toolbar_contact_title" translatable="false">聯絡人</string>
+    <string name="toolbar_todo_title" translatable="false">工作列表</string>
+
+    <!--  warning -->
+    <string name="warning_update_failed" translatable="false">更新失敗</string>
+    <string name="warning_delete_failed" translatable="false">刪除失敗</string>
+    <string name="warning_plug_in_earphone" translatable="false">插入耳機</string>
+    <string name="warning_want_to_delete_this_chat_room" translatable="false">是否刪除該聊天？</string>
+
+    <!-- rich menu text-->
+    <string name="rich_menu_text_transpond" translatable="false">轉發</string>
+    <string name="rich_menu_text_copy" translatable="false">複製</string>
+    <string name="rich_menu_text_reply" translatable="false">回覆</string>
+    <string name="rich_menu_text_screenshots" translatable="false">截圖</string>
+    <string name="rich_menu_text_recover" translatable="false">收回</string>
+    <string name="rich_menu_text_delete" translatable="false">刪除</string>
+    <string name="rich_menu_text_work" translatable="false">工作</string>
+    <string name="rich_menu_text_todo" translatable="false">記事</string>
+    <string name="rich_menu_text_anonymous" translatable="false">匿名</string>
+
+    <string name="rich_menu_text_filter" translatable="false">篩選</string>
+    <string name="rich_menu_text_single_copy" translatable="false">複製</string>
+    <string name="rich_menu_text_quote" translatable="false">引用</string>
+    <string name="consult_ai_text" translatable="false">AI 諮詢</string>
+
+    <!--  barcode detector-->
+    <string name="barcode_detector_scan_title" translatable="false">掃一掃</string>
+
+    <!--  notify  -->
+    <string name="notify_new_reminder" translatable="false">[新記事]</string>
+    <string name="room_cell_swipe_menu_setup_read" translatable="false">已讀</string>
+    <string name="room_cell_swipe_menu_setup_unread" translatable="false">未讀</string>
+    <string name="room_cell_swipe_menu_setup_untreated" translatable="false">未處理</string>
+    <string name="alert_notes" translatable="false">標示</string>
+
+    <!--  service room list sectioned cell  -->
+    <string name="service_room_sectioned_robot_service" translatable="false">AI 服務</string>
+    <string name="service_room_sectioned_my_service" translatable="false">我服務中</string>
+    <string name="service_room_sectioned_others_service" translatable="false">服務中</string>
+    <string name="service_room_sectioned_no_agent_unread" translatable="false">剛進件</string>
+    <string name="service_room_sectioned_monitor_ai_service" translatable="false">監控AI</string>
+    <string name="service_room_switch_sort_title" translatable="false">服務號聊天室排序</string>
+    <string name="service_room_switch_to_category_sort" translatable="false">依分組</string>
+    <string name="service_room_switch_to_time_sort" translatable="false">依時間</string>
+    <string name="service_room_sectioned_other" translatable="false">其它</string>
+
+    <!--  service room list sectioned cell action -->
+    <string name="service_room_sectioned_action_chat" translatable="false">聊天</string>
+    <string name="service_room_sectioned_action_waittransfer" translatable="false">等待接續</string>
+    <string name="service_room_sectioned_action_broadcast" translatable="false">群發</string>
+    <string name="service_room_sectioned_action_welcome" translatable="false">歡迎語</string>
+    <string name="service_room_sectioned_action_members" translatable="false">成員</string>
+    <string name="service_room_sectioned_action_home" translatable="false">主頁</string>
+
+    <!--  barcode detector  -->
+    <string name="barcode_detector_my_qrcode" translatable="false">我的QR Code</string>
+    <string name="barcode_detector_flash_open" translatable="false">打開照明燈</string>
+    <string name="barcode_detector_alert_welcome_message" translatable="false">歡迎您使用Aile，您要加入的企業為</string>
+    <string name="barcode_detector_alert_welcome_message_tail" translatable="false">，請確認。</string>
+
+    <!--  base top rich menu  -->
+    <string name="base_top_rich_menu_create_crowd" translatable="false">建立社團</string>
+    <string name="base_top_rich_menu_add_label" translatable="false">新增標籤</string>
+    <string name="base_top_rich_menu_add_friend" translatable="false">加入好友</string>
+    <string name="base_top_rich_menu_exit_discuss" translatable="false">退出聊天</string>
+    <string name="base_top_rich_menu_dismiss_crowd" translatable="false">解散社團</string>
+    <string name="base_top_rich_menu_exit_crowd" translatable="false">退出社團</string>
+    <string name="base_top_rich_menu_search" translatable="false">搜索</string>
+    <string name="base_top_rich_menu_cancel_mute" translatable="false">開啟通知</string>
+    <string name="base_top_rich_menu_open_mute" translatable="false">關閉通知</string>
+    <string name="base_top_rich_menu_setting" translatable="false">設定</string>
+
+    <string name="sign_in_cp_btn_wording" translatable="false">加&#160;&#160;入</string>
+    <!--  signIn  -->
+    <string name="already_send_sms" translatable="false">已將驗證碼發送至 %s，</string>
+    <string name="please_enter_verify_code" translatable="false">請於下方輸入簡訊驗證碼</string>
+    <string name="please_enter_when_not_receive" translatable="false">沒有收到驗證碼，請按此&#160;</string>
+    <string name="login" translatable="false">登入</string>
+    <string name="refused_login" translatable="false">拒絕登入</string>
+    <string name="alloiw_auto_login" translatable="false">允許自動登入</string>
+    <string name="other_device_hint_one" translatable="false">這是您常用的設備嗎？\n\n您可在APP登入狀態下允許\n「</string>
+    <string name="other_device_hint_two" translatable="false">」自動登入。</string>
+    <string name="resend" translatable="false">重新發送</string>
+    <string name="send" translatable="false">送出</string>
+    <string name="please_enter_under_name" translatable="false">請輸入下方欄位註冊Aile會員</string>
+    <string name="please_enter_name_hint" translatable="false">請輸入您的姓名(2~8個字)</string>
+    <string name="sms_code" translatable="false">簡訊驗證碼</string>
+    <string name="get_sms_code" translatable="false">取得驗證碼</string>
+    <string name="regist_and_join_aile" translatable="false">註冊同時加入Aile會員，且視您同意</string>
+    <string name="terms_member" translatable="false">使用者條款暨隱私權聲明</string>
+    <string name="number_1" translatable="false">1</string>
+    <string name="number_2" translatable="false">2</string>
+    <string name="number_3" translatable="false">3</string>
+    <string name="create_group_qr_code" translatable="false">產生團隊QR Code</string>
+    <string name="join_group_member" translatable="false">加入團隊成員</string>
+    <string name="fill_group_info" translatable="false">填寫團隊資訊</string>
+    <string name="start_create" translatable="false">開始創建</string>
+    <string name="scan_group_qr_code" translatable="false">掃描團隊QR Code</string>
+    <string name="wait_confirm" translatable="false">等待審核確認</string>
+    <string name="start_join" translatable="false">開始加入</string>
+    <string name="join_or_create_intro" translatable="false">歡迎您加入Aile，由於您尚未加入任何團隊，請於下方選擇加入團隊</string>
+    <string name="create_group" translatable="false">創建團隊</string>
+    <string name="join_group" translatable="false">加入團隊</string>
+    <string name="invite_join_group" translatable="false">邀請加入</string>
+    <string name="repair" translatable="false">回報問題</string>
+    <string name="sign_in_cp_join_warn" translatable="false">使用帳號密碼登入</string>
+    <string name="sign_in_account_hint" translatable="false">請輸入您的手機號碼</string>
+    <string name="sign_in_password_hint" translatable="false">請輸入您的密碼</string>
+    <string name="sign_in_remember_me" translatable="false">記住我</string>
+    <string name="sign_in_forget_password" translatable="false">忘記密碼</string>
+
+    <string name="picture_cancel" translatable="false">取消</string>
+    <string name="wording_please_check_code_correct" translatable="false">請確認驗證碼正確！</string>
+    <string name="warning_add_success" translatable="false">新增成功</string>
+    <string name="warning_launch" translatable="false">傳送</string>
+    <string name="warning_original_photo" translatable="false">原圖</string>
+    <string name="unit_sheet" translatable="false">張</string>
+    <string name="unit_item" translatable="false">項</string>
+    <string name="warning_copied" translatable="false">已複製</string>
+    <string name="warning_empry" translatable="false">" "</string>
+    <string name="warning_move_and_zoom" translatable="false">移動和縮放</string>
+    <!--  home page   -->
+    <string name="home_page_tab_chats" translatable="false">聊天</string>
+    <string name="home_page_tab_article" translatable="false">貼文</string>
+    <string name="home_page_tab_setting" translatable="false">設定</string>
+    <string name="home_page_tab_self_profile" translatable="false">個人資料</string>
+    <string name="home_page_tab_system_setting" translatable="false">系統設定</string>
+    <string name="home_page_tab_switch_tenant" translatable="false">切換團隊</string>
+    <!--  system setting   -->
+    <string name="system_setting_title" translatable="false">設定</string>
+    <string name="system_setting_item_close_sub_chat_room" translatable="false">自動關閉回覆訊息視窗</string>
+    <string name="system_setting_item_close_sub_chat_room_note" translatable="false">回覆訊息後，視窗不自動關閉，可手動解除</string>
+    <string name="system_setting_item_new_message_notify" translatable="false">新訊息通知鈴聲</string>
+    <string name="system_setting_item_about" translatable="false">關於Aile</string>
+    <string name="system_setting_item_account" translatable="false">帳號</string>
+    <string name="system_setting_item_team_management" translatable="false">團隊管理</string>
+    <string name="system_setting_logout" translatable="false">登出</string>
+    <string name="system_setting_phone" translatable="false">手機</string>
+    <string name="system_setting_email" translatable="false">Email</string>
+    <string name="system_setting_hide_phone" translatable="false">隱藏手機號碼</string>
+    <string name="system_setting_hide_phone_error" translatable="false">設定失敗</string>
+    <string name="system_setting_logout_confirm" translatable="false">確定退出帳號?</string>
+
+
+    <!--  address book  -->
+    <string name="address_book_query_hint" translatable="false">搜索暱稱</string>
+    <string name="address_book_query_not_found" translatable="false">無搜索結果</string>
+    <!-- group page -->
+    <string name="group_name_text" translatable="false">社團名稱</string>
+    <string name="group_empty_message_text" translatable="false">清空聊天室訊息</string>
+    <string name="group_report_text" translatable="false">檢&#160;&#160;&#160;&#160;舉</string>
+    <string name="customer_list" translatable="false">客戶列表</string>
+    <string name="group_member_list" translatable="false">團隊成員</string>
+    <string name="group_service_list" translatable="false">服務列表</string>
+    <!-- delete account -->
+    <string name="setting_delete_account_title" translatable="false">刪除帳號</string>
+    <string name="delete_aile_account" translatable="false">刪除Aile帳號</string>
+    <string name="delete_account_confirm_desc" translatable="false">刪除帳號前，請先確認下列事項，確保帳號安全。</string>
+    <string name="delete_account_term1" translatable="false">帳號確認為本人使用</string>
+    <string name="delete_account_term1_desc" translatable="false">帳號沒有被盜用、檢舉或誤刪等風險。</string>
+    <string name="delete_account_term2" translatable="false">退出團隊並清除Aile帳號內所有資訊</string>
+    <string name="delete_account_term2_desc" translatable="false">刪除帳號後將自動退出所屬團隊，完整清除所有紀錄，包含聯絡人、服務號、聊天室、檔案、照片、聲音等。</string>
+    <string name="delete_account_terms_next_remind" translatable="false">按下《下一步》，即表示您已閱讀並同意上述《重要提醒》</string>
+    <string name="delete_account_reason" translatable="false">請選擇刪除原因</string>
+    <string name="leave_tenant" translatable="false">離開企業</string>
+    <string name="no_longer_login" translatable="false">不想使用</string>
+    <string name="interface_unfriendly" translatable="false">介面操作不友善</string>
+    <string name="resource_overload" translatable="false">太過消耗手機資源</string>
+    <string name="delete_account_reason_next_remind" translatable="false">確認要刪除帳號，請按下《下一步》</string>
+    <string name="text_robot_charting_record" translatable="false">AI 服務紀錄</string>
+    <string name="canceled_downloading" translatable="false">正在取消下載</string>
+    <string name="text_robot_servicing_right_now" translatable="false">機器人正在服務中</string>
+    <string name="text_robot_hand_over_immediately" translatable="false">輸入訊息立即接手服務</string>
+    <string name="text_robot_servicing_snatch_by_agent" translatable="false">AI 正在服務中，您確定要接手服務嗎?</string>
+    <string name="text_robot_servicing_transfer" translatable="false">接續</string>
+    <string name="text_can_not_snatch" translatable="false">無法接手服務</string>
+    <string name="text_boss_exit_room_cannot_reply" translatable="false">用戶已離線，無法回覆訊息</string>
+    <string name="text_exceeded_fb_messenger_24_hour_time_limit" translatable="false">已超過FB Messenger 24小時回覆時限</string>
+    <string name="text_room_not_found" translatable="false">未找到對應的聊天室</string>
+    <string name="text_agent_servicing_snatch_by_agent" translatable="false">%s正在服務中，您確定要接手成為客戶專屬服務人員嗎?</string>
+    <string name="text_service_time_out" translatable="false">服務超時</string>
+    <string name="text_input_wrong_name" translatable="false">輸入錯誤，請重新輸入</string>
+    <string name="text_report_item_1" translatable="false">該帳號發佈色情/違法等不良信息</string>
+    <string name="text_report_item_2" translatable="false">該帳號存在詐騙行為</string>
+    <string name="text_report_item_3" translatable="false">該帳號對我進行騷擾</string>
+    <string name="text_report_item_4" translatable="false">該帳號侵犯未成年人權益</string>
+    <string name="text_report_item_5" translatable="false">該帳號存在其他違規行為</string>
+    <string name="text_report_to_platform" translatable="false">向平台檢舉</string>
+    <string name="text_report_to_team" translatable="false">向團隊檢舉</string>
+    <string name="text_report_item_6" translatable="false">此人非團隊成員</string>
+    <string name="text_report_item_7" translatable="false">該成員已離職</string>
+    <string name="text_group_report_submit" translatable="false">提&#160;&#160;&#160;&#160;交</string>
+    <string name="text_choose_report_type" translatable="false">請選擇檢舉類型</string>
+    <string name="text_report_message_successful" translatable="false">檢舉訊息已傳送\n<font color="#DC0E0E">Your message has been submitted. Thank you for your support!</font></string>
+    <string name="text_block" translatable="false">封鎖</string>
+    <string name="text_block_success" translatable="false">封鎖成功</string>
+    <string name="text_unblock_success" translatable="false">解封鎖成功</string>
+    <string name="text_report_quit_member" translatable="false">已離職, 請團隊管理人員進行處置</string>
+    <string name="text_report_not_team_member" translatable="false">非團隊成員, 請團隊管理人員進行處置</string>
+    <string name="text_report_success_redirect_chat_room" translatable="false"><b>檢舉成功</b>\n已代您將檢舉訊息發送至管理服務號</string>
+    <string name="text_report_go_and_check_it" translatable="false"><b><font color="#3E50B5" size="15">前往查看</font></b></string>
+    <string name="text_provisional_member" translatable="false">臨時成員</string>
+    <string name="text_phone_call_end" translatable="false">通話結束 %d:%d</string>
+    <string name="text_phone_call_cancel" translatable="false">取消通話</string>
+    <string name="text_phone_call_busy" translatable="false">對方忙線中</string>
+    <string name="text_phone_call_busy_myself" translatable="false">未接來電</string>
+    <string name="text_phone_call_end_already" translatable="false">通話已結束</string>
+    <string name="text_time_format" translatable="false">%d:%d</string>
+    <string name="text_terms" translatable="false">相關條款</string>
+    <string name="text_video_loading" translatable="false">影片加載中…</string>
+    <string name="text_terms_i_agreed" translatable="false">我已同意相關條款</string>
+    <string name="text_tenant_qrcode" translatable="false">團隊QR Code</string>
+    <string name="text_scan_tenant_qrcode_join" translatable="false">掃瞄上方QR Code，加入團隊</string>
+    <string name="text_share_qr_code" translatable="false">分享QR碼</string>
+    <string name="text_send_invite_code" translatable="false">發送邀請碼</string>
+    <string name="text_official_service_number" translatable="false">官方服務號</string>
+    <string name="text_waiting" translatable="false">等待中</string>
+    <string name="text_confirm" translatable="false">確&#160;&#160;定</string>
+    <string name="text_tenant_join_hint" translatable="false">請輸入加入團隊邀請碼</string>
+    <string name="text_joining_to_team" translatable="false">您正在加入%s團隊</string>
+    <string name="text_joining_team_failure" translatable="false">加入團隊失敗</string>
+    <string name="text_joining_team" translatable="false">加入團隊</string>
+    <string name="text_sure" translatable="false">確認</string>
+    <string name="text_you_join_tenant_already" translatable="false">您已成功加入&#160;%s</string>
+    <string name="text_file_size_limit" translatable="false">您選擇的檔案大小超過限制(最大%dMB)</string>
+    <string name="text_video_limit_mp4_format" translatable="false">目前只支援上傳mp4格式影片</string>
+    <string name="text_select_image_first_please" translatable="false">請先選擇圖片</string>
+    <string name="text_select_video_first_please" translatable="false">請先選擇影片</string>
+    <string name="text_business_card" translatable="false">電子名片</string>
+    <string name="text_qrcode_business_title" translatable="false">商務號</string>
+    <string name="text_create_group_cancel" translatable="false">取&#160;&#160;消</string>
+    <string name="text_create_group_submit" translatable="false">確&#160;&#160;認&#160;(%s)</string>
+    <string name="text_upload_group_avatar_please" translatable="false">請設置社團頭像</string>
+    <string name="text_input_group_name_please" translatable="false">請設置社團名稱</string>
+    <string name="text_group_member_issue" translatable="false">社團人數不能少於三人</string>
+    <string name="text_create_group_successful" translatable="false">創建社團成功</string>
+    <string name="text_contact_person" translatable="false">聯絡人</string>
+    <string name="text_chat_room" translatable="false">聊天室</string>
+    <string name="text_for_sure" translatable="false">確定</string>
+    <string name="text_create_crowd" translatable="false">建立社團</string>
+    <string name="text_invitation" translatable="false">邀&#160;&#160;&#160;請</string>
+    <string name="text_input_hint_outside_sentences" translatable="false">為%s的客戶%s服務</string>
+    <string name="text_input_hint_inside_sentences" translatable="false">為%s的夥伴%s服務</string>
+    <string name="text_can_not_found_data" translatable="false">找不到符合的資料</string>
+    <string name="text_invite_provisional_member" translatable="false">邀請臨時成員</string>
+    <string name="text_message_to_transfer" translatable="false">轉&#160;&#160;&#160;發</string>
+    <string name="text_service_number" translatable="false">服務號</string>
+    <string name="text_transfer_message_failure" translatable="false">轉發失敗</string>
+    <string name="text_transfer_not_found_user" translatable="false">找不到用戶 %s</string>
+    <string name="text_need_camera_permission" translatable="false">此功能需要相機權限才能使用</string>
+    <string name="text_need_mic_permission" translatable="false">此功能需要麥克風權限才能使用</string>
+    <string name="text_need_storage_permission" translatable="false">此功能需要本地儲存空間許可權限才能使用</string>
+    <string name="group_room_become_owner" translatable="false">您已成為該社團擁有者</string>
+    <string name="group_room_no_owner" translatable="false">該社團沒有擁有者，請點擊成為社團擁有者</string>
+    <string name="group_room_already_owner" translatable="false">該社團已有擁有者</string>
+    <string name="api_http_failure" translatable="false">操作失敗，請稍候再試</string>
+    <string name="group_room_no_permissions" translatable="false">"權限不足，操作失敗"</string>
+    <string name="text_sectioned_friend_chatroom" translatable="false">夥伴聊天室 %d</string>
+    <string name="text_sectioned_group_chatroom" translatable="false">多人聊天室 %d</string>
+    <string name="text_group_chatroom_last_message_contain" translatable="false">包含：%s</string>
+
+    <string name="system_setting_item_account_title" translatable="false">Aile帳號</string>
+    <string name="system_setting_item_chat_room_title" translatable="false">聊天室</string>
+    <string name="text_sectioned_customers" translatable="false">我的商務號客戶 %d</string>
+    <string name="system_setting_item_new_message_notify_title" translatable="false">通知設定</string>
+    <string name="system_setting_item_repair_title" translatable="false">應用程式資訊</string>
+    <string name="text_sectioned_contact_person" translatable="false">夥伴 %d</string>
+    <string name="text_sectioned_communities_filter" translatable="false">社團 %d</string>
+    <string name="text_quit_tenant_message" translatable="false">提醒您，退出團隊後，您所有的服務號和商務號都將停止運作，或將所有權轉移至其他團隊成員，且同時也會退出所有的聊天群組。\n\n請於下方輸入確認碼%d</string>
+    <string name="text_sectioned_search_service_number_filter" translatable="false">我訂閱的服務號 %d</string>
+    <string name="text_sectioned_search_service_number_member" translatable="false">聊天室 %d</string>
+    <string name="text_sectioned_search_news" translatable="false">消息 %d</string>
+    <string name="text_sectioned_find_news_count" translatable="false">找到%d則訊息</string>
+    <string name="text_global_search_hint" translatable="false">僅支持本機搜索</string>
+    <string name="text_service_number_search_title_format" translatable="false">%s@%s</string>
+    <string name="text_service_number_member_title_format" translatable="false">%s的服務成員</string>
+    <string name="text_service_number_member_boss_owner_title_format" translatable="false">%s的助理成員</string>
+    <string name="text_you_retract_message" translatable="false">您已收回訊息</string>
+    <string name="text_edit_again" translatable="false">重新編輯</string>
+    <string name="text_edit" translatable="false">編&#160;&#160;輯</string>
+    <string name="text_retract" translatable="false">收&#160;&#160;回</string>
+    <string name="text_retract_tip" translatable="false">您可將所選中的訊息收回後再編輯，也可以只將訊息收回。提醒您，若訊息發送超過%d分鐘後則無法收回。</string>
+    <string name="text_no_more_remind" translatable="false">不再提示</string>
+    <string name="text_chat_room_search_hint" translatable="false">輸入文字搜尋訊息</string>
+    <string name="text_load_more" translatable="false">載入更多</string>
+    <string name="text_forbidden" translatable="false">(禁用)</string>
+    <string name="text_forbidden_user_can_not_send_message" translatable="false">用戶已被禁用，無法傳送訊息</string>
+    <string name="service_number_angent_delete" translatable="false">您確定刪除成員“%s”嗎?</string>
+
+    <string name="service_number_connection_setting" translatable="false">連接通訊管道</string>
+    <string name="service_number_post_back_detail_setting" translatable="false">全通路開通設置，可同時串連FB Message及Line OA等</string>
+    <string name="service_number_connection_timeout" translatable="false">服務超時設置</string>
+    <string name="service_number_connection_timeout_detail" translatable="false">為秘書設置服務超時時間,商務號本人需自行結束服務</string>
+    <string name="service_number_welcome_message_setting" translatable="false">歡迎訊息</string>
+    <string name="text_home_page" translatable="false">主頁</string>
+    <string name="text_check_all_members" translatable="false">查看所有成員</string>
+    <string name="text_member_number" translatable="false">成員 %d</string>
+    <string name="tenant_delete_member" translatable="false">%s的管理者已將您退出團隊</string>
+    <string name="text_upload_background_picture" translatable="false">上傳背景圖片</string>
+    <string name="text_photo_album" translatable="false">相簿</string>
+    <string name="text_camera" translatable="false">照相機</string>
+    <string name="text_upload_avatar" translatable="false">上傳頭像</string>
+    <string name="text_chat_room_service_member_business" translatable="false">助理成員%s</string>
+    <string name="text_chat_room_service_member_other" translatable="false">服務成員%s</string>
+    <string name="text_chat_room_title_format" translatable="false">%s (%d)</string>
+    <string name="text_message_to_share" translatable="false">分&#160;&#160;&#160;享</string>
+    <string name="text_arrive_to_aile_soon" translatable="false">正在加載</string>
+    <string name="text_arrive_to_aile_soon_text" translatable="false">(%d/5)</string>
+    <string name="text_about_copyRight" translatable="false">Copyright © 2024 Aile Co. All Rights Reserved</string>
+    <string name="text_device_login_now" translatable="false">本機登入中</string>
+    <string name="text_device_not_login" translatable="false">未登入</string>
+    <string name="text_device_auto_login" translatable="false">(自動登入)</string>
+    <string name="text_device_self" translatable="false">%s (本機)</string>
+    <string name="text_device_logout" translatable="false">登&#160;&#160;&#160;出</string>
+    <string name="text_device_delete" translatable="false">刪除設備</string>
+    <string name="text_device_allow_auto_login" translatable="false">允許自動登入</string>
+    <string name="text_device_cancel_auto_login" translatable="false">取消自動登入</string>
+    <string name="text_device_dialog_cancel" translatable="false">取&#160;&#160;消</string>
+    <string name="text_device_force_logout_tip" translatable="false">登出後該設備將取消自動登入設定，您可在下次設備登入時允許自動登入。</string>
+    <string name="text_device_cancel_auto_login_tip" translatable="false">您確定要取消此設備的自動登入設定嗎？</string>
+    <string name="text_device_allow_auto_login_tip" translatable="false">您確定要允許此設備的自動登入設定嗎？</string>
+    <string name="text_device_delete_login_device_tip" translatable="false">您確定要刪除此設備嗎？</string>
+    <string name="text_toast_device_logout" translatable="false">設備已登出</string>
+    <string name="text_toast_allowed_device_auto_login" translatable="false">已允許自動登入</string>
+    <string name="text_toast_device_auto_login_canceled" translatable="false">自動登入已取消</string>
+    <string name="text_toast_device_has_been_deleted" translatable="false">設備已刪除</string>
+    <string name="text_toast_device_delete_failure" translatable="false">刪除失敗</string>
+    <string name="text_toast_device_operator_failure" translatable="false">操作失敗</string>
+    <string name="text_new_chat_room" translatable="false">快來新增聊天吧</string>
+    <string name="text_new_chat_room_failure" translatable="false">創建多人聊天室失敗</string>
+    <string name="text_create_discuss_chat_room" translatable="false">建立多人聊天室</string>
+    <string name="text_create_room_successfully" translatable="false">建立成功</string>
+    <string name="text_transfer_to_crowd" translatable="false">轉為社團</string>
+    <string name="text_transfer_to_crowd_failure" translatable="false">社團轉換失敗</string>
+    <string name="text_transfer_to_crowd_success" translatable="false">社團轉換完成</string>
+    <string name="invalid_token" translatable="false">授權已過期，請重新登入。</string>
+    <string name="text_chat_room_modify_name" translatable="false">多人聊天室名稱</string>
+    <string name="text_chat_room_name_limit" translatable="false">%d/20</string>
+    <string name="text_chat_room_name_update_success" translatable="false">更名成功</string>
+    <string name="text_chat_room_name_update_failure" translatable="false">更名失敗</string>
+    <string name="text_hint_input_message" translatable="false">輸入訊息</string>
+    <string name="text_create_discuss_tip" translatable="false">成員不得少於3人</string>
+    <string name="text_input_discuss_chat_room_name_please" translatable="false">請輸入多人聊天室名稱</string>
+    <string name="text_input_group_chat_room_name_please" translatable="false">請輸入社團名稱</string>
+    <string name="text_input_group_chat_room_name" translatable="false">社團名稱</string>
+    <string name="text_name_and_number" translatable="false">%s(%d)</string>
+    <string name="turn_to_ai_servicing_hint" translatable="false">按此轉回 AI 服務</string>
+    <string name="turn_to_ai_servicing" translatable="false">您確定從「監控AI」轉回「AI服務」嗎?</string>
+    <string name="chat_max_send_picture_or_video" translatable="false">最多只能傳送 9 張"</string>
+    <string name="text_service_number_consultation_ai" translatable="false">服務號諮詢</string>
+    <string name="text_consultation_ai" translatable="false">AI 諮詢</string>
+    <string name="text_consultation_ai_failure" translatable="false">請稍後再試</string>
+    <string name="text_save_picture_to_album" translatable="false">儲存到相簿</string>
+    <string name="text_share_media_failure" translatable="false">分享失敗</string>
+    <string name="text_save_picture_to_album_already" translatable="false">已儲存到相簿</string>
+    <string name="text_video_reverse_10_second" translatable="false">倒退10秒</string>
+    <string name="text_video_fast_forward_10_second" translatable="false">快轉10秒</string>
+    <string name="text_video_play_or_pause" translatable="false">播放/暫停</string>
+    <string name="text_video_time_left" translatable="false">-%s</string>
+    <string name="text_message_to_quote" translatable="false">引&#160;&#160;&#160;用</string>
+    <string name="text_download" translatable="false">下載</string>
+    <string name="text_quote_to_someone" translatable="false">引用給「%s」</string>
+    <string name="text_image_quote_on_the_way" translatable="false">圖片引用中</string>
+    <string name="text_video_quote_on_the_way" translatable="false">影片引用中</string>
+    <string name="text_sending_image" translatable="false">圖片發送中</string>
+    <string name="text_download_media_failure" translatable="false">下載失敗</string>
+    <string name="text_members_info_failure" translatable="false">取得聊天室成員資料失敗</string>
+    <string name="text_media_quote_failure" translatable="false">引用失敗</string>
+    <string name="text_you_are_forced_logout" translatable="false">您已經被強制登出了!</string>
+    <string name="text_disagree" translatable="false">不同意</string>
+    <string name="text_agree" translatable="false">同意</string>
+    <string name="text_join_tenant_tip" translatable="false">%s想要加入%s，若您確認請按同意。</string>
+    <string name="text_agree_member_to_join" translatable="false">同意成員加入</string>
+    <string name="text_reject_member_to_join" translatable="false">拒絕成員加入</string>
+    <string name="text_your_account_has_been_login_by_other_device" translatable="false">您的帳號已在其他裝置登入了!</string>
+    <string name="text_your_account_has_been_login_tip" translatable="false">您的帳號在\'%s\'登入</string>
+    <string name="text_not_find_any_result" translatable="false">未搜尋到相關結果</string>
+    <string name="text_toast_operator_failure" translatable="false">操作失敗</string>
+    <string name="text_upload_avatar_success" translatable="false">上傳成功</string>
+    <string name="text_upload_avatar_failure" translatable="false">上傳失敗</string>
+    <string name="text_uploading_image" translatable="false">上傳圖片中</string>
+    <string name="text_upload_image_success_and_updating" translatable="false">上傳成功，更新資料中</string>
+    <string name="text_update_image_success" translatable="false">更新資料成功</string>
+    <string name="text_upload_image_failure" translatable="false">上傳失敗</string>
+    <string name="text_invite_member_success" translatable="false">邀請成功</string>
+    <string name="text_invite_member_failure" translatable="false">邀請失敗</string>
+    <string name="text_format_more_members" translatable="false">+%d</string>
+    <string name="text_all_members" translatable="false">所有成員</string>
+    <string name="text_transfer_ownership" translatable="false">移轉\n擁有權</string>
+    <string name="text_given_management" translatable="false">委派\n管理權</string>
+    <string name="text_canceled_management" translatable="false">取消\n管理權</string>
+    <string name="text_deleted_member_success" translatable="false">刪除成功</string>
+    <string name="text_sure_to_delete_member_name" translatable="false">是否刪除社團成員%s？</string>
+    <string name="text_sure_to_transfer_ownership" translatable="false">您確定轉移擁有權給成員\"%s\"?</string>
+    <string name="text_sure_to_transfer_ownership_success" translatable="false">轉移成功</string>
+    <string name="text_sure_to_transfer_ownership_failure" translatable="false">轉移失敗</string>
+    <string name="text_sure_to_designate_management" translatable="false">您確定委派管理權給\"%s\"嗎?</string>
+    <string name="text_designate_management_success" translatable="false">您已委派管理權</string>
+    <string name="text_designate_management_failure" translatable="false">委派管理權失敗</string>
+    <string name="text_sure_to_cancel_management" translatable="false">您確定取消\"%s\"的管理權嗎?</string>
+    <string name="text_cancel_management_success" translatable="false">您已取消管理權</string>
+    <string name="text_cancel_management_failure" translatable="false">取消管理權失敗</string>
+    <string name="text_leave_crowd" translatable="false">退出社團</string>
+    <string name="text_leave_crowd_success" translatable="false">退出成功</string>
+    <string name="text_leave_crowd_failure" translatable="false">退出失敗</string>
+    <string name="text_leave_crowd_tips" translatable="false">退出後將清除聊天室及聊天紀錄，您確定要退出嗎?</string>
+    <string name="text_main_page_settings" translatable="false">設定</string>
+    <string name="text_clear_chat_record" translatable="false">清空聊天記錄</string>
+    <string name="text_report" translatable="false">檢舉</string>
+    <string name="text_disband_crowd" translatable="false">解散社團</string>
+    <string name="text_exit_group" translatable="false">退出聊天</string>
+    <string name="text_disband_crowd_tips" translatable="false">解散後將清除所有聊天記錄</string>
+    <string name="text_disband_crowd_success" translatable="false">解散成功</string>
+    <string name="text_disband_crowd_failure" translatable="false">解散失敗</string>
+    <string name="text_clear_chat_record_success" translatable="false">清除成功</string>
+    <string name="text_clear_chat_record_failure" translatable="false">清除失敗</string>
+    <string name="text_clear_chat_record_tips" translatable="false">提醒您，聊天紀錄刪除後無法恢復，請謹慎評估。</string>
+    <string name="text_sure_to_delete_discuss_member_name" translatable="false">是否刪除聊天成員%s？</string>
+    <string name="text_exit_group_title" translatable="false">退出聊天室</string>
+    <string name="text_sending_video_message" translatable="false">影片發送中</string>
+    <string name="text_transferring_video_message" translatable="false">影片轉碼中</string>
+    <string name="facebook_app_id" translatable="false">408263813650745</string>
+    <string name="facebook_client_token" translatable="false">f69956df0683ef21319897145e1ae889</string>
+
+    <string name="bind_facebook" translatable="false">Facebook</string>
+    <string name="bind_instagram" translatable="false">Instagram</string>
+    <string name="bind_select_account" translatable="false">請選擇要連結的帳戶</string>
+    <string name="bind_success" translatable="false">連結成功</string>
+    <string name="bind_failed" translatable="false">連結失敗</string>
+    <string name="linked_facebook_fans_page" translatable="false">已連結粉絲專頁</string>
+    <string name="linked_instagram_fans_page" translatable="false">已連結Instagram專業帳號</string>
+    <string name="unbind_fans_page" translatable="false">你是否確認要取消已連結的紛絲專頁:%s?</string>
+    <string name="not_connect_instagram" translatable="false">您已連接粉絲專頁至Aile，但粉絲專頁未與任何Instagram帳號連接，請先完成粉絲專頁與Instagram帳號的連接</string>
+    <string name="facebook_public_reply" translatable="false">公開回覆：會顯示給所有人</string>
+    <string name="facebook_private_reply" translatable="false">私訊回覆：只能發送一次</string>
+    <string name="facebook_already_private_replied" translatable="false">已回覆過</string>
+    <string name="facebook_overtime" translatable="false">已超過 FB 的回覆時間限制</string>
+    <string name="instagram_overtime" translatable="false">已超過 IG 的回覆時間限制</string>
+    <string name="facebook_overtime_toast" translatable="false">已超過回覆時限</string>
+    <string name="facebook_comment_show_more" translatable="false">顯示更多</string>
+    <string name="facebook_comment_show_less" translatable="false">顯示更少</string>
+    <string name="facebook_public_replied" translatable="false">公開回覆</string>
+    <string name="facebook_private_replied" translatable="false">私訊回覆</string>
+    <string name="facebook_comment_status_deleted" translatable="false">(留言已刪除)</string>
+    <string name="facebook_comment_deleted" translatable="false">留言已刪除</string>
+    <string name="facebook_comment_status_edited" translatable="false">(留言已編輯)</string>
+    <string name="facebook_post_status_deleted" translatable="false">(貼文已刪除)</string>
+    <string name="facebook_post_deleted" translatable="false">貼文已刪除</string>
+    <string name="text_attachment" translatable="false">附件</string>
+    <string name="text_send_business_card_successful" translatable="false">發送電子名片成功</string>
+    <string name="text_send_business_card_failure" translatable="false">發送電子名片失敗</string>
+    <string name="text_invite_business_member_card" translatable="false">邀請加入會員</string>
+    <string name="text_send_success" translatable="false">發送成功</string>
+    <string name="text_send_failure" translatable="false">發送失敗</string>
+    <string name="text_camera_photo" translatable="false">拍照</string>
+    <string name="text_video" translatable="false">錄影</string>
+    <string name="text_allow_modify_permission_to_share_this_file" translatable="false">請允許修改該檔案的授權後，即可分享</string>
+    <string name="text_sharing_file" translatable="false">檔案分享中</string>
+    <string name="text_only_provide_line_channel_invite" translatable="false">當前僅提供 LINE 渠道發送</string>
+    <string name="text_aile_chat_title" translatable="false">%s @ %s By Aile小助手</string>
+    <string name="text_can_not_send_empty_message" translatable="false">不可發送空白訊息</string>
+    <string name="text_please_go_to_desktop" translatable="false">請至Desktop設置</string>
+    <string name="text_slide_up_to_share" translatable="false">向上滑動分享更多</string>
+    <string name="text_slide_up_notice" translatable="false">掃瞄上方QR Code，加入%s</string>
+    <string name="text_qr_code_bottom_tab_download" translatable="false">下載</string>
+    <string name="text_qr_code_bottom_tab_copy" translatable="false">複製連結</string>
+    <string name="text_qr_code_bottom_tab_share_to_line" translatable="false">分享至Line</string>
+    <string name="text_qr_code_bottom_tab_share_more" translatable="false">更多分享</string>
+    <string name="text_qr_code_copy_success" translatable="false">已複製QR Code連結</string>
+    <string name="text_qr_code_share_more_hint_text" translatable="false">輸入手機或email</string>
+    <string name="text_qr_code_share_more_default_text" translatable="false">您好，歡迎點選連結，查看我的電子名片。</string>
+    <string name="text_qr_code_share_to_other_application" translatable="false">分享至其他應用程式</string>
+    <string name="text_qr_code_wrong_format" translatable="false">格式錯誤，請重新輸入</string>
+    <string name="text_qr_code_coming_soon" translatable="false">功能即將開放，敬請期待</string>
+    <string name="text_qr_code_boss_service_number_not_enable" translatable="false">商務號未開通，請至管理服務號申請</string>
+    <string name="text_qr_code_boss_service_not_have_business_card" translatable="false">前往Aile桌面版商務號主頁設定名片</string>
+    <string name="text_qr_code__title_official_service_number" translatable="false">官方 服務號</string>
+
+    <string name="text_filter_multiple_choice" translatable="false">多選</string>
+    <string name="text_filter_title_media" translatable="false">照片．影片</string>
+    <string name="text_filter_title_link" translatable="false">連結</string>
+    <string name="text_filter_title_file" translatable="false">檔案</string>
+    <string name="text_filter_title_todo" translatable="false">記事</string>
+    <string name="text_filter_selected_text" translatable="false">%d/9</string>
+    <string name="text_filter_selected_max" translatable="false">已達數量上限</string>
+    <string name="text_filter_download_media_succeed" translatable="false">儲存成功</string>
+    <string name="text_filter_download_file_succeed" translatable="false">儲存成功至檔案</string>
+    <string name="text_filter_no_selected" translatable="false">尚未選取任何項目</string>
+    <string name="text_filter_sort_new_to_old" translatable="false">日期新－舊</string>
+    <string name="text_filter_sort_old_to_new" translatable="false">日期舊－新</string>
+    <string name="text_notification_message" translatable="false">訊息提醒</string>
+    <string name="text_need_notification_permission" translatable="false">訊息提醒需要允許通知許可權限才能使用</string>
+    <string name="text_notification_format" translatable="false">%s:&#160;%s</string>
+    <string name="text_kick_out_member_by_others" translatable="false">您已經不是聊天室成員</string>
+    <string name="text_filter_file_download_all_failed" translatable="false">儲存失敗</string>
+    <string name="text_filter_file_download_some_failed" translatable="false">%d個檔案儲存失敗</string>
+    <string name="text_todo_message_deleted" translatable="false">聊天室訊息已不存在</string>
+    <string name="text_ai_warning_return" translatable="false">轉回成功</string>
+    <string name="text_become_group_owner" translatable="false">點擊成為社團擁有者</string>
+    <string name="text_consultation_finished_can_not_reply_message" translatable="false">諮詢已結束，無法回覆訊息</string>
+    <string name="text_no_guest_page" translatable="false">無訪客主頁</string>
+    <string name="text_marked_message" translatable="false">[標註訊息]</string>
+    <string name="text_qbi_channel_not_support_offline_reply" translatable="false">qbi通路無法離線回覆</string>
+    <string name="text_can_not_change_to_other_channel" translatable="false">無其它渠道可切換</string>
+    <string name="text_choose_reply_channel" translatable="false">選擇回覆渠道</string>
+    <string name="text_waiting_for_snatch_service" translatable="false">等待接續服務</string>
+    <string name="text_tip_waiting_for_snatch_service" translatable="false">%s正在服務中，您確定要接續成為客戶專屬服務人員嗎？</string>
+    <string name="text_servicing_can_end_service" translatable="false">服務中，您可按此結束服務</string>
+    <string name="text_snatch_service" translatable="false">接續服務</string>
+    <string name="text_close_service_failure" translatable="false">關閉服務失敗</string>
+    <string name="text_someone" translatable="false">有人</string>
+    <string name="text_you_servicing_and_sure_to_close_service" translatable="false">您正在服務中，您確認要結束該進線的服務嗎？</string>
+    <string name="text_tip_servicing_and_sure_to_close_service" translatable="false">您正在服務%s，確認要結束此次服務嗎？</string>
+    <string name="text_tip_servicing_customer_and_sure_to_close_service" translatable="false">您正在為%s的客戶%s服務，您確認要結束此次服務嗎？</string>
+    <string name="text_close_service_successful" translatable="false">成功關閉服務</string>
+    <string name="text_someone_is_servicing_can_not_change_channel" translatable="false">專人服務中，無法切換渠道</string>
+    <string name="text_change_successful" translatable="false">切換成功</string>
+    <string name="text_change_failure" translatable="false">切換失敗</string>
+    <string name="text_mic_phone_is_being_used" translatable="false">麥克風正在被佔用</string>
+    <string name="text_recording" translatable="false">正在錄音</string>
+    <string name="text_at_least_select_one_message" translatable="false">至少選擇一筆訊息</string>
+    <string name="text_only_delete_message_from_yourself" translatable="false">僅會從您的消息記錄中刪除，不會刪除對方的消息記錄</string>
+    <string name="text_delete" translatable="false">刪除</string>
+    <string name="text_theme_message_can_not_be_retracted" translatable="false">有主題訊息不可被收回</string>
+    <string name="text_retracting" translatable="false">收回中…</string>
+    <string name="text_chat_room_connecting_mission" translatable="false">聊天室已關聯任務</string>
+    <string name="text_shared_successful" translatable="false">分享成功</string>
+    <string name="text_marked_message_format_error" translatable="false">標註訊息格式錯誤！</string>
+    <string name="text_new_message" translatable="false">新訊息</string>
+    <string name="text_tip_for_float_window_permission" translatable="false">為了讓您有更好的操作體驗，請允許使用浮動視窗權限</string>
+    <string name="text_tip2_for_float_window_permission" translatable="false">許可權授予失敗，無法開啟浮動視窗</string>
+    <string name="text_tip3_for_float_window_permission" translatable="false">請賦予懸浮視窗權限以獲得最即時的通知</string>
+    <string name="text_input_search_key_word" translatable="false">請輸入搜尋關鍵字</string>
+    <string name="text_me" translatable="false">我</string>
+    <string name="text_changing" translatable="false">正在切換中…</string>
+    <string name="text_repair_title" translatable="false">回報問題</string>
+    <string name="text_repair_name" translatable="false">報修標題</string>
+    <string name="text_repair_type" translatable="false">報修類型</string>
+    <string name="text_repair_operate_steps" translatable="false">操作步驟</string>
+    <string name="text_repair_attachments" translatable="false">添加附件</string>
+    <string name="text_repair_report_success" translatable="false">回報成功</string>
+    <string name="text_repair_report_failure" translatable="false">回報失敗</string>
+    <string name="text_repair_report_tip" translatable="false">請選擇報修類型</string>
+    <string name="text_repair_report_tip1" translatable="false">請填寫報修標題</string>
+    <string name="text_repair_report_tip2" translatable="false">請填寫操作步驟</string>
+    <string name="text_can_not_find_message" translatable="false">訊息無法定位</string>
+    <string name="text_record_title" translatable="false">錄音或麥克風</string>
+    <string name="text_record_permission_failure" translatable="false">獲取麥克風權限失敗</string>
+    <string name="text_record_tip" translatable="false">温馨提示</string>
+    <string name="text_record_tip1" translatable="false">我们需要錄音權限才能正常使用該功能</string>
+    <string name="text_record_verify_permission" translatable="false">驗證權限</string>
+    <string name="text_start_record" translatable="false">開始錄音</string>
+    <string name="text_record" translatable="false">錄音</string>
+    <string name="text_wait_transfer_number" translatable="false">%d</string>
+    <string name="text_get_location_permission_title" translatable="false">開啟定位服務</string>
+    <string name="text_get_location_permission_sub_title" translatable="false">開啟定位服務以開始使用完整服務</string>
+    <string name="text_get_location_permission_cancel" translatable="false">不用了，謝謝</string>
+    <string name="text_get_location_permission_submit" translatable="false">在「設定」中開啟</string>
+    <string name="text_term_delete_aile_account" translatable="false">退出團隊並清除帳號內所有資訊</string>
+    <string name="text_setting_delete_account_content" translatable="false">刪除Aile帳號後將無法再使用該帳號登入，您確定要刪除嗎？</string>
+    <string name="text_setting_delete_account_content_for_green" translatable="false">刪除帳號後將無法再使用該帳號登入，您確定要刪除嗎？</string>
+    <string name="text_logout_title_green" translatable="false">登出</string>
+    <string name="text_logout_message_green" translatable="false">登出後會清除您手機端所有的資料。確定要登出嗎？</string>
+    <string name="text_settings_account_title" translatable="false">帳號</string>
+    <string name="text_settings_about" translatable="false">關於</string>
+    <string name="text_not_join_tenant_permission" translatable="false">尚未開通加入團隊功能</string>
+    <string name="text_waiting_for_snatch" translatable="false">等待接續</string>
+    <string name="text_dialog_no_answer_title" translatable="false">請選擇無人應答超時時間</string>
+    <string name="text_dialog_time_out_title" translatable="false">請選擇服務超時時間</string>
+    <string name="text_dialog_time_out_no_limit" translatable="false">不限定</string>
+    <string name="text_dialog_time_out_five_min" translatable="false">5分鐘</string>
+    <string name="text_dialog_time_out_ten_min" translatable="false">10分鐘</string>
+    <string name="text_dialog_time_out_fifteen_min" translatable="false">15分鐘</string>
+    <string name="text_dialog_time_out_thirty_min" translatable="false">30分鐘</string>
+    <string name="text_dialog_time_out_one_hour" translatable="false">1小時</string>
+    <string name="text_dialog_time_out_six_hour" translatable="false">6小時</string>
+    <string name="text_dialog_time_out_twelve_hour" translatable="false">12小時</string>
+    <string name="text_dialog_time_out_twenty_four_hour" translatable="false">24小時</string>
+    <string name="text_dialog_time_out_forty_eight_hour" translatable="false">48小時</string>
+    <string name="text_transfer_to_N_chat_room_already" translatable="false">已轉發到%d個聊天室</string>
+    <string name="text_share_to_N_chat_room_already" translatable="false">已分享到%d個聊天室</string>
+    <string name="text_custom_domain" translatable="false">自定義網域</string>
+    <string name="text_switch_reply_channel" translatable="false">選擇回覆通路</string>
+    <string name="text_no_internet_alert" translatable="false">網際網路連線已斷開。</string>
+    <string name="text_input_nickname" translatable="false">請輸入暱稱</string>
+    <string name="text_input_remark" translatable="false">請輸入備註</string>
+
+</resources>

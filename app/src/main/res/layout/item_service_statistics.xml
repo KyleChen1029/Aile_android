@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/v_pie"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/bg_circle_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <tw.com.chainsea.chat.widget.LoadingBar
+            android:id="@+id/bga_progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:max="0"
+            android:padding="0dp"
+            android:progress="0"
+            android:visibility="gone"
+            app:loading_bar_isCapRounded="false"
+            app:loading_bar_mode="circle"
+            app:loading_bar_radius="20dp"
+            app:loading_bar_reachedHeight="28dp"
+            app:loading_bar_textColor="@android:color/transparent"
+            app:loading_bar_textSize="0sp"
+            app:loading_bar_reachedColor="#96f0ff"
+            app:loading_bar_unReachedColor="#dcc9fb"
+            app:loading_bar_unReachedHeight="2dp"
+            app:loading_bar_isHiddenText="true"
+            app:layout_constraintBottom_toBottomOf="@+id/v_pie"
+            app:layout_constraintStart_toStartOf="@+id/v_pie"
+            app:layout_constraintEnd_toEndOf="@+id/v_pie"
+            app:layout_constraintTop_toTopOf="@+id/v_pie" />
+
+
+        <tw.com.chainsea.chat.widget.LoadingBar
+            android:id="@+id/bga_l_progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="115dp"
+            android:layout_height="115dp"
+            android:max="0"
+            android:padding="0dp"
+            android:progress="0"
+            android:visibility="visible"
+            app:loading_bar_isCapRounded="false"
+            app:loading_bar_mode="circle"
+            app:loading_bar_radius="20dp"
+            app:loading_bar_reachedHeight="2dp"
+            app:loading_bar_textColor="@android:color/transparent"
+            app:loading_bar_textSize="0sp"
+            app:loading_bar_reachedColor="#FFFFFF"
+            app:loading_bar_unReachedColor="#FFFFFF"
+            app:loading_bar_unReachedHeight="2dp"
+            app:loading_bar_isHiddenText="true"
+            app:layout_constraintBottom_toBottomOf="@+id/v_pie"
+            app:layout_constraintStart_toStartOf="@+id/v_pie"
+            app:layout_constraintEnd_toEndOf="@+id/v_pie"
+            app:layout_constraintTop_toTopOf="@+id/v_pie" />
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text=""
+            android:layout_marginTop="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/v_pie"
+            app:layout_constraintBottom_toTopOf="@id/tv_percentage" />
+
+        <TextView
+            android:id="@+id/tv_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#4a90e2"
+            android:singleLine="true"
+            android:gravity="center_horizontal"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_day"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_left" />
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="11sp"
+            android:paddingEnd="4dp"
+            android:paddingStart="0dp"
+            android:singleLine="true"
+            android:textColor="#4a4a4a"
+            android:gravity="end|top"
+            app:layout_constraintTop_toBottomOf="@+id/tv_percentage"
+            app:layout_constraintStart_toStartOf="@id/bga_l_progress"
+            app:layout_constraintEnd_toStartOf="@+id/tv_right"
+            app:layout_constraintBottom_toBottomOf="@+id/v_pie" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="11sp"
+            android:paddingStart="4dp"
+            android:paddingEnd="0dp"
+            android:singleLine="true"
+            android:textColor="#4a4a4a"
+            android:gravity="start|top"
+            app:layout_constraintTop_toBottomOf="@+id/tv_percentage"
+            app:layout_constraintEnd_toEndOf="@id/bga_l_progress"
+            app:layout_constraintStart_toEndOf="@+id/tv_left"
+            app:layout_constraintBottom_toBottomOf="@+id/v_pie" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

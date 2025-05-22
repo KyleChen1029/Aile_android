@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="tw.com.chainsea.chat.searchfilter.viewmodel.SearchFilterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_FAFAFA"
+        tools:context=".searchfilter.view.fragment.SearchFilterFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scopeSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/scopeEmit"
+            android:background="@drawable/bg_search_view_radius_white"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_new_search"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="5dp"
+                android:contentDescription="@string/base_top_rich_menu_search"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/etSearch"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/hint_color"
+                android:text="@={viewModel.etSearchInput}"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:background="@color/transparent"
+                app:layout_constraintStart_toEndOf="@id/ivSearch"
+                app:layout_constraintTop_toTopOf="@id/ivSearch"
+                app:layout_constraintBottom_toBottomOf="@id/ivSearch"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/clearInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_input_clear"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone"
+                android:onClick="@{() -> viewModel.clearInputText()}"
+                app:layout_constraintTop_toTopOf="@id/etSearch"
+                app:layout_constraintEnd_toEndOf="@id/etSearch"
+                app:layout_constraintBottom_toBottomOf="@id/etSearch"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scopeEmit"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintTop_toTopOf="@id/scopeSearch"
+            app:layout_constraintBottom_toBottomOf="@id/scopeSearch"
+            app:layout_constraintStart_toEndOf="@id/scopeSearch"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> viewModel.closeKeyboard()}">
+
+            <ImageView
+                android:id="@+id/ivEmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_new_cancel"
+                android:contentDescription="@string/rich_menu_text_delete"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupInputArea"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="scopeSearch,scopeEmit"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scopeSearchRecord"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/scopeSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rvSelectList">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSearchTextRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/rvSearchAvatarRecord"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSearchAvatarRecord"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/rvSearchTextRecord"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/lyTab"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/lyTab"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/rvSearchAvatarRecord"
+                app:layout_scrollFlags="noScroll"
+                app:tabGravity="center"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorHeight="5dp"
+                app:tabMode="fixed"
+                app:tabMinWidth="300dp"
+                app:tabRippleColor="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:id="@+id/spacing"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                app:layout_constraintTop_toBottomOf="@+id/lyTab" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="3dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spacing" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSelectList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            android:background="@color/color_FAFAFA"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

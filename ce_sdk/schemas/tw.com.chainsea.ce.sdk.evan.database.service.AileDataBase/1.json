@@ -1,0 +1,314 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "eee9d5b85965bceee454c077c9808c3a",
+    "entities": [
+      {
+        "tableName": "room",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `member_ids` TEXT DEFAULT '[]', `is_block` INTEGER NOT NULL, `service_number_type` TEXT DEFAULT '', `service_number_id` TEXT DEFAULT '', `avatar_id` TEXT DEFAULT '', `owner_id` TEXT DEFAULT '', `name` TEXT DEFAULT '', `service_number_avatar_id` TEXT DEFAULT '', `service_number_agent_id` TEXT DEFAULT '', `blocked` INTEGER NOT NULL, `is_top` INTEGER NOT NULL, `top_time` INTEGER NOT NULL, `is_custom_name` INTEGER NOT NULL, `business_id` TEXT DEFAULT '', `type` TEXT DEFAULT '', `un_read_num` INTEGER NOT NULL, `service_number_name` TEXT DEFAULT '', PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "memberIds",
+            "columnName": "member_ids",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'[]'"
+          },
+          {
+            "fieldPath": "isBlock",
+            "columnName": "is_block",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceNumberType",
+            "columnName": "service_number_type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "serviceNumberId",
+            "columnName": "service_number_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "avatarId",
+            "columnName": "avatar_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "ownerId",
+            "columnName": "owner_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "serviceNumberAvatarId",
+            "columnName": "service_number_avatar_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "serviceNumberAgentId",
+            "columnName": "service_number_agent_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "blocked",
+            "columnName": "blocked",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isTop",
+            "columnName": "is_top",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "topTime",
+            "columnName": "top_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCustomName",
+            "columnName": "is_custom_name",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "businessId",
+            "columnName": "business_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "unReadNum",
+            "columnName": "un_read_num",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceNumberName",
+            "columnName": "service_number_name",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "message",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `room_id` TEXT DEFAULT '', `sender_id` TEXT DEFAULT '', `sender_name` TEXT DEFAULT '', `type` TEXT DEFAULT 'None', `source_type` TEXT DEFAULT 'User', `avatar_id` TEXT DEFAULT '', `content` TEXT DEFAULT '', `send_time` INTEGER NOT NULL DEFAULT 0, `flag` INTEGER NOT NULL DEFAULT 0, `readed_num` INTEGER NOT NULL DEFAULT 0, `send_num` INTEGER NOT NULL DEFAULT 0, `received_num` INTEGER NOT NULL DEFAULT 0, `os_type` TEXT DEFAULT '', `device_type` TEXT DEFAULT '', `from` TEXT DEFAULT '', `theme_id` TEXT DEFAULT '', `near_message_avatar_id` TEXT DEFAULT '', `near_message_sender_id` TEXT DEFAULT '', `near_message_id` TEXT DEFAULT '', `near_message_type` TEXT DEFAULT 'None', `near_message_content` TEXT DEFAULT '', PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roomId",
+            "columnName": "room_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "senderId",
+            "columnName": "sender_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "senderName",
+            "columnName": "sender_name",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'None'"
+          },
+          {
+            "fieldPath": "sourceType",
+            "columnName": "source_type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'User'"
+          },
+          {
+            "fieldPath": "avatarId",
+            "columnName": "avatar_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "sendTime",
+            "columnName": "send_time",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "flag",
+            "columnName": "flag",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "readedNum",
+            "columnName": "readed_num",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "sendNum",
+            "columnName": "send_num",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "receivedNum",
+            "columnName": "received_num",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "osType",
+            "columnName": "os_type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "deviceType",
+            "columnName": "device_type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "from",
+            "columnName": "from",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "themeId",
+            "columnName": "theme_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "nearMessageAvatarId",
+            "columnName": "near_message_avatar_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "nearMessageSenderId",
+            "columnName": "near_message_sender_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "nearMessageId",
+            "columnName": "near_message_id",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "nearMessageType",
+            "columnName": "near_message_type",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "'None'"
+          },
+          {
+            "fieldPath": "nearMessageContent",
+            "columnName": "near_message_content",
+            "affinity": "TEXT",
+            "notNull": false,
+            "defaultValue": "''"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'eee9d5b85965bceee454c077c9808c3a')"
+    ]
+  }
+}

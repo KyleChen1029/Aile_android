@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include android:id="@+id/cl_send_information"
+            layout="@layout/include_en_large_send_information"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/msg_emoticons"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/msg_emoticons"
+            app:layout_constraintTop_toBottomOf="@+id/cl_send_information"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="160dp"
+            android:layout_height="160dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

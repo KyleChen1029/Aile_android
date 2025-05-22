@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_action_icon"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:contentDescription="@null"
+            android:src="@drawable/image_load_error"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_action_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_action_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#5d5d5d"
+            android:textAlignment="center"
+            android:singleLine="true"
+            android:text="聊天"
+            tools:ignore="HardcodedText"
+            android:textSize="11sp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_action_icon" />
+
+        <TextView
+            android:id="@+id/tv_unread"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/unread_bg"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@+id/iv_action_icon"
+            app:layout_constraintEnd_toEndOf="@+id/iv_action_icon"
+            app:layout_constraintStart_toEndOf="@+id/iv_action_icon"
+            app:layout_constraintBottom_toTopOf="@+id/iv_action_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

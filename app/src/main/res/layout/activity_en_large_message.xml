@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.enlarge.EnLargeMessageActivity">
+
+        <tw.com.chainsea.custom.view.recyclerview.NestedRecyclerView
+            android:id="@+id/rv_message_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingTop="80dp"
+            android:paddingBottom="80dp"
+            android:overScrollFooter="@android:color/transparent"
+            android:overScrollHeader="@android:color/transparent"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/civ_last"
+            android:layout_width="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="45dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/custom_default_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_last"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:src="@drawable/arrow_top_gary"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toBottomOf="@+id/civ_last"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/iv_next"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:src="@drawable/arrow__down_gary"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toTopOf="@+id/civ_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/civ_next"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/custom_default_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

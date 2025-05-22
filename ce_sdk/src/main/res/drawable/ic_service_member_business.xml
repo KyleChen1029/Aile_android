@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape android:shape="rectangle">
+      <solid android:color="#6BC2BA" />
+      <size
+          android:width="35dp"
+          android:height="35dp" />
+    </shape>
+  </item>
+
+  <item
+      android:drawable="@drawable/ic_service_member_w"
+      android:height="26dp"
+      android:gravity="center"
+      android:width="26dp">
+  </item>
+</layer-list>

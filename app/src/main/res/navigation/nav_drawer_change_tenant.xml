@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_drawer_change_tenant"
+    app:startDestination="@id/navTenantFragment">
+
+    <fragment
+        android:id="@+id/navTenantFragment"
+        android:name="tw.com.chainsea.chat.view.base.NavTenantFragment"
+        android:label="NavTenantFragment" />
+</navigation>

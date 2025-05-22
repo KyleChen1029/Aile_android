@@ -1,0 +1,11 @@
+#!/bin/sh
+# https://github.com/pinterest/ktlint pre-commit hook
+git diff --name-only --cached --relative | grep '\.kt[s"]\?$' | xargs --no-run-if-empty ktlint --relative
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+    # If there are format errors, then run format on staged files
+    git diff --name-only --cached --relative | grep '\.kt[s"]\?$' | xargs --no-run-if-empty ktlint -F --relative
+fi
+
+if [ $RESULT -ne 0 ]; then exit 1; fi

@@ -1,0 +1,12 @@
+[submodule "msgkit"]
+	path = msgkit
+	url = git@git.coding.net:nick_jiding/MsgKit.git
+[submodule "uikit"]
+	path = uikit
+	url = git@git.coding.net:nick_jiding/UIKit.git
+[submodule "jocket"]
+	path = jocket
+	url = git@git.coding.net:nick_jiding/Jocket.git
+[submodule "chat"]
+	path = chat
+	url = git@git.coding.net:nick_jiding/ChatSDK.git

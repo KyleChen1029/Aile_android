@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="tw.com.aile.sdk.bean.message.MessageEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+            android:id="@+id/ivAvatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginVertical="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@mipmap/ic_new_head" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivAvatar"
+            app:layout_constraintBottom_toTopOf="@id/tvLastMsg"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintEnd_toStartOf="@id/tvTime"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textColor="@color/item_name"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            tools:text="宋仲基"/>
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/pinIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_s_top"
+            android:visibility="gone"
+            app:civ_circle_background_color="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+            app:layout_constraintEnd_toEndOf="@+id/ivAvatar" />
+
+        <TextView
+            android:id="@+id/tvLastMsg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintEnd_toStartOf="@id/tvUnread"
+            android:textColor="@color/color_404040"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            tools:text="宋仲基"/>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/hint_color"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="14:25"/>
+
+        <TextView
+            android:id="@+id/tvUnread"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/at_and_unread_bg"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:visibility="gone"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="20dp"
+            tools:text="0"
+            app:layout_constraintStart_toEndOf="@id/tvLastMsg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

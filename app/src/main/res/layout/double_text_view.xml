@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/selector_click_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="住宅號碼"
+            tools:ignore="HardcodedText"
+            android:textColor="@color/item_name"
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"
+            android:textSize="@dimen/list_item_title_size" />
+
+
+        <ImageView
+            android:id="@+id/right_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/px_30"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:padding="@dimen/small_distance"
+            android:src="@drawable/slector_writing" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_title"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="7dp"
+            android:singleLine="true"
+            android:layout_toStartOf="@+id/right_icon"
+            android:paddingStart="@dimen/px_30"
+            android:paddingEnd="0dp"
+            android:textColor="@color/item_text"
+            android:textSize="@dimen/list_item_content_size" />
+
+        <TextView
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/px_30"
+            android:background="@color/spilt_line_color" />
+    </RelativeLayout>
+
+
+</LinearLayout>

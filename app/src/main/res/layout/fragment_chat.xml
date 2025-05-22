@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clipChildren="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:clipChildren="false">
+
+            <tw.com.chainsea.chat.keyboard.ChatKeyboardLayout
+                android:id="@+id/chatKeyboardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/fun_media"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- 主聊天室 視窗 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@android:color/white">
+
+                            <tw.com.chainsea.chat.widget.xrefreshlayout.XRefreshLayout
+                                android:id="@+id/xrefreshLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentBottom="true"
+                                android:layout_weight="1">
+
+                                <tw.com.chainsea.chat.messagekit.MessageRecyclerView
+                                    android:id="@+id/messageRV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@android:color/transparent"
+                                    android:choiceMode="multipleChoiceModal"
+                                    android:overScrollFooter="@android:color/transparent"
+                                    android:overScrollHeader="@android:color/transparent"
+                                    android:overScrollMode="never"
+                                    android:scrollbars="none" />
+
+                            </tw.com.chainsea.chat.widget.xrefreshlayout.XRefreshLayout>
+
+                            <TextView
+                                android:id="@+id/floatingLastMessageTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="#b3ffffff"
+                                android:ellipsize="end"
+                                android:gravity="start|center"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:visibility="visible" />
+
+                            <tw.com.chainsea.custom.view.floating.DragImageFloatingButton
+                                android:id="@+id/difb_down"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|end"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:contentDescription="@null"
+                                app:actionRes="?attr/dragImageFloatingButtonResource"
+                                app:borderWidth="0dp"
+                                app:maxImageSize="30dp"
+                                android:visibility="gone"
+                                app:moveAlpha=".0"
+                                app:stillRes="?attr/dragImageFloatingButtonResource"
+                                app:useDrag="false"
+                                app:useMoveAlpha="false" />
+                            
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_bottom_serviced_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_bottom_room_list"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:background="@android:color/white"
+                                android:overScrollFooter="@android:color/transparent"
+                                android:overScrollHeader="@android:color/transparent"
+                                android:overScrollMode="never"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="0dp"
+                                android:scrollbars="none"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/cl_bottom_serviced_control"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cl_bottom_serviced_control"
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:background="@android:color/white"
+                                android:paddingEnd="12dp"
+                                android:paddingStart="0dp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <tw.com.chainsea.custom.view.image.CircleImageView
+                                    android:id="@+id/iv_consult"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/icon_service_consult"
+                                    android:visibility="visible"
+                                    app:civ_circle_background_color="@android:color/transparent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/iv_robot_record"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <tw.com.chainsea.custom.view.image.CircleImageView
+                                    android:id="@+id/iv_robot_record"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/ic_robot_record"
+                                    app:civ_circle_background_color="@android:color/transparent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/civ_serviced_agent_avatar"
+                                    app:layout_constraintStart_toEndOf="@id/iv_consult"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                                    android:id="@+id/civ_serviced_agent_avatar"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@android:color/transparent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/custom_default_avatar"
+                                    app:civ_circle_background_color="@android:color/transparent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/tv_serviced_duration"
+                                    app:layout_constraintStart_toEndOf="@+id/iv_robot_record"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/iv_serviced_status"
+                                    android:layout_width="11dp"
+                                    android:layout_height="11dp"
+                                    android:src="@drawable/circle_reeen_bg"
+                                    android:contentDescription="@null"
+                                    app:layout_constraintBottom_toBottomOf="@+id/civ_serviced_agent_avatar"
+                                    app:layout_constraintEnd_toEndOf="@+id/civ_serviced_agent_avatar" />
+
+                                <TextView
+                                    android:id="@+id/tv_serviced_duration"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:paddingEnd="10dp"
+                                    android:paddingStart="0dp"
+                                    android:text="00:00"
+                                    tools:ignore="HardcodedText"
+                                    android:textColor="#4A4A4A"
+                                    android:textSize="14sp"
+                                    android:visibility="gone"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/iv_transfer"
+                                    app:layout_constraintStart_toEndOf="@+id/civ_serviced_agent_avatar"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <tw.com.chainsea.custom.view.image.CircleImageView
+                                    android:id="@+id/iv_transfer"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:background="@android:color/transparent"
+                                    android:visibility="gone"
+                                    app:civ_circle_background_color="@android:color/transparent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/tv_serviced_duration"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cl_bottom_member_control"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:background="@android:color/white"
+                                android:layout_marginEnd="12dp"
+                                android:layout_marginBottom="5dp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <RelativeLayout
+                                    android:id="@+id/btn_wait_transfer"
+                                    android:background="@drawable/ic_wait_transfer"
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/tv_wait_transfer_number"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/unread_bg"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/white"
+                                        android:textSize="11sp"
+                                        android:visibility="visible"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentEnd="true"
+                                        tools:ignore="TooDeepLayout" />
+                                </RelativeLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <tw.com.chainsea.custom.view.image.CircleImageView
+                                android:id="@+id/iv_robot_record2"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/ic_robot_record"
+                                android:visibility="gone"
+                                app:civ_circle_background_color="@android:color/transparent"
+                                app:layout_constraintBottom_toBottomOf="@id/rv_bottom_room_list"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/rv_bottom_room_list" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_quick_reply_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:overScrollFooter="@android:color/transparent"
+                            android:overScrollHeader="@android:color/transparent"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="10dp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/cl_bottom_serviced_control"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </LinearLayout>
+
+                    <!-- 浮動時間 Toast -->
+                    <TextView
+                        android:id="@+id/floatTimeBoxTV"
+                        android:layout_width="124dp"
+                        android:layout_height="37dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/bg_float_time_defult"
+                        android:gravity="center"
+                        android:text="2019/11/01"
+                        tools:ignore="HardcodedText"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_notify_no_owner"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:elevation="5dp"
+                        android:background="@drawable/bg_radius_12_white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iv_notice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/icon_remind_mes_failure"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_no_onwer_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:focusable="true"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:clickable="true"
+                            app:layout_constraintStart_toEndOf="@+id/iv_notice"
+                            android:text="@string/group_room_no_owner" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--                <tw.com.chainsea.chat.view.chat.ChildChatRoomLayout-->
+                    <!--                    android:id="@+id/ly_child_chat"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="400dp"-->
+                    <!--                    android:background="#B28F2D2D"-->
+                    <!--                    android:visibility="gone"-->
+                    <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                    app:layout_constraintVertical_bias="1.0" />-->
+
+                    <!-- 主題聊天室 視窗 -->
+                    <tw.com.chainsea.chat.messagekit.ThemeMessageRecyclerView
+                        android:id="@+id/themeMRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:background="#AE000000"
+                        android:choiceMode="multipleChoiceModal"
+                        android:fadeScrollbars="false"
+                        android:overScrollMode="never"
+                        android:paddingTop="25dp"
+                        android:paddingEnd="27dp"
+                        android:paddingStart="0dp"
+                        android:paddingBottom="7dp"
+                        android:scrollbarSize="6dp"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:scrollbarThumbVertical="@drawable/style_scrollbar_location"
+                        android:scrollbarTrackVertical="@drawable/style_scrollbar"
+                        android:verticalScrollbarPosition="right"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <ImageView
+                        android:id="@+id/iv_facebook_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:padding="5dp"
+                        android:visibility="gone"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="@null"
+                        app:layout_constraintTop_toTopOf="@+id/themeCloseIV"
+                        app:layout_constraintStart_toStartOf="@+id/themeMRV"
+                        app:layout_constraintBottom_toBottomOf="@+id/themeCloseIV"
+                        android:src="@drawable/icon_facebook" />
+
+                    <TextView
+                        android:id="@+id/tv_facebook_reply_type_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:layout_marginStart="5dp"
+                        app:layout_constraintTop_toTopOf="@+id/iv_facebook_icon"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_facebook_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_facebook_icon"
+                        app:layout_constraintEnd_toStartOf="@+id/themeCloseIV" />
+
+                    <ImageView
+                        android:id="@+id/themeCloseIV"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="0dp"
+                        android:clickable="true"
+                        android:contentDescription="@null"
+                        android:padding="5dp"
+                        android:src="@drawable/x_close"
+                        app:layout_constraintEnd_toEndOf="@+id/themeMRV"
+                        app:layout_constraintTop_toTopOf="@+id/themeMRV"
+                        android:focusable="true"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/expandIV"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="0dp"
+                        android:clickable="true"
+                        android:contentDescription="@null"
+                        android:padding="5dp"
+                        android:src="@drawable/expand_white"
+                        app:layout_constraintBottom_toBottomOf="@+id/themeCloseIV"
+                        app:layout_constraintEnd_toStartOf="@+id/themeCloseIV"
+                        app:layout_constraintTop_toTopOf="@+id/themeMRV"
+                        android:focusable="true" />
+                    <!-- 標註功能 -->
+                    <tw.com.chainsea.custom.view.recyclerview.MaxHeightRecyclerView
+                        android:id="@+id/mentionMHRV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:background="#EDEDED"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/mentionMHRV" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/facebook_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:constraint_referenced_ids="iv_facebook_icon,tv_facebook_reply_type_text" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </tw.com.chainsea.chat.keyboard.ChatKeyboardLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scope_provisional_member_list"
+                android:layout_width="0dp"
+                android:layout_height="49dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:elevation="7dp"
+                android:background="@drawable/bg_radius_8_white">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProvisionalMemberList"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:overScrollFooter="@android:color/transparent"
+                    android:overScrollHeader="@android:color/transparent"
+                    android:overScrollMode="never"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="10dp"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/robot_chat_message_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.66" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scopeRobotChat"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:elevation="7dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone">
+
+                <WebView
+                    android:id="@+id/robotChatMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scrollbars="none"
+                    android:background="@drawable/bg_gradient_radial_white_radius_10"
+                    app:layout_constraintTop_toBottomOf="@id/scopeRobotTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/iv_turn_to_ai_services" />
+
+                <tw.com.chainsea.custom.view.image.CircleImageView
+                    android:id="@+id/iv_turn_to_ai_services"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_trun_ai_services"
+                    android:layout_margin="10dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!--ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" /-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/scopeRobotTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivClose"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_robot_service_close"
+                        android:background="@color/white"
+                        android:visibility="invisible"
+                        android:contentDescription="@null"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintStart_toEndOf="@id/tvTitle"
+                        app:layout_constraintTop_toTopOf="@id/ivIcon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/ivIcon" />
+
+                    <ImageView
+                        android:id="@+id/ivIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="7dp"
+                        android:background="@color/white"
+                        android:contentDescription="@null"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tvTitle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:src="@drawable/ic_robot_service" />
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="@id/ivIcon"
+                        android:background="@color/white"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toStartOf="@id/ivClose"
+                        app:layout_constraintBottom_toBottomOf="@id/ivIcon"
+                        app:layout_constraintStart_toEndOf="@id/ivIcon"
+                        tools:text="@string/service_room_sectioned_robot_service" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--  內部訊息搜索功能  -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scopeSearch"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/scopeSectioned"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/searchRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--  Internal information search function, bottom control  -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/searchBottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/indicatorTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="0/0"
+                    tools:ignore="HardcodedText"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageButton
+                    android:id="@+id/downIV"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"
+                    android:src="@drawable/nav_bar_arrow_down"
+                    android:contentDescription="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/upIV"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/upIV"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/transparent"
+                    android:padding="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/nav_bar_arrow_up"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <tw.com.chainsea.chat.keyboard.media.MediaSelector2Layout
+                android:id="@+id/fun_media"
+                android:layout_width="0dp"
+                android:layout_height="155dp"
+                android:clipChildren="false"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chatKeyboardLayout" />
+
+
+            <!--        <tw.com.chainsea.chat.keyboard.emoticon.view.EmoticonLayout-->
+            <!--            android:id="@+id/emoticon_layout"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="300dp"-->
+            <!--            android:visibility="gone"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/chatKeyboardLayout"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+
+            <!--  底部檔案選取器(圖、影、其它) -->
+            <!--        <android.support.constraint.ConstraintLayout-->
+            <!--            android:id="@+id/bottomPickerCL"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:visibility="gone"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/chatKeyboardLayout">-->
+
+            <!--            <android.support.v7.widget.RecyclerView-->
+            <!--                android:id="@+id/optionRV"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="100dp"-->
+            <!--                app:layout_constraintBottom_toTopOf="@+id/optionControlCL"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--            <android.support.constraint.ConstraintLayout-->
+            <!--                android:id="@+id/optionControlCL"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:background="#FF0000"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/optionRV">-->
+
+            <!--            </android.support.constraint.ConstraintLayout>-->
+            <!--        </android.support.constraint.ConstraintLayout>-->
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLine"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.89" />
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scopeSectioned"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/sectionedTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="0dp"
+                    android:gravity="start|center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/icExtend"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="消息（消息中包含宋）n" />
+
+                <ImageView
+                    android:id="@+id/icExtend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_top"
+                    android:layout_marginHorizontal="10dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintStart_toEndOf="@id/sectionedTitle"
+                    app:layout_constraintTop_toTopOf="@id/sectionedTitle"
+                    app:layout_constraintBottom_toBottomOf="@id/sectionedTitle"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/emptyLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/scopeSectioned"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/scopeRetractTip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/scopeRetractTipText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/clFunctionList">
+
+                    <TextView
+                        android:id="@+id/tvTip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/item_name"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="12sp"
+                        android:paddingHorizontal="10dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/cbTip" />
+
+                    <CheckBox
+                        android:id="@+id/cbTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_no_more_remind"
+                        android:textColor="@color/item_name"
+                        android:layout_marginEnd="10dp"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tvTip" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clFunctionList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <Button
+                        android:id="@+id/btnEdit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btnRetract"
+                        android:background="@color/color_6BC2BA"
+                        android:layout_marginEnd="0.5dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:text="@string/text_edit" />
+
+                    <Button
+                        android:id="@+id/btnRetract"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@id/btnEdit"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="0.5dp"
+                        android:background="@color/color_6BC2BA"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/text_retract" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MultiplePeopleMainPageFragment">
+
+    <fragment
+        android:id="@+id/MultiplePeopleMainPageFragment"
+        android:name="tw.com.chainsea.chat.mainpage.view.MainPageFragment"
+        tools:layout="@layout/fragment_multiple_people_main_page">
+
+        <action
+            android:id="@+id/action_MultiplePeopleMainPageFragment_to_AllMembersFragment"
+            app:destination="@id/AllMembersFragment" />
+        <action
+            android:id="@+id/action_MultiplePeopleMainPageFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AllMembersFragment"
+        android:name="tw.com.chainsea.chat.ui.fragment.AllMembersFragment"
+        tools:layout="@layout/fragment_all_members">
+        <action
+            android:id="@+id/action_AllMembersFragment_to_MultiplePeopleMainPageFragment"
+            app:destination="@id/MultiplePeopleMainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="tw.com.chainsea.chat.ui.fragment.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
+</navigation>

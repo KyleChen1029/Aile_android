@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/cl_join_team_menu"
+        android:layout_width="128dp"
+        android:layout_height="146dp"
+        android:background="@mipmap/bg_menu_team"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/cl_join_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_join_team_menu_join"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingHorizontal="3dp"
+            android:text="@string/join_group"
+            android:textColor="@color/item_name"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/viewLine2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewLine2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="6dp"
+            android:background="@color/color_D8D8D8"
+            app:layout_constraintBottom_toTopOf="@id/tv_join_team_menu_create"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_join_team_menu_join" />
+
+        <TextView
+            android:id="@+id/tv_join_team_menu_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingHorizontal="3dp"
+            android:text="@string/create_group"
+            android:textColor="@color/item_name"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewLine2" />
+
+    </LinearLayout>
+</layout>

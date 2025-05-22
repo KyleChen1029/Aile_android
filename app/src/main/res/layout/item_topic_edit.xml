@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/civ_icon"
+            android:layout_width="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/res_check_list_circle_def"
+            app:civ_border_color="#82b2d3"
+            app:civ_circle_background_color="#82b2d3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/member_name" />
+
+
+        <TextView
+            android:id="@+id/member_name"
+            app:layout_constraintTop_toBottomOf="@+id/civ_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="內部訂閱"
+            tools:ignore="HardcodedText,SmallSp"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:singleLine="true"
+            android:ellipsize="end" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

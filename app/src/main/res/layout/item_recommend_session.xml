@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/list_item_avatar_size"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/px_12"
+        android:layout_marginEnd="@dimen/px_15"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radius_recommend_bg"
+        tools:ignore="UselessParent">
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/recommend_avatar"
+            android:layout_width="39dp"
+            android:background="@android:color/white"
+            android:layout_height="39dp"
+            android:layout_marginStart="5dp"
+            app:civ_circle_background_color="@android:color/white"
+            android:src="@drawable/custom_default_avatar" />
+
+        <TextView
+            android:id="@+id/recommend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/item_name"
+            android:layout_marginStart="10dp"
+            android:textSize="@dimen/list_item_title_size"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/recommend_close"
+            android:layout_width="@dimen/px_42"
+            android:layout_height="@dimen/px_42"
+            android:padding="@dimen/px_10"
+            android:contentDescription="@null"
+            android:layout_marginEnd="@dimen/px_15"
+            android:src="@drawable/recommend_close" />
+    </LinearLayout>
+
+</FrameLayout>

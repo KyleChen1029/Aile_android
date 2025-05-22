@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/toast_bg"
+    android:gravity="center_vertical"
+    android:padding="@dimen/px_30">
+
+    <TextView
+        android:id="@+id/toast_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/px_20"
+        android:layout_marginEnd="@dimen/px_20"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        tools:ignore="HardcodedText"
+        android:textSize="@dimen/title_size"
+        android:text="收藏成功" />
+
+</LinearLayout>

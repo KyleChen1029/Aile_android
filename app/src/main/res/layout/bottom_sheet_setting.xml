@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_todo_alarm_alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/btn_block"
+                android:text="封鎖"
+                tools:ignore="HardcodedText"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#4a4a4a"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+            <View
+                android:visibility="gone"
+                android:background="#d8d8d8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/btn_complaint"
+                android:text="檢舉"
+                tools:ignore="HardcodedText"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textColor="#4a4a4a"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_todo_alarm_alert"
+            android:id="@+id/btn_cancel"
+            android:text="取消"
+            tools:ignore="HardcodedText"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="#4a4a4a"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</layout>

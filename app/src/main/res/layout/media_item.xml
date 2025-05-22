@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/l"
+        android:layout_width="1dp"
+        android:layout_height="68dp"
+        android:visibility="gone"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/t"
+        android:layout_width="68dp"
+        android:visibility="gone"
+        android:layout_height="1dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_toEndOf="@id/l"
+        android:layout_below="@id/t"
+        android:background="@color/keyboard_root_input"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/media_item_image"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/media_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text=""
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/r"
+        android:layout_width="1dp"
+        android:layout_height="68dp"
+        android:layout_toEndOf="@+id/ll"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/b"
+        android:layout_width="68dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll"
+        android:background="@color/white" />
+</RelativeLayout>

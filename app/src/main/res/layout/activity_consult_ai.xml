@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clipChildren="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:clipChildren="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="?attr/secondaryColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/left_action"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:paddingVertical="10dp"
+                    android:src="@drawable/arrow_left"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/unread_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    tools:text="23"
+                    app:layout_constraintBottom_toBottomOf="@id/left_action"
+                    app:layout_constraintStart_toEndOf="@id/left_action"
+                    app:layout_constraintTop_toTopOf="@id/left_action" />
+
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:gravity="center"
+                    android:ellipsize="none"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <tw.com.chainsea.chat.keyboard.ChatKeyboardLayout
+                android:id="@+id/chatKeyboardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toTopOf="@+id/fun_media"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- 主聊天室 視窗 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="@android:color/white">
+
+                            <tw.com.chainsea.chat.widget.xrefreshlayout.XRefreshLayout
+                                android:id="@+id/xrefreshLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentBottom="true"
+                                android:layout_weight="1">
+
+                                <tw.com.chainsea.chat.messagekit.MessageRecyclerView
+                                    android:id="@+id/messageRV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@android:color/transparent"
+                                    android:choiceMode="multipleChoiceModal"
+                                    android:overScrollFooter="@android:color/transparent"
+                                    android:overScrollHeader="@android:color/transparent"
+                                    android:overScrollMode="never"
+                                    android:scrollbars="none" />
+
+                            </tw.com.chainsea.chat.widget.xrefreshlayout.XRefreshLayout>
+
+                            <tw.com.chainsea.custom.view.floating.DragImageFloatingButton
+                                android:id="@+id/difb_down"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|end"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:contentDescription="@null"
+                                android:visibility="gone"
+                                app:actionRes="@drawable/going_down"
+                                app:borderWidth="0dp"
+                                app:maxImageSize="30dp"
+                                app:moveAlpha=".0"
+                                app:stillRes="@drawable/going_down"
+                                app:useDrag="false"
+                                app:useMoveAlpha="false" />
+
+
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_quick_reply_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:overScrollFooter="@android:color/transparent"
+                            android:overScrollHeader="@android:color/transparent"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="10dp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <!-- 浮動時間 Toast -->
+                    <TextView
+                        android:id="@+id/floatTimeBoxTV"
+                        android:layout_width="124dp"
+                        android:layout_height="37dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/bg_float_time_defult"
+                        android:gravity="center"
+                        android:text="2019/11/01"
+                        tools:ignore="HardcodedText"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </tw.com.chainsea.chat.keyboard.ChatKeyboardLayout>
+
+
+            <tw.com.chainsea.chat.keyboard.media.MediaSelector2Layout
+                android:id="@+id/fun_media"
+                android:layout_width="0dp"
+                android:layout_height="155dp"
+                android:clipChildren="false"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chatKeyboardLayout" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

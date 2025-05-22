@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="tw.com.chainsea.ce.sdk.bean.room.ChatRoomEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+            android:id="@+id/ivAvatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginVertical="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@mipmap/ic_new_head" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivAvatar"
+            app:layout_constraintBottom_toTopOf="@id/tvLastMsg"
+            app:layout_constraintStart_toEndOf="@id/ivSlice"
+            app:layout_constraintEnd_toStartOf="@id/iv_mute"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textColor="@color/item_name"
+            android:textSize="17sp"
+            android:layout_marginStart="7dp"
+            tools:text="宋仲基"/>
+
+        <tw.com.chainsea.custom.view.image.CircleImageView
+            android:id="@+id/pinIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="?attr/civTopSmallIcon"
+            android:visibility="gone"
+            app:civ_circle_background_color="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+            app:layout_constraintEnd_toEndOf="@+id/ivAvatar" />
+
+        <TextView
+            android:id="@+id/tvLastMsg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintEnd_toStartOf="@id/tvUnread"
+            android:textColor="@color/hint_color"
+            android:textSize="14sp"
+            android:layout_marginStart="7dp"
+            android:ellipsize="end"
+            android:lines="1"
+            tools:text="宋仲基"/>
+
+        <ImageView
+            android:id="@+id/ivSlice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:visibility="gone"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toTopOf="@id/tvName"
+            app:layout_constraintBottom_toBottomOf="@id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintEnd_toStartOf="@id/tvName"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_mute"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_not_remind_blu_16dp"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/tvTime"
+            app:layout_constraintEnd_toStartOf="@+id/tvTime"
+            app:layout_constraintStart_toEndOf="@id/tvName"
+            app:layout_constraintBottom_toBottomOf="@id/tvTime"/>
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="6dp"
+            android:textColor="@color/hint_color"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_mute"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="14:25"/>
+
+        <TextView
+            android:id="@+id/tvUnread"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:background="@drawable/at_and_unread_bg"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:visibility="gone"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="20dp"
+            tools:text="0"
+            app:layout_constraintStart_toEndOf="@id/tvLastMsg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/customerChatRoomTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivAvatar"
+            app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+            app:layout_constraintStart_toEndOf="@id/ivSlice1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textColor="@color/item_name"
+            android:textSize="17sp"
+            android:layout_marginStart="5dp"
+            tools:text="宋仲基"/>
+
+        <ImageView
+            android:id="@+id/ivSlice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@null"
+            app:layout_constraintTop_toTopOf="@id/customerChatRoomTitle"
+            app:layout_constraintBottom_toBottomOf="@id/customerChatRoomTitle"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintEnd_toStartOf="@id/customerChatRoomTitle"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="customerChatRoomTitle, ivSlice1"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

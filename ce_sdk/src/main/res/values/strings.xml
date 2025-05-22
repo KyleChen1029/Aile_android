@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="todo_reminder_created_error" translatable="false">建立失敗</string>
+    <string name="todo_reminder_update_error" translatable="false">儲存失敗</string>
+    <string name="todo_reminder_delete_error" translatable="false">刪除失敗</string>
+    <string name="todo_reminder_continue" translatable="false">記事已恢復執行</string>
+    <string name="todo_reminder_done_error" translatable="false">操作失敗</string>
+    <string name="text_chat_room_title_format" translatable="false">%s (%d)</string>
+
+    <!--  api  -->
+    <string name="api_request_timed_out">請求超時</string>
+    <string name="api_connection_timed_out">連結超時</string>
+    <string name="api_there_no_internet_connection">當前無網絡連接，請檢查您的網絡</string>
+    <string name="find_not_found_by_local_database">查無本地資料</string>
+    <string name="data_loading_failed_please_check_network">數據加載失敗，請檢查網絡</string>
+
+    <!-- to-do   -->
+    <string name="todo_you_have_a_reminder_that_has_expired">您有一則記事已到期，</string>
+    <string name="todo_reminder_created">記事已建立</string>
+    <string name="todo_reminder_update">儲存成功</string>
+    <string name="todo_reminder_complete">記事已完成</string>
+    <string name="todo_do_not_remind">不提醒</string>
+    <string name="todo_restart_remind">繼續執行</string>
+    <string name="todo_edit_input_verify_alert">請輸入記事標題</string>
+    <string name="todo_edit_input_hint">請輸入記事標題</string>
+    <string name="todo_please_select_effective_reminder_time">請設定有效時間</string>
+    <string name="todo_overview_tab_execute">執行</string>
+    <string name="todo_overview_tab_release">下達</string>
+    <string name="todo_overview_tab_cooperation">協作</string>
+    <string name="todo_overview_tab_remind">記事</string>
+    <string name="todo_list_sectioned_expired">已逾期</string>
+    <string name="todo_list_sectioned_complete">已完成</string>
+    <string name="todo_list_sectioned_processing">執行中</string>
+    <string name="todo_unfinished">標示未完成</string>
+</resources>

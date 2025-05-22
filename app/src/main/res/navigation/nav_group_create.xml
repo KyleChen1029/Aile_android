@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/groupCreateFragment">
+
+    <fragment
+        android:id="@+id/groupCreateFragment"
+        android:name="tw.com.chainsea.chat.view.group.GroupCreateFragment"
+        android:label="GroupCreateFragment" >
+        <action
+            android:id="@+id/action_groupCreateFragment_to_groupCreateInfoFragment"
+            app:destination="@id/groupCreateInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupCreateInfoFragment"
+        android:name="tw.com.chainsea.chat.view.group.GroupCreateInfoFragment"
+        android:label="GroupCreateInfoFragment" />
+</navigation>

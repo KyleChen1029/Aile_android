@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/root"
+        android:orientation="vertical"
+        android:background="@drawable/bg_todo_alarm_alert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="請選擇下方罐頭語或輸入訊息"
+            tools:ignore="HardcodedText"
+            android:textSize="13sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="?android:attr/dividerHorizontal"
+            android:showDividers="beginning|middle|end"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/txt_input_count"
+            android:gravity="end"
+            android:layout_marginEnd="8dp"
+            android:text="0/50"
+            tools:ignore="HardcodedText"
+            android:textSize="15sp"
+            android:textColor="#4a4a4a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_message"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingStart="17dp"
+            android:paddingEnd="17dp"
+            android:background="@drawable/bg_dialog_transfer_input"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textColorHint="#9b9b9b"
+            android:hint="請自行輸入訊息"
+            tools:ignore="HardcodedText"
+            android:maxLength="50"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_marginTop="5dp"
+            android:background="#d4d4d4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/btn_submit"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="#0076ff"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:text="送出"
+            tools:ignore="HardcodedText" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

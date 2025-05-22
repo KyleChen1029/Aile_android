@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tw.com.chainsea.custom.view.kprogresshud.BackgroundLayout xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/background"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@drawable/bg_progressbar_radius_8_f8f6f8"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="20dp"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/label"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#4a4a4a"
+        android:textSize="16sp"
+        android:text="上傳成功，更新資料中"
+        tools:ignore="HardcodedText"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/details_label"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="13sp" />
+</tw.com.chainsea.custom.view.kprogresshud.BackgroundLayout>

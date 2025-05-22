@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/serviceNumberConsultColor" />
+            <size
+                android:width="35dp"
+                android:height="35dp" />
+        </shape>
+    </item>
+
+    <item
+        android:drawable="@drawable/consult_white"
+        android:height="18dp"
+        android:gravity="center"
+        android:width="18dp">
+    </item>
+</layer-list>
+
+
+    <!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:shape="rectangle">-->
+    <!--<corners android:radius="10dp"/>-->
+    <!--<solid android:color="#439aff"/>-->
+    <!--</shape>-->

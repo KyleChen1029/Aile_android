@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_no_internet"
+    android:layout_width="match_parent"
+    android:layout_height="25dp"
+    android:background="#FEDADA"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="@dimen/px_55"
+        android:layout_height="@dimen/px_55"
+        android:layout_marginStart="@dimen/px_25"
+        android:contentDescription="@null"
+        android:src="@drawable/warn" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px_15"
+        android:layout_weight="1"
+        android:text="目前沒有可用的網路連線，請檢查網路設置"
+        tools:ignore="HardcodedText"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:layout_width="@dimen/px_45"
+        android:layout_height="@dimen/px_45"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"
+        android:src="@drawable/arrow_right_gary" />
+</LinearLayout>

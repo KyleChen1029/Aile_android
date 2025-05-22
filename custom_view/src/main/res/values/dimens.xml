@@ -1,0 +1,50 @@
+<resources tools:ignore="ResourceName" xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Title text size-->
+    <dimen name="textSize_alert_title">16sp</dimen>
+    <dimen name="textSize_actionsheet_title">14sp</dimen>
+    <!-- Title text height-->
+    <dimen name="height_alert_title">60dp</dimen>
+    <dimen name="height_alert_Message">70dp</dimen>
+    <!--Message text size-->
+    <dimen name="textSize_alert_msg">14sp</dimen>
+    <dimen name="textSize_actionsheet_msg">14sp</dimen>
+    <!--The distance between the message and the bottom-->
+    <dimen name="marginTop_alert_msg">20dp</dimen>
+    <dimen name="marginBottom_alert_msg">25dp</dimen>
+    <dimen name="marginStart_alert_msg">20dp</dimen>
+    <dimen name="marginEnd_alert_msg">20dp</dimen>
+    <dimen name="marginBottom_actionsheet_msg">14dp</dimen>
+    <!--The distance between the left and right sides of the window mode to the screen-->
+    <dimen name="margin_alert_left_right">40dp</dimen>
+    <dimen name="margin_actionsheet_left_right">10dp</dimen>
+    <!--Line thickness-->
+    <dimen name="size_divier">1dp</dimen>
+    <!--The height of the button-->
+    <dimen name="height_alert_button">48dp</dimen>
+    <!--Button text size-->
+    <dimen name="textSize_alert_button">18sp</dimen>
+    <!--Text size of button with picture-->
+    <dimen name="image_textSize_alert_button">17sp</dimen>
+    <!--Rounded corners-->
+    <dimen name="radius_alertview">5dp</dimen>
+
+
+    <!-- ===============================================================
+     Resources android-simple-tooltip.
+     =============================================================== -->
+    <eat-comment />
+
+    <dimen name="simpletooltip_overlay_offset">10dp</dimen>
+    <dimen name="simpletooltip_margin">10dp</dimen>
+    <dimen name="simpletooltip_padding">8dp</dimen>
+    <dimen name="simpletooltip_arrow_width">30dp</dimen>
+    <dimen name="simpletooltip_arrow_height">15dp</dimen>
+    <dimen name="simpletooltip_animation_padding">4dp</dimen>
+
+
+    <dimen name="WheelItemTextSize">24sp</dimen>
+    <dimen name="WheelItemSpace">12dp</dimen>
+    <dimen name="WheelIndicatorSize">2dp</dimen>
+
+</resources>

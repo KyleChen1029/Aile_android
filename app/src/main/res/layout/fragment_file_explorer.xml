@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.base.HomeActivity">
+
+    <RelativeLayout
+        android:id="@+id/explorer_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:background="@color/grey_light"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/explorer_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:padding="10dp"
+            android:background="@drawable/send_button_bg"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true"
+            android:text="發送(0)"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_above="@id/explorer_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="45dp"
+    android:height="46dp"
+    android:viewportWidth="45"
+    android:viewportHeight="46">
+  <path
+      android:strokeWidth="1"
+      android:pathData="M22.5,22.931m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"
+      android:fillColor="#00000000"
+      android:strokeColor="#979797"
+      android:fillType="evenOdd"/>
+  <group>
+    <clip-path
+        android:pathData="M22.5,22.931m-22.5,0a22.5,22.5 0,1 1,45 0a22.5,22.5 0,1 1,-45 0"/>
+    <path
+        android:pathData="M22.5,22.931m-22.5,0a22.5,22.5 0,1 1,45 0a22.5,22.5 0,1 1,-45 0"
+        android:fillType="evenOdd">
+      <aapt:attr name="android:fillColor">
+        <gradient 
+            android:startX="9.768"
+            android:startY="0.431"
+            android:endX="34.151"
+            android:endY="40.691"
+            android:type="linear">
+          <item android:offset="0" android:color="#FF96D6FF"/>
+          <item android:offset="1" android:color="#FF65BCED"/>
+        </gradient>
+      </aapt:attr>
+    </path>
+  </group>
+  <path
+      android:pathData="M21.56,11.431h3.271v24H21.56z"
+      android:fillColor="#FFF"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M35,24.986v-2.995H11v2.995"
+      android:fillColor="#FFF"
+      android:fillType="evenOdd"/>
+</vector>

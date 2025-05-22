@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/activity_clip_imge"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionBarSize"
+            android:background="#1C1C1C">
+            <!--        android:background="#173070">-->
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/page_back_size"
+                android:layout_height="@dimen/page_back_size"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="@dimen/page_back_padding"
+                android:paddingTop="@dimen/page_back_padding"
+                android:paddingEnd="@dimen/page_back_padding"
+                android:paddingBottom="@dimen/page_back_padding"
+                android:src="@drawable/arrow_left" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/warning_move_and_zoom"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <!--圆形裁剪框示例
+            app:clipBorderWidth="5dp"     ： 裁剪框边框宽度
+            app:clipType="circle"         ： 裁剪框类型为圆形
+            app:mHorizontalPadding="30dp" ：裁剪框距离左右边距为30dp
+         -->
+        <tw.com.chainsea.chat.widget.clipView.ClipViewLayout
+            android:id="@+id/clip_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:clipBorderWidth="5dp"
+            app:clipType="rectangle"
+            app:mHorizontalPadding="30dp" />
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#1C1C1C">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/bt_ok"
+                android:gravity="center_vertical|start"
+                android:paddingHorizontal="15dp"
+                android:text="@string/alert_cancel"
+                android:textColor="#ffffff"
+                android:textSize="11sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/bt_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical|end"
+                android:paddingHorizontal="15dp"
+                android:text="@string/alert_confirm"
+                android:textColor="#ffffff"
+                android:textSize="11sp"
+                tools:ignore="RelativeOverlap" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

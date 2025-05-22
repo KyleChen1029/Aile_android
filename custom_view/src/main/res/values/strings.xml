@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+    <!-- 2020/12/07 1.14.0 up  -->
+    <!-- connom -->
+    <!-- alert view-->
+    <string name="alert_prompt">提示</string>
+    <string name="alert_confirm">確定</string>
+    <string name="alert_delete">刪除</string>
+    <string name="alert_cancel">取消</string>
+    <string name="alert_clear">清除</string>
+    <string name="alert_save">儲存</string>
+    <string name="alert_delay_time">延時</string>
+    <string name="alert_complete">完成</string>
+    <string name="alert_unfinished">未完成</string>
+    <string name="alert_custom">自訂</string>
+    <string name="alert_next">下一步</string>
+    <string name="alert_preview">預覽</string>
+    <string name="alert_share">分享</string>
+    <string name="alert_delete_double_check">確認刪除</string>
+    <string name="alert_logout">登出 Aile</string>
+    <string name="alert_logout_remind">登出後會清除您手機端的所有Aile資料。確定要登出嗎？</string>
+    <string name="alert_sms_resend">距離重新發送時間還有</string>
+
+    <string name="warning_update_failed">更新失敗</string>
+    <string name="warning_delete_failed">刪除失敗</string>
+    <string name="warning_plug_in_earphone">插入耳機</string>
+    <string name="warning_want_to_delete_this_chat_room">是否刪除該聊天？</string>
+    <string name="warning_copied">已複製</string>
+    <string name="warning_empry"> </string>
+    <string name="warning_move_and_zoom">移動和縮放</string>
+    <string name="text_member_deleted_yes" translatable="false" tools:ignore="ResourceName">是</string>
+    <string name="text_member_deleted_no" translatable="false" tools:ignore="ResourceName">否</string>
+</resources>

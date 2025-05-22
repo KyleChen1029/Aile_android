@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_alertview_alert"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/include_alertheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ViewStub
+        android:id="@+id/viewStubHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/layout_alertview_alert_horizontal" />
+
+    <ViewStub
+        android:id="@+id/viewStubVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/layout_alertview_alert_vertical" />
+
+    <TextView
+        android:id="@+id/tvAlertCancel"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/margin_actionsheet_left_right"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_alert_button"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="@drawable/bg_top_line_gary"
+        android:textColor="@color/textColor_alert_button_cancel"
+        android:textStyle="bold"
+        android:text=""
+        android:textSize="@dimen/textSize_alert_button" />
+
+</LinearLayout>

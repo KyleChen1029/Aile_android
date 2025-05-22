@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EFEFF4"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_back_grey" />
+
+            <TextView
+                android:id="@+id/txt_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:text="取消"
+                tools:ignore="HardcodedText"
+                android:textColor="#2AC72A"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/txt_cancel"
+                android:layout_toEndOf="@+id/img_back"
+                android:gravity="center_vertical">
+
+                <!--<ImageView
+                    android:id="@+id/search"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_search_grey"/>-->
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/base_top_rich_menu_search"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/small_distance"
+                    android:layout_marginEnd="@dimen/small_distance"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:textColor="@color/gray_hint"
+                    app:drawableStartCompat="@drawable/ic_serarch"
+                    android:background="@drawable/rectangle_bg"
+                    android:singleLine="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/small_distance" />
+
+                <ImageView
+                    android:id="@+id/img_detele"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:contentDescription="@null"
+                    android:padding="5dp"
+                    android:src="@drawable/selector_delete_grey" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_history"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txt_no_result"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="沒有更多的搜索結果"
+            tools:ignore="HardcodedText"
+            android:visibility="gone" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".searchfilter.view.fragment.CommunityFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scopeSectioned"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/sectionedTitle"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:gravity="start|center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/icExtend"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="服務號（聊天室名稱、成員姓名或備註名中包含宋）n"/>
+
+            <ImageView
+                android:id="@+id/icExtend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_top"
+                android:layout_marginHorizontal="10dp"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toEndOf="@id/sectionedTitle"
+                app:layout_constraintTop_toTopOf="@id/sectionedTitle"
+                app:layout_constraintBottom_toBottomOf="@id/sectionedTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCommunityChatRoomList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/scopeSectioned"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <include layout="@layout/data_not_found"
+            android:id="@+id/scopeNoData"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

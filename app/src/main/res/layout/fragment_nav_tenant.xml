@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/sideBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_team"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/sideBar"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/divide1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginStart="10dp"
+                    android:text="現在團隊"
+                    tools:ignore="HardcodedText"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_current_tem"
+                    android:layout_width="match_parent"
+                    android:layout_height="83dp"
+                    android:background="?attr/primaryColor">
+
+                    <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                        android:id="@+id/img"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/txt_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_unread"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_unread_red"
+                        android:gravity="center"
+                        android:paddingStart="3dp"
+                        android:paddingEnd="3dp"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/img"
+                        app:layout_constraintTop_toTopOf="@+id/img" />
+
+                    <TextView
+                        android:id="@+id/txt_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="start|center_vertical"
+                        android:maxLines="2"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/img"
+                        app:layout_constraintEnd_toStartOf="@+id/iv_invite"
+                        app:layout_constraintStart_toEndOf="@+id/img"
+                        app:layout_constraintTop_toTopOf="@+id/img" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/icon_setting"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_invite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/ic_invite_to_join"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/iv_manager"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_other_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="其他團隊"
+                    tools:ignore="HardcodedText"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/layout_others"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/divide1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/primaryColor"
+            app:layout_constraintBottom_toTopOf="@id/tv_setting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_team" />
+
+        <TextView
+            android:id="@+id/tv_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="11dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/system_setting_title"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:drawableStartCompat="@drawable/icon_setting"
+            app:layout_constraintBottom_toTopOf="@id/divide2"
+            app:layout_constraintTop_toBottomOf="@+id/divide1" />
+
+        <View
+            android:id="@+id/divide2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/primaryColor"
+            app:layout_constraintBottom_toTopOf="@id/tv_report"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_setting" />
+
+        <TextView
+            android:id="@+id/tv_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="11dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/repair"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:drawableStartCompat="@drawable/icon_mail_mail"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divide2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

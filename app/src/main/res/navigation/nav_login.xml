@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/loginCpFragment">
+
+    <fragment
+        android:id="@+id/loginCpFragment"
+        android:name="tw.com.chainsea.chat.refactor.loginPage.loginCpFragment.LoginCpFragment"
+        android:label="LoginCpFragment"
+        tools:layout="@layout/fragment_login_phone">
+        <action
+            android:id="@+id/action_loginCpFragment_to_loginRegisterFragment"
+            app:destination="@id/loginRegisterFragment" />
+        <action
+            android:id="@+id/action_loginCpFragment_to_loginSmsFragment"
+            app:destination="@id/loginSmsFragment" />
+
+        <action
+            android:id="@+id/action_loginCpFragment_to_loginCreateOrJoinFragment"
+            app:destination="@id/loginCreateOrJoinFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginRegisterFragment"
+        android:name="tw.com.chainsea.chat.view.login.LoginRegisterFragment"
+        android:label="LoginRegisterFragment"
+        tools:layout="@layout/fragment_login_register">
+        <action
+            android:id="@+id/action_loginRegisterFragment_to_loginCreateOrJoinFragment"
+            app:destination="@id/loginCreateOrJoinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginSmsFragment"
+        android:name="tw.com.chainsea.chat.view.login.LoginSmsFragment"
+        android:label="LoginSmsFragment"
+        tools:layout="@layout/fragment_login_sms">
+        <action
+            android:id="@+id/action_loginSmsFragment_to_loginCreateOrJoinFragment"
+            app:destination="@id/loginCreateOrJoinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginCreateOrJoinFragment"
+        android:name="tw.com.chainsea.chat.view.login.LoginCreateOrJoinFragment"
+        android:label="LoginCreateOrJoinFragment"
+        tools:layout="@layout/fragment_create_or_join">
+        <action
+            android:id="@+id/action_loginCreateOrJoinFragment_to_loginCreateGuideFragment"
+            app:destination="@id/loginCreateGuideFragment" />
+        <action
+            android:id="@+id/action_loginCreateOrJoinFragment_to_loginJoinGuideFragment"
+            app:destination="@id/loginJoinGuideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginCreateGuideFragment"
+        android:name="tw.com.chainsea.chat.view.login.LoginCreateGuideFragment"
+        android:label="LoginCreateGuideFragment"
+        tools:layout="@layout/fragment_create_guide" />
+    <fragment
+        android:id="@+id/loginJoinGuideFragment"
+        android:name="tw.com.chainsea.chat.view.login.LoginJoinGuideFragment"
+        android:label="LoginJoinGuideFragment"
+        tools:layout="@layout/fragment_join_guide" />
+</navigation>

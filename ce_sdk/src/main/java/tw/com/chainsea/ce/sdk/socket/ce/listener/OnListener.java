@@ -1,0 +1,37 @@
+package tw.com.chainsea.ce.sdk.socket.ce.listener;
+
+import java.util.Arrays;
+import java.util.Iterator;
+
+import io.socket.emitter.Emitter;
+import tw.com.chainsea.android.common.json.JsonHelper;
+import tw.com.chainsea.android.common.system.ThreadExecutorHelper;
+import tw.com.chainsea.android.common.log.CELog;
+
+/**
+ * current by evan on 2020-10-28
+ *
+ * @author Evan Wang
+ * @date 2020-10-28
+ */
+public abstract class OnListener implements Emitter.Listener {
+    private String event;
+
+    public OnListener(String event) {
+        this.event = event;
+    }
+
+    public abstract void call(String data);
+
+    @Override
+    public void call(Object... args) {
+        ThreadExecutorHelper.getSocketExecutor().execute(() -> {
+            Iterator iterator = Arrays.asList(args).iterator();
+            while (iterator.hasNext()) {
+                Object obj = iterator.next();
+                call("");
+                CELog.i(this.event + " call::: ", JsonHelper.getInstance().toJson(obj));
+            }
+        });
+    }
+}

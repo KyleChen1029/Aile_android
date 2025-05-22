@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <tw.com.chainsea.chat.view.contact.CustomEasySwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout_swip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:contentView="@+id/cl_content_item"
+        app:rightMenuView="@+id/ll_right_menu">
+
+        <!--  Center Content Layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_content_item"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@android:color/white">
+
+            <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                android:id="@+id/civ_icon"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/default_avatar"
+                app:civ_circle_background_color="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxEms="8"
+                android:maxLines="1"
+                android:textColor="#4A4A4A"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_mood"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/civ_icon"
+                app:layout_constraintTop_toTopOf="@+id/civ_icon" />
+
+            <TextView
+                android:id="@+id/tv_mood"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxEms="8"
+                android:maxLines="1"
+                android:textColor="#8f8e94"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/civ_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/civ_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--  Right menu rightMenu  -->
+        <LinearLayout
+            android:id="@+id/ll_right_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_home"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="#D8D8D8"
+                android:gravity="center"
+                android:padding="18dp"
+                app:srcCompat="@drawable/icon_home" />
+
+        </LinearLayout>
+    </tw.com.chainsea.chat.view.contact.CustomEasySwipeMenuLayout>
+</layout>
+
+
+
+
+
+

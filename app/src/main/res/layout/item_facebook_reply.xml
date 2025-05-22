@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_facebook_image"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_default_picture_message"
+            android:maxWidth="133dp"
+            android:maxHeight="127dp"
+            android:visibility="gone"
+            app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+            android:scaleType="fitXY" />
+
+        <tw.com.chainsea.chat.keyboard.ChatTextView
+            android:id="@+id/tv_origin_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/item_name"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(貼文已刪除)"
+            tools:ignore="HardcodedText"
+            android:textColor="@color/hint_color" />
+
+
+    </LinearLayout>
+</layout>

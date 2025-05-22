@@ -1,0 +1,175 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="android:colorBackground">@color/black</item>-->
+    </style>
+
+    <style name="NoTitleTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/MyWindowAnimTheme</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AiffTheme" parent="Theme.AppCompat.Dialog">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="DefaultCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/default_checkbox_style</item>
+    </style>
+
+    <style name="GreenWhiteCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/green_white_checkbox_style</item>
+    </style>
+
+    <style name="CheckboxThemeWithGreen" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/green_gray_checkbox_style</item>
+    </style>
+
+
+    <style name="WelcomeTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="secondaryColor">@color/colorPrimary</item>
+        <!--item name="colorPrimaryDark">@color/colorPrimaryDark</item-->
+        <item name="android:windowFullscreen">false</item>
+        <!--item name="android:windowBackground">@drawable/app_intro_bg</item-->
+    </style>
+
+
+    <!--    <style name="Transparent" parent="Theme.AppCompat.Light.NoActionBar">-->
+    <!--        <item name="android:windowIsTranslucent">false</item>-->
+    <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+    <!--        <item name="android:windowIsFloating">true</item>-->
+    <!--        <item name="android:windowContentOverlay">@null</item>-->
+    <!--        <item name="android:windowNoTitle">true</item>-->
+    <!--        <item name="android:backgroundDimEnabled">false</item>-->
+    <!--    </style>-->
+    <!--    <item name="android:immersive">true</item>-->
+    <!--    <item name="android:windowFullscreen">true</item>-->
+
+    <style name="MyWindowAnimTheme">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="ios_bottom_dialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--背景透明度-->
+        <item name="android:backgroundDimAmount">0.2</item>
+    </style>
+
+    <style name="ios_bottom_dialog_anim" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/ios_dialog_enter</item>
+        <!-- 進入时的动画 -->
+        <item name="android:windowExitAnimation">@anim/ios_dialog_exit</item>
+        <!-- 退出时的动画 -->
+    </style>
+
+    <!-- 弹窗动画 由下至上 -->
+    <style name="fade_dialog_anim" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/fade_in_center</item>
+        <!-- 進入时的动画 -->
+        <item name="android:windowExitAnimation">@anim/fade_out_center</item>
+        <!-- 退出时的动画 -->
+    </style>
+
+    <!-- 联络人列表icon   -->
+    <style name="DividerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#efeff4</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="avatar">
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="avatar.left" parent="avatar">
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="avatar.right" parent="avatar">
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="name.left">
+        <item name="android:layout_below">@+id/msg_avatar_left</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="name.right">
+        <item name="android:layout_below">@id/msg_avatar_right</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--    <declare-styleable name="ExpandableTextView">-->
+    <!--        <attr name="maxCollapsedLines" format="integer" />-->
+    <!--        <attr name="animDuration" format="integer" />-->
+    <!--        <attr name="animAlphaStart" format="float" />-->
+    <!--        <attr name="expandDrawable" format="string" />-->
+    <!--        <attr name="collapseDrawable" format="string" />-->
+    <!--    </declare-styleable>-->
+
+    <style name="NoTitleTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AlarmAlertTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="WelcomeTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--    <declare-styleable name="MaxHeightRecyclerView">-->
+    <!--        <attr name="maxHeight" format="dimension" />-->
+    <!--    </declare-styleable>-->
+
+
+    <!--    <style name="Theme.SearchView" parent="Base.Widget.AppCompat.SearchView">-->
+    <!--        <item name="searchIcon">@drawable/search_icon</item>-->
+    <!--        <item name="closeIcon">@drawable/icon_search_bar_dismiss</item>-->
+    <!--        ·<item name="queryHint">請輸入搜尋文字</item>-->
+    <!--        &lt;!&ndash;<item name="queryBackground">@drawable/background</item>&ndash;&gt;-->
+    <!--    </style>-->
+
+    <style name="roundedCornersImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+</resources>
+
+

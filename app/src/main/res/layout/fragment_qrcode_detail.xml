@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/distance_30"
+            android:layout_marginTop="@dimen/distance_16">
+
+            <tw.com.chainsea.custom.view.image.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_distance"
+                android:layout_marginTop="@dimen/small_distance"
+                android:layout_toEndOf="@id/iv_avatar"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textSize="@dimen/item_text_size" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/qr_code"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:layout_marginBottom="@dimen/distance_20"
+            android:layout_marginTop="@dimen/distance_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/distance_20"
+            tools:ignore="HardcodedText"
+            android:text="請掃描上方二維碼，加入服務號清單" />
+
+    </LinearLayout>
+</layout>

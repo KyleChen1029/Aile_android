@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.service.ServiceNumberManageActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--  toolBar  -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="#6BC2BA"
+                app:layout_constraintBottom_toTopOf="@+id/rv_summary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/left_action"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/arrow_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="-0.02"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/right_action"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/setup"
+                    android:visibility="gone"
+                    android:contentDescription="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/rv_summary"
+                android:layout_width="match_parent"
+                android:layout_height="270dp"
+                android:background="@drawable/slider_05"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_tool_bar" />
+
+
+            <TextView
+                android:id="@+id/tv_service_number_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:maxLines="1"
+                android:text="服務號名稱"
+                tools:ignore="HardcodedText"
+                android:textAlignment="center"
+                android:textColor="#030303"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/civ_service_avatar" />
+
+            <ImageView
+                android:id="@+id/iv_edit_service_number_name"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:visibility="gone"
+                android:src="@drawable/edit_gray"
+                android:layout_marginStart="5dp"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toEndOf="@+id/tv_service_number_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_service_number_name"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_service_number_name" />
+
+            <LinearLayout
+                android:id="@+id/ll_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:ignore="UseCompoundDrawables"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/gl_right"
+                app:layout_constraintStart_toStartOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@+id/tv_service_number_name">
+
+                <TextView
+                    android:id="@+id/tv_service_number_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="20dp"
+                    android:text="服務號說明文字服務號說明文字"
+                    tools:ignore="HardcodedText"
+                    android:textColor="#9B9B9B"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/iv_edit_service_number_content_2"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/edit_gray"
+                    android:contentDescription="@null"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_edit_service_number_content"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="5dp"
+                android:visibility="gone"
+                android:src="@drawable/edit_gray"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_content"
+                app:layout_constraintStart_toEndOf="@+id/ll_content"
+                app:layout_constraintTop_toTopOf="@+id/ll_content" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_member_sectioned"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                app:layout_constraintBottom_toTopOf="@+id/rv_member_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_content">
+
+                <TextView
+                    android:id="@+id/tv_service_member_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
+                    android:text="服務號成員"
+                    tools:ignore="HardcodedText"
+                    android:textColor="#4a4a4a"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.legacy.widget.Space
+                    android:id="@+id/sp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_member_all"
+                    app:layout_constraintStart_toEndOf="@+id/tv_service_member_count"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tv_member_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="3dp"
+                    android:paddingStart="0dp"
+                    android:text="查看所有成員"
+                    tools:ignore="HardcodedText"
+                    android:textColor="#4a4a4a"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@+id/sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_member_all"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/iv_member_all"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/arrow_right_gary"
+                    app:layout_constraintStart_toEndOf="@+id/tv_member_all"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_member_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:overScrollFooter="@android:color/transparent"
+                android:overScrollHeader="@android:color/transparent"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_member_sectioned" />
+
+            <tw.com.chainsea.ce.sdk.customview.AvatarIcon
+                android:id="@+id/civ_service_avatar"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                android:background="@android:color/transparent"
+                android:src="@drawable/custom_default_avatar"
+                app:civ_circle_background_color="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/rv_summary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_summary" />
+
+            <ImageView
+                android:id="@+id/iv_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_camera_cam"
+                android:visibility="gone"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="@+id/civ_service_avatar"
+                app:layout_constraintBottom_toBottomOf="@+id/civ_service_avatar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

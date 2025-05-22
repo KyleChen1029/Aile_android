@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#53bbfd" />
+            <size
+                android:width="20dp"
+                android:height="20dp" />
+        </shape>
+    </item>
+
+    <item
+        android:drawable="@drawable/inputbar_add_media"
+        android:gravity="center"
+        android:width="10dp"
+        android:height="10dp" />
+
+
+</layer-list>

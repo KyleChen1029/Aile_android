@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatRadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="15dp"
+    android:textSize="17sp"
+    android:textDirection="ltr"
+    android:layoutDirection="rtl"
+    android:button="?attr/radioButtonTransferResource"
+    android:layout_width="match_parent"
+    android:layout_height="50dp" />

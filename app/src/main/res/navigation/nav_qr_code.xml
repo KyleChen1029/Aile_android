@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_qr_code"
+    app:startDestination="@id/qrCodeFragment">
+
+    <fragment
+        android:id="@+id/qrCodeFragment"
+        android:name="tw.com.chainsea.chat.view.qrcode.QrCodeFragment"
+        android:label="QrCodeFragment" >
+    </fragment>
+</navigation>

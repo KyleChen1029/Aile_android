@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="160dp"
+    android:background="@drawable/radius_rectangle_bg">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="請輸入內容"
+        tools:ignore="HardcodedText"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/title_size"
+        android:textColor="@color/black"
+        android:padding="@dimen/medium_distance" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_layout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="@dimen/distance_16"
+        android:layout_marginEnd="@dimen/distance_16"
+        android:gravity="center_vertical"
+        android:hint="內容"
+        android:inputType="text"
+        tools:ignore="HardcodedText"
+        android:maxLines="1"
+        android:maxEms="20"
+        android:paddingTop="@dimen/px_20"
+        android:paddingBottom="@dimen/px_20"
+        android:singleLine="true"
+        android:background="@drawable/selector_stroke"
+        android:textColor="@color/gray_title"
+        android:textSize="@dimen/title_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/px_20"
+        android:background="@drawable/base_horizontal_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取消"
+            tools:ignore="HardcodedText"
+            android:textColor="@color/text_color_green_013ADF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#D5D5D5" />
+
+        <TextView
+            android:id="@+id/btn_yes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="完成"
+            tools:ignore="HardcodedText"
+            android:textColor="@color/text_color_green_013ADF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>
