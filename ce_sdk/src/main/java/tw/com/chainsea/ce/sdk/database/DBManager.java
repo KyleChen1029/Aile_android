@@ -54,11 +54,16 @@ public class DBManager {
     public boolean isChangingTenant = false;
 
     public SQLiteDatabase openDatabase() {
-        if (!isChangingTenant) {
-            if (SdkLib.dbHelper == null) {
-                close();
-                initDB();
-                if (SdkLib.dbHelper != null) {
+        if (isChangingTenant) {
+            CELog.d("TenantSwitch", "DBManager.openDatabase: Denied open because isChangingTenant is true.");
+            return null;
+        }
+        // if (!isChangingTenant) { // Condition already handled by the return above
+        if (SdkLib.dbHelper == null) {
+            CELog.d("TenantSwitch", "DBManager.openDatabase: dbHelper is null, will re-initialize.");
+            close(); // Ensure any lingering state is cleared if dbHelper is null unexpectedly
+            initDB();
+            if (SdkLib.dbHelper != null) {
                     return SdkLib.dbHelper.getWritableDatabase();
                 }
             } else {
@@ -86,12 +91,18 @@ public class DBManager {
     }
 
     public void initDB() {
-        if (!isChangingTenant) {
-            CELog.d("[DB init]");
-            selfId = TokenPref.getInstance(SdkLib.getAppContext()).getUserId();
-            dataBaseName = selfId + ".db";
-            CELog.d("dataBaseName = " + dataBaseName);
-            if (dataBaseName == null || ".db".equals(dataBaseName)) {
+        if (isChangingTenant) { // Though openDatabase should prevent this, double-check
+            CELog.w("TenantSwitch", "DBManager.initDB: Called while isChangingTenant is true. Aborting initDB.");
+            return;
+        }
+        // if (!isChangingTenant) { // Original condition, now handled by early return
+        CELog.d("TenantSwitch", "DBManager.initDB: Starting initialization.");
+        selfId = TokenPref.getInstance(SdkLib.getAppContext()).getUserId();
+        CELog.d("TenantSwitch", "DBManager.initDB: Initializing DB for selfId (UserID): " + selfId);
+        dataBaseName = selfId + ".db";
+        CELog.d("TenantSwitch", "DBManager.initDB: Database name set to: " + dataBaseName);
+        // CELog.d("dataBaseName = " + dataBaseName); // Original log, replaced by more specific one
+        if (dataBaseName == null || ".db".equals(dataBaseName)) {
                 CELog.d("[unused DB]");
                 return;
             }
@@ -1806,6 +1817,8 @@ public class DBManager {
     }
 
     public void close() {
+        String currentDbName = dataBaseName; // Capture before nulling
+        CELog.d("TenantSwitch", "DBManager.close: Closing database. Current dataBaseName was: " + currentDbName);
         dataBaseName = null;
         if (SdkLib.dbHelper != null) {
             SdkLib.dbHelper.close();
@@ -1814,7 +1827,8 @@ public class DBManager {
         if (INSTANCE != null) {
             INSTANCE = null;
         }
-        CELog.d("DB", "[DB close]");
+        CELog.d("TenantSwitch", "DBManager.close: DBHelper and INSTANCE nulled.");
+        // CELog.d("DB", "[DB close]"); // Original log, replaced by more specific one
     }
 
     public String queryCustomBossServiceId(String customerId) {

@@ -72,6 +72,9 @@ public class SystemKit {
      * 登入CE該存儲的資訊
      */
     public static void saveCEInfo(AileTokenApply.Resp resp) {
+        String currentUserIdFromTokenPref = TokenPref.getInstance(App.getContext()).getUserId();
+        CELog.d("TenantSwitch", "saveCEInfo: Saving info for new tenant. Current UserID from TokenPref: " + currentUserIdFromTokenPref);
+
         ArrayList<AileTokenApply.Resp.AiffInfo> aiffInfo = resp.getAiffInfo();
         if (aiffInfo != null) {
             AiffDB db = AiffDB.getInstance(App.getContext());
@@ -125,18 +128,22 @@ public class SystemKit {
 
         AileTokenApply.Resp.User user = resp.getUser();
         if (user != null) {
-            TokenPref.getInstance(App.getContext()).setUserId(user.getId()).setUserResp(user);
+            // The following call was made redundant by changes in changeTenant's onSuccess callback:
+            // TokenPref.getInstance(App.getContext()).setUserId(user.getId()).setUserResp(user);
             if (user.getUserType() != null) UserPref.getInstance(App.getContext()).saveUserType(user.getUserType().getUserType());
+            CELog.d("TenantSwitch", "saveCEInfo: About to call DBManager.insertUserAndFriends for UserID: " + user.getId());
             DBManager.getInstance().insertUserAndFriends(new UserProfileEntity(user));
         }
-        AileTokenApply.Resp.TenantInfo tenantInfo = resp.getTenantInfo();
-        if (tenantInfo != null) {
-            TokenPref.getInstance(App.getContext()).setTenantInfo(tenantInfo);
-        }
+        // The following block was made redundant by changes in changeTenant's onSuccess callback:
+        // AileTokenApply.Resp.TenantInfo tenantInfo = resp.getTenantInfo();
+        // if (tenantInfo != null) {
+        //     TokenPref.getInstance(App.getContext()).setTenantInfo(tenantInfo);
+        // }
 
-        if (resp.getAuthToken() != null && !resp.getAuthToken().isEmpty()) {
-            TokenPref.getInstance(App.getContext()).setCEAuthToken(resp.getAuthToken());
-        }
+        // The following block was made redundant by changes in changeTenant's onSuccess callback:
+        // if (resp.getAuthToken() != null && !resp.getAuthToken().isEmpty()) {
+        //     TokenPref.getInstance(App.getContext()).setCEAuthToken(resp.getAuthToken());
+        // }
 
     }
 
@@ -144,7 +151,7 @@ public class SystemKit {
      * 登出CE不呼叫API, 只釋放資源和清除暫存資料
      */
     public static void cleanCE() {
-        CELog.d("cleanCE start");
+        CELog.d("TenantSwitch", "cleanCE: Starting cleanup");
         ClientsManager.cancelAll();
         SocketManager.close();
         ChatService.getInstance().release();
@@ -154,7 +161,9 @@ public class SystemKit {
             .setBrand(0);
 
         TokenPref.getInstance(App.getContext())
-            .clearByKey(TokenPref.PreferencesKey.USER_ID)
+            .clearByKey(TokenPref.PreferencesKey.USER_ID);
+        CELog.d("TenantSwitch", "cleanCE: Cleared old USER_ID from TokenPref");
+        TokenPref.getInstance(App.getContext())
             .clearByKey(TokenPref.PreferencesKey.TOKEN_ID)
             .clearByKey(TokenPref.PreferencesKey.DEVICE_LOGIN_TIME)
             .clearByKey(TokenPref.PreferencesKey.IS_ENABLE_CALL);
@@ -164,9 +173,10 @@ public class SystemKit {
         AvatarService.clearAllCache();
         ChatMemberCacheService.clearAllCache();
         App.getInstance().clearMeetingId();
+        CELog.d("TenantSwitch", "cleanCE: Attempting to close DB");
         DBManager.getInstance().close();
         AiffDB.getInstance(App.getContext()).getAiffInfoDao().delAll();
-        CELog.d("cleanCE end");
+        CELog.d("TenantSwitch", "cleanCE: Finished cleanup");
     }
 
     /**
@@ -264,16 +274,24 @@ public class SystemKit {
      * 切換團隊
      */
     public static void changeTenant(Activity activity, RelationTenant tenant, Boolean isReload, String scannerType) {
-        CELog.e("changeTenant start"); //temp for bug
-        RelationTenant currentTenant = TokenPref.getInstance(activity).getCpCurrentTenant();
-        if (currentTenant != null && currentTenant.getTenantName().equals(tenant.getTenantName()) && !isReload) {
+        RelationTenant currentCpTenantInfo = TokenPref.getInstance(activity).getCpCurrentTenant();
+        String currentTenantNameLog = (currentCpTenantInfo != null) ? currentCpTenantInfo.getTenantName() + " (Code: " + currentCpTenantInfo.getTenantCode() + ")" : "null";
+        String targetTenantNameLog = (tenant != null) ? tenant.getTenantName() + " (Code: " + tenant.getTenantCode() + ")" : "null";
+        CELog.i("TenantSwitch", "changeTenant: Starting. Current Tenant: " + currentTenantNameLog + ", Target Tenant: " + targetTenantNameLog);
+
+        if (currentCpTenantInfo != null && tenant != null && currentCpTenantInfo.getTenantName().equals(tenant.getTenantName()) && !isReload) {
             Toast.makeText(activity, "已在該團隊", Toast.LENGTH_SHORT).show();
-            CELog.w("已在該團隊"); //temp for bug
-        } else {
-            DBManager.getInstance().isChangingTenant = true;
-            DBManager.getInstance().close();
-            IosProgressDialog iosProgressDialog = new IosProgressDialog(activity);
-            iosProgressDialog.show(isReload ? "系統過載，重新加載中..." : "切換團隊中...");
+            CELog.w("TenantSwitch", "changeTenant: Already in target tenant: " + targetTenantNameLog);
+            return;
+        }
+
+        DBManager.getInstance().isChangingTenant = true;
+        String oldTenantIdForDbCloseLog = (currentCpTenantInfo != null) ? currentCpTenantInfo.getTenantCode() : "UNKNOWN";
+        CELog.d("TenantSwitch", "changeTenant: Attempting to close DB for old tenant: " + oldTenantIdForDbCloseLog);
+        DBManager.getInstance().close();
+
+        IosProgressDialog iosProgressDialog = new IosProgressDialog(activity);
+        iosProgressDialog.show(isReload ? "系統過載，重新加載中..." : "切換團隊中...");
 //            String oriTenantUrl = TokenPref.getInstance(activity).getCurrentTenantUrl();
             TokenPref.getInstance(activity).setCurrentTenantUrl(tenant.getServiceUrl());
             ApiManager.getInstance().setCEAccount(activity, TokenPref.getInstance(activity).getCountryCode(), TokenPref.getInstance(activity).getAccountNumber(), tenant.getTenantCode(), TokenPref.getInstance(activity).getAuthToken());
@@ -286,18 +304,39 @@ public class SystemKit {
 
                 @Override
                 public void onSuccess(boolean isRefresh, AileTokenApply.Resp resp) {
-                    CELog.d("changeTenant : token apply success"); //temp for bug
-                    //取得新CEToken後, 清空舊CE的資料
+                    CELog.i("TenantSwitch", "changeTenant: TokenApply onSuccess for tenant: " + tenant.getTenantCode());
+                    String oldTenantIdForCleanCELog = (TokenPref.getInstance(activity).getCpCurrentTenant() != null) ? TokenPref.getInstance(activity).getCpCurrentTenant().getTenantCode() : "UNKNOWN";
+                    CELog.d("TenantSwitch", "changeTenant.onSuccess: Starting cleanup for old tenant: " + oldTenantIdForCleanCELog);
                     SystemKit.cleanCE();
+
                     ClientsManager.cancelAll(() -> {
-                        TokenPref.getInstance(activity)
-                            .setCpCurrentTenant(tenant)
+                        CELog.d("TenantSwitch", "changeTenant.onSuccess.cancelAll: ClientsManager.cancelAll callback invoked.");
+                        TokenPref tokenPref = TokenPref.getInstance(activity); // Use a local var for efficiency
+                        tokenPref.setCpCurrentTenant(tenant)
                             .setCurrentTenantId(tenant.getTenantName())
                             .setCurrentTenantCode(tenant.getTenantCode())
                             .setCurrentTenantUrl(tenant.getServiceUrl())
                             .setTokenId(resp.getTokenId());
+
+                        AileTokenApply.Resp.User user = resp.getUser();
+                        if (user != null) {
+                            tokenPref.setUserId(user.getId()).setUserResp(user);
+                        }
+                        AileTokenApply.Resp.TenantInfo tenantInfoData = resp.getTenantInfo();
+                        if (tenantInfoData != null) {
+                            tokenPref.setTenantInfo(tenantInfoData);
+                        }
+                        if (resp.getAuthToken() != null && !resp.getAuthToken().isEmpty()) {
+                            tokenPref.setCEAuthToken(resp.getAuthToken());
+                        }
+                        
+                        String newUserIdLog = (user != null) ? user.getId() : "null";
+                        String newTenantCodeLog = tenant.getTenantCode();
+                        CELog.i("TenantSwitch", "changeTenant.onSuccess: New tenant context set in TokenPref. New UserID: " + newUserIdLog + ", New TenantCode: " + newTenantCodeLog);
+
                         if (resp.getUser() != null) CELog.startLogSave(activity, resp.getUser().getId());
                         DBManager.getInstance().isChangingTenant = false;
+                        CELog.d("TenantSwitch", "changeTenant.onSuccess: Calling saveCEInfo for new tenant: " + newTenantCodeLog);
                         saveCEInfo(resp);
                         syncApiData();
                         SocketManager.reconnect();
@@ -335,9 +374,10 @@ public class SystemKit {
 
                 @Override
                 public void onFailed(ErrCode errorCode, String errorMessage) {
-                    CELog.d("changeTenant fail: token apply fail"); //temp for bug
+                    String targetTenantCodeLog = (tenant != null) ? tenant.getTenantCode() : "UNKNOWN";
+                    CELog.e("TenantSwitch", "changeTenant: TokenApply onFailed for tenant: " + targetTenantCodeLog + ". ErrorCode: " + errorCode + ", Msg: " + errorMessage);
                     ThreadExecutorHelper.getMainThreadExecutor().execute(() -> {
-                        DBManager.getInstance().isChangingTenant = false;
+                        DBManager.getInstance().isChangingTenant = false; // Reset flag on failure
 //                        if (currentTenant != null) {
 //                            ApiManager.getInstance().setCEAccount(activity, TokenPref.getInstance(activity).getCountryCode(), TokenPref.getInstance(activity).getAccountNumber(), currentTenant.getTenantCode(), TokenPref.getInstance(activity).getAuthToken());
 //                        }
