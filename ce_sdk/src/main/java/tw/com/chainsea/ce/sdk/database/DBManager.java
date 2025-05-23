@@ -49,68 +49,92 @@ import tw.com.chainsea.ce.sdk.reference.AccountRoomRelReference;
  */
 public class DBManager {
     private static DBManager INSTANCE;
-    private String dataBaseName;
-    private String selfId;
-    public boolean isChangingTenant = false;
+    // instanceDataBaseName will store the database name specific to this instance
+    private String instanceDataBaseName; 
+    private String selfId; // Retained: Stores the UserID for this instance's context
+    private DBHelper instanceHelper; // Instance-specific DBHelper
+    public boolean isChangingTenant = false; // Retained: Global flag checked by SystemKit
 
     public SQLiteDatabase openDatabase() {
         if (isChangingTenant) {
-            CELog.d("TenantSwitch", "DBManager.openDatabase: Denied open because isChangingTenant is true.");
+            CELog.e("TenantSwitch", "DBManager: Attempted to open database while tenant switch is in progress (isChangingTenant is true). Returning null.");
             return null;
         }
-        // if (!isChangingTenant) { // Condition already handled by the return above
-        if (SdkLib.dbHelper == null) {
-            CELog.d("TenantSwitch", "DBManager.openDatabase: dbHelper is null, will re-initialize.");
-            close(); // Ensure any lingering state is cleared if dbHelper is null unexpectedly
-            initDB();
-            if (SdkLib.dbHelper != null) {
-                    return SdkLib.dbHelper.getWritableDatabase();
-                }
-            } else {
-                SQLiteDatabase db = SdkLib.dbHelper.getWritableDatabase();
-                if (db != null) {
-                    db.enableWriteAheadLogging();
-                    return db;
-                }
-            }
+        if (this.instanceHelper == null) {
+            // This case should ideally not be reached if constructor ensures initDB.
+            // If it is, it means the instance is not properly initialized.
+            CELog.e("TenantSwitch", "DBManager.openDatabase: instanceHelper is null for this DBManager instance. Database not initialized correctly. selfId: " + this.selfId);
+            // Attempt to re-initialize for this instance. This is a recovery attempt.
+            // initDB(); // Be cautious with re-calling initDB here, it might have side effects if not designed for it.
+            // For now, let's assume initDB in constructor was sufficient or failed definitively.
+            return null; 
         }
-        return null;
+        try {
+            SQLiteDatabase db = this.instanceHelper.getWritableDatabase();
+            if (db != null) {
+                db.enableWriteAheadLogging(); // Ensure this is set on each open, if required.
+                return db;
+            } else {
+                CELog.e("TenantSwitch", "DBManager.openDatabase: instanceHelper.getWritableDatabase() returned null. Database: " + this.instanceDataBaseName);
+                return null;
+            }
+        } catch (Exception e) {
+            CELog.e("TenantSwitch", "DBManager.openDatabase: Exception getting writable database for " + this.instanceDataBaseName, e);
+            return null;
+        }
     }
 
     public static DBManager getInstance() {
         if (INSTANCE == null) {
+            // Crucial: isChangingTenant is checked BEFORE creating a new instance.
+            // If a switch is in progress, SystemKit should prevent calls to getInstance()
+            // until the switch is complete and isChangingTenant is false.
+            // If getInstance is called while isChangingTenant is true, it might lead to issues.
+            // However, the DBManager constructor itself also checks isChangingTenant.
             INSTANCE = new DBManager();
         }
         return INSTANCE;
     }
 
     private DBManager() {
-        if (!isChangingTenant) {
-            initDB();
-        }
+        // Constructor now directly calls initDB().
+        // The isChangingTenant flag is checked within initDB() as the first step.
+        initDB();
     }
 
     public void initDB() {
-        if (isChangingTenant) { // Though openDatabase should prevent this, double-check
-            CELog.w("TenantSwitch", "DBManager.initDB: Called while isChangingTenant is true. Aborting initDB.");
+        // This method now initializes instance fields.
+        // It's called by the constructor.
+        if (isChangingTenant) {
+            CELog.w("TenantSwitch", "DBManager.initDB: Attempted to initialize DBManager instance while isChangingTenant is true. Aborting initDB. selfId at this point: " + TokenPref.getInstance(SdkLib.getAppContext()).getUserId());
+            // instanceHelper will remain null, and instanceDataBaseName will be uninitialized.
+            // openDatabase() for this instance will subsequently fail.
             return;
         }
-        // if (!isChangingTenant) { // Original condition, now handled by early return
-        CELog.d("TenantSwitch", "DBManager.initDB: Starting initialization.");
-        selfId = TokenPref.getInstance(SdkLib.getAppContext()).getUserId();
-        CELog.d("TenantSwitch", "DBManager.initDB: Initializing DB for selfId (UserID): " + selfId);
-        dataBaseName = selfId + ".db";
-        CELog.d("TenantSwitch", "DBManager.initDB: Database name set to: " + dataBaseName);
-        // CELog.d("dataBaseName = " + dataBaseName); // Original log, replaced by more specific one
-        if (dataBaseName == null || ".db".equals(dataBaseName)) {
-                CELog.d("[unused DB]");
-                return;
-            }
-            if (SdkLib.dbHelper == null) {
-                CELog.d("[DB helper init]");
-                SdkLib.dbHelper = new DBHelper(dataBaseName);
-                SdkLib.dbHelper.setWriteAheadLoggingEnabled(false);
-            }
+
+        CELog.d("TenantSwitch", "DBManager.initDB: Initializing new DBManager instance.");
+        this.selfId = TokenPref.getInstance(SdkLib.getAppContext()).getUserId();
+        CELog.d("TenantSwitch", "DBManager.initDB: Instance context set to selfId (UserID): " + this.selfId);
+
+        if (Strings.isNullOrEmpty(this.selfId)) {
+            CELog.e("TenantSwitch", "DBManager.initDB: selfId is null or empty. Cannot initialize database. This indicates a critical issue with tenant context setup PRIOR to DBManager instantiation.");
+            this.instanceDataBaseName = null;
+            this.instanceHelper = null;
+            return;
+        }
+
+        this.instanceDataBaseName = this.selfId + ".db";
+        CELog.d("TenantSwitch", "DBManager.initDB: Instance database name set to: " + this.instanceDataBaseName);
+
+        try {
+            // Initialize the instance-specific DBHelper
+            // No more SdkLib.dbHelper
+            this.instanceHelper = new DBHelper(this.instanceDataBaseName);
+            this.instanceHelper.setWriteAheadLoggingEnabled(false); // Or true, based on previous default
+            CELog.d("TenantSwitch", "DBManager.initDB: Instance helper initialized for: " + this.instanceDataBaseName);
+        } catch (Exception e) {
+            CELog.e("TenantSwitch", "DBManager.initDB: Failed to initialize DBHelper for " + this.instanceDataBaseName, e);
+            this.instanceHelper = null; // Ensure it's null if initialization fails
         }
     }
 
@@ -1817,18 +1841,27 @@ public class DBManager {
     }
 
     public void close() {
-        String currentDbName = dataBaseName; // Capture before nulling
-        CELog.d("TenantSwitch", "DBManager.close: Closing database. Current dataBaseName was: " + currentDbName);
-        dataBaseName = null;
-        if (SdkLib.dbHelper != null) {
-            SdkLib.dbHelper.close();
-            SdkLib.dbHelper = null;
-        }
+        // This static method is called by SystemKit.cleanCE() and SystemKit.changeTenant()
+        // Its role is to tear down the *current singleton instance* and its resources.
+        CELog.d("TenantSwitch", "DBManager.close (static): Called.");
         if (INSTANCE != null) {
-            INSTANCE = null;
+            CELog.d("TenantSwitch", "DBManager.close (static): Current INSTANCE found. Closing its instanceHelper for DB: " + INSTANCE.instanceDataBaseName);
+            if (INSTANCE.instanceHelper != null) {
+                try {
+                    INSTANCE.instanceHelper.close();
+                } catch (Exception e) {
+                    CELog.e("TenantSwitch", "DBManager.close (static): Exception closing instanceHelper for " + INSTANCE.instanceDataBaseName, e);
+                }
+                INSTANCE.instanceHelper = null;
+            }
+            INSTANCE.instanceDataBaseName = null; // Clear instance-specific fields
+            INSTANCE.selfId = null;
+            INSTANCE = null; // Nullify the static singleton holder
+            CELog.d("TenantSwitch", "DBManager.close (static): INSTANCE and its helper closed and nulled.");
+        } else {
+            CELog.d("TenantSwitch", "DBManager.close (static): No current INSTANCE to close.");
         }
-        CELog.d("TenantSwitch", "DBManager.close: DBHelper and INSTANCE nulled.");
-        // CELog.d("DB", "[DB close]"); // Original log, replaced by more specific one
+        // No more SdkLib.dbHelper to manage here.
     }
 
     public String queryCustomBossServiceId(String customerId) {

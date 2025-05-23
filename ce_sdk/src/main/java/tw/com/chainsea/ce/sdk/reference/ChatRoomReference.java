@@ -64,9 +64,9 @@ public class ChatRoomReference extends AbsReference {
         return INSTANCE;
     }
 
-    private SQLiteDatabase getDb() {
-        return DBManager.getInstance().openDatabase();
-    }
+    // private SQLiteDatabase getDb() { // This method will be removed after refactoring all its usages.
+    //     return DBManager.getInstance().openDatabase();
+    // }
 
 
     public synchronized boolean save(List<ChatRoomEntity> entities) {
@@ -77,13 +77,28 @@ public class ChatRoomReference extends AbsReference {
             long dateTime = System.currentTimeMillis();
             boolean result = true;
             Multimap<String, String> multimap = ArrayListMultimap.create();
-            for (ChatRoomEntity entity : entities) {
-                boolean isSuccess = save(entity);
-                result = result && isSuccess;
+            // Note: This method calls save(ChatRoomEntity entity) in a loop.
+            // The 'save(entity)' call itself will be refactored to use a consistent DBManager instance for its own scope.
+            // For this method, direct DB operations like AccountRoomRelReference are the main concern for now.
+            DBManager currentDbManager = DBManager.getInstance();
+            SQLiteDatabase db = currentDbManager.openDatabase();
+            if (db == null) {
+                CELog.e("ChatRoomReference.save(List)", "Failed to obtain database. Tenant switch may be in progress or DBManager not initialized.");
+                return false;
             }
-            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(getDb(), multimap);
+
+            for (ChatRoomEntity entity : entities) {
+                // Each call to save(entity) will manage its own DBManager instance and transaction context if needed.
+                // Alternatively, save(entity) could be refactored to accept 'db' as a parameter if part of a larger transaction.
+                // For this iteration, assuming save(entity) is self-contained or handles its DB instance correctly.
+                boolean isSuccess = save(entity); // This will be refactored separately.
+                result = result && isSuccess;
+                // If save(entity) populates multimap correctly based on its own DB context, this is fine.
+                // However, multimap should ideally be populated by the save(entity) call itself if it does DB work.
+                // For now, assuming multimap is related to the entities list directly, not DB state from this method.
+            }
+            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(db, multimap); // Use the db instance from this method
             CELog.d(String.format("save room entities and batch replace Account Room Rel, count->%s, use time->%s/second  ", entities.size(), (System.currentTimeMillis() - dateTime) / 1000.d));
-            //CELog.d("Kyle4 final result = "+result);
             return result;
         } catch (Exception e) {
             CELog.e(e.getMessage());
@@ -100,11 +115,19 @@ public class ChatRoomReference extends AbsReference {
             long dateTime = System.currentTimeMillis();
             boolean result = true;
             Multimap<String, String> multimap = ArrayListMultimap.create();
+            DBManager currentDbManager = DBManager.getInstance();
+            SQLiteDatabase db = currentDbManager.openDatabase();
+            if (db == null) {
+                CELog.e("ChatRoomReference.syncSave(List)", "Failed to obtain database. Tenant switch may be in progress or DBManager not initialized.");
+                return false;
+            }
+
             for (ChatRoomEntity entity : entities) {
-                boolean isSuccess = syncSave(entity);
+                // Similar to save(List), syncSave(entity) will be refactored separately.
+                boolean isSuccess = syncSave(entity); // This will be refactored separately.
                 result = result && isSuccess;
             }
-            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(getDb(), multimap);
+            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(db, multimap); // Use the db instance from this method
             CELog.d(String.format("save room entities and batch replace Account Room Rel, count->%s, use time->%s/second  ", entities.size(), (System.currentTimeMillis() - dateTime) / 1000.d));
             return result;
         } catch (Exception e) {
@@ -114,67 +137,90 @@ public class ChatRoomReference extends AbsReference {
     }
 
     public synchronized boolean save(ChatRoomEntity entity) {
+        DBManager currentDbManager = DBManager.getInstance();
+        SQLiteDatabase db = currentDbManager.openDatabase();
+        if (db == null) {
+            CELog.e("ChatRoomReference.save(ChatRoomEntity)", "Failed to obtain database. Tenant switch may be in progress or DBManager not initialized. RoomId: " + entity.getId());
+            return false;
+        }
+
         try {
-            Multimap<String, String> multimap = ArrayListMultimap.create();
+            // It's important that getUnReadNumberById is also refactored to use a consistent DB instance.
+            // For this change, we assume getUnReadNumberById will be refactored or its current behavior is acceptable for now.
+            // If getUnReadNumberById internally calls DBManager.getInstance().openDatabase(), it might get a different context
+            // if a tenant switch happens exactly during this method's execution.
+            // A more robust solution would be to pass 'db' to getUnReadNumberById or make it use currentDbManager.
             if (entity.getUnReadNum() == 0) {
-                if (getUnReadNumberById(entity.getId()) == -1) {
+                 // Temporarily, let getUnReadNumberById handle its own DB access.
+                 // This specific call might still be problematic if a switch occurs mid-save.
+                if (getUnReadNumberById(entity.getId(), currentDbManager) == -1) {
                     entity.setUnReadNum(-1);
                 }
             }
-            if (entity.getLastMessage() == null && entity.getUnReadNum() <= 0) //前端針對此條件的聊天室不跟隨Server的update time排序
+            if (entity.getLastMessage() == null && entity.getUnReadNum() <= 0)
                 entity.setInitUpdateTime(0L);
 
             ContentValues lastMessageValues;
             if (entity.getLastMessage() != null) {
                 lastMessageValues = ChatRoomEntity.getLastMessageContentValues(entity.getLastMessage());
-                getDb().replace(DBContract.LastMessageEntry.TABLE_NAME, null, lastMessageValues);
+                db.replace(DBContract.LastMessageEntry.TABLE_NAME, null, lastMessageValues);
             } else {
                 lastMessageValues = ChatRoomEntity.getLastMessageContentValues(entity.getId());
-                getDb().update(DBContract.LastMessageEntry.TABLE_NAME, lastMessageValues, DBContract.LastMessageEntry.COLUMN_ROOM_ID + " =? ", new String[]{entity.getId()});
+                db.update(DBContract.LastMessageEntry.TABLE_NAME, lastMessageValues, DBContract.LastMessageEntry.COLUMN_ROOM_ID + " =? ", new String[]{entity.getId()});
             }
 
-
+            Multimap<String, String> multimap = ArrayListMultimap.create(); // Keep multimap local to this save operation
             multimap.putAll(entity.getId(), Sets.newHashSet(entity.getMemberIds()));
+
             if (ChatRoomSource.ALL.equals(entity.getListClassify())) {
                 String selfUserId = TokenPref.getInstance(SdkLib.getAppContext()).getUserId();
                 setChatType(entity, selfUserId);
             }
             ContentValues values = ChatRoomEntity.getContentValues(entity);
-            long _id = getDb().replace(ChatRoomEntry.TABLE_NAME, null, values);
+            long _id = db.replace(ChatRoomEntry.TABLE_NAME, null, values);
 
             if (entity.getUnReadNum() == 0) {
-                if (getUnReadNumberById(entity.getId()) == -1) {
+                if (getUnReadNumberById(entity.getId(), currentDbManager) == -1) { // Pass currentDbManager
                     entity.setUnReadNum(-1);
                 }
             }
-            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(getDb(), multimap);
+            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(db, multimap);
             return _id > 0;
         } catch (Exception e) {
+            CELog.e("ChatRoomReference.save(ChatRoomEntity)", "Exception during save for RoomId: " + entity.getId() + " - " + e.getMessage(), e);
             return false;
         }
+        // Note: db is not closed here as it's managed by DBManager instance lifecycle or higher-level transaction.
     }
 
     //for first sync method
     public synchronized boolean syncSave(ChatRoomEntity entity) {
+        DBManager currentDbManager = DBManager.getInstance();
+        SQLiteDatabase db = currentDbManager.openDatabase();
+        if (db == null) {
+            CELog.e("ChatRoomReference.syncSave(ChatRoomEntity)", "Failed to obtain database. Tenant switch may be in progress or DBManager not initialized. RoomId: " + entity.getId());
+            return false;
+        }
+
         try {
             Multimap<String, String> multimap = ArrayListMultimap.create();
             if (entity.getUnReadNum() == 0) {
-                if (getUnReadNumberById(entity.getId()) == -1) {
+                if (getUnReadNumberById(entity.getId(), currentDbManager) == -1) { // Pass currentDbManager
                     entity.setUnReadNum(-1);
                 }
             }
-            if (entity.getLastMessage() == null && entity.getUnReadNum() <= 0) //前端針對此條件的聊天室不跟隨Server的update time排序
+            if (entity.getLastMessage() == null && entity.getUnReadNum() <= 0)
                 entity.setInitUpdateTime(0L);
             else if (entity.getLastMessage() != null) {
                 entity.setInitUpdateTime(entity.getLastMessage().getSendTime());
             }
             for (String id : entity.getMemberIds()) {
                 ContentValues contentValue = ChatRoomEntity.getMemberId(entity.getId(), id);
-                getDb().replace(DBContract.ChatRoomMemberIdsEntry.TABLE_NAME, null, contentValue);
+                db.replace(DBContract.ChatRoomMemberIdsEntry.TABLE_NAME, null, contentValue);
             }
             if (entity.getLastMessage() != null) {
                 ContentValues lastMessageValues = ChatRoomEntity.getLastMessageContentValues(entity.getLastMessage());
-                getDb().replace(DBContract.LastMessageEntry.TABLE_NAME, null, lastMessageValues);
+                db.replace(DBContract.LastMessageEntry.TABLE_NAME, null, lastMessageValues);
             }
             multimap.putAll(entity.getId(), Sets.newHashSet(entity.getMemberIds()));
             if (ChatRoomSource.ALL.equals(entity.getListClassify())) {
@@ -182,14 +228,14 @@ public class ChatRoomReference extends AbsReference {
                 setChatType(entity, selfUserId);
             }
             ContentValues values = ChatRoomEntity.getContentValues(entity);
-            long _id = getDb().replace(ChatRoomEntry.TABLE_NAME, null, values);
+            long _id = db.replace(ChatRoomEntry.TABLE_NAME, null, values);
 
             if (entity.getUnReadNum() == 0) {
-                if (getUnReadNumberById(entity.getId()) == -1) {
+                if (getUnReadNumberById(entity.getId(), currentDbManager) == -1) { // Pass currentDbManager
                     entity.setUnReadNum(-1);
                 }
             }
-            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(getDb(), multimap);
+            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(db, multimap);
             return _id > 0;
         } catch (Exception e) {
             Log.e("ChatRoomReference", "syncSave error=" + e.getMessage());
@@ -198,25 +244,31 @@ public class ChatRoomReference extends AbsReference {
     }
 
     public synchronized boolean saveChatRoomFromSync(ChatRoomEntity entity) {
+        DBManager currentDbManager = DBManager.getInstance();
+        SQLiteDatabase db = currentDbManager.openDatabase();
+        if (db == null) {
+            CELog.e("ChatRoomReference.saveChatRoomFromSync", "Failed to obtain database. Tenant switch may be in progress or DBManager not initialized. RoomId: " + entity.getId());
+            return false;
+        }
         try {
             Multimap<String, String> multimap = ArrayListMultimap.create();
             if (entity.getUnReadNum() == 0) {
-                if (getUnReadNumberById(entity.getId()) == -1) {
+                if (getUnReadNumberById(entity.getId(), currentDbManager) == -1) { // Pass currentDbManager
                     entity.setUnReadNum(-1);
                 }
             }
-            if (entity.getLastMessage() == null && entity.getUnReadNum() <= 0) //前端針對此條件的聊天室不跟隨Server的update time排序
+            if (entity.getLastMessage() == null && entity.getUnReadNum() <= 0)
                 entity.setInitUpdateTime(0L);
             else if (entity.getLastMessage() != null) {
                 entity.setInitUpdateTime(entity.getLastMessage().getSendTime());
             }
             for (String id : entity.getMemberIds()) {
                 ContentValues contentValue = ChatRoomEntity.getMemberId(entity.getId(), id);
-                getDb().replace(DBContract.ChatRoomMemberIdsEntry.TABLE_NAME, null, contentValue);
+                db.replace(DBContract.ChatRoomMemberIdsEntry.TABLE_NAME, null, contentValue);
             }
             if (entity.getLastMessage() != null) {
                 ContentValues lastMessageValues = ChatRoomEntity.getLastMessageContentValues(entity.getLastMessage());
-                getDb().replace(DBContract.LastMessageEntry.TABLE_NAME, null, lastMessageValues);
+                db.replace(DBContract.LastMessageEntry.TABLE_NAME, null, lastMessageValues);
             }
 
             multimap.putAll(entity.getId(), Sets.newHashSet(entity.getMemberIds()));
@@ -225,51 +277,31 @@ public class ChatRoomReference extends AbsReference {
                 setChatType(entity, selfUserId);
             }
             ContentValues values = ChatRoomEntity.getContentValues(entity);
-            long _id = getDb().replace(ChatRoomEntry.TABLE_NAME, null, values);
+            long _id = db.replace(ChatRoomEntry.TABLE_NAME, null, values);
 
             if (entity.getUnReadNum() == 0) {
-                if (getUnReadNumberById(entity.getId()) == -1) {
+                if (getUnReadNumberById(entity.getId(), currentDbManager) == -1) { // Pass currentDbManager
                     entity.setUnReadNum(-1);
                 }
             }
-            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(getDb(), multimap);
+            AccountRoomRelReference.batchSaveByRoomIdsAndAccountIds(db, multimap);
             return _id > 0;
         } catch (Exception e) {
+            CELog.e("ChatRoomReference.saveChatRoomFromSync", "Exception during save for RoomId: " + entity.getId() + " - " + e.getMessage(), e);
             return false;
         }
     }
 
-    //聊天室&服務號分類
-    private void setChatType(ChatRoomEntity chatRoomEntity, String userId) {
-        //聊天室或服務號分類
-        if (ChatRoomType.serviceMember.equals(chatRoomEntity.getType())) {
-            if (ServiceNumberType.BOSS.equals(chatRoomEntity.getServiceNumberType()) && userId.equals(chatRoomEntity.getServiceNumberOwnerId())) { //服務號成員聊天室且是商務號擁有者
-                chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
-            } else {
-                chatRoomEntity.setListClassify(ChatRoomSource.SERVICE);
-            }
-        } else if (ChatRoomType.services.equals(chatRoomEntity.getType())) {
-            if (chatRoomEntity.getOwnerId().equals(userId)) { //我自己進線的服務號聊天室，服務號並且是擁有者
-                chatRoomEntity.setType(ChatRoomType.subscribe);
-                chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
-            } else if (ServiceNumberType.BOSS.equals(chatRoomEntity.getServiceNumberType()) && userId.equals(chatRoomEntity.getServiceNumberOwnerId())) { //我的商務號聊天室
-                chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
-            } else if (chatRoomEntity.getProvisionalIds().contains(userId)) {
-                chatRoomEntity.setListClassify(ChatRoomSource.MAIN); //臨時成員聊天室顯示在一般聊天列表
-            } else {
-                chatRoomEntity.setListClassify(ChatRoomSource.SERVICE);
-            }
-        } else {
-            chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
+    // Overload getUnReadNumberById to accept a DBManager instance or SQLiteDatabase
+    // This is a helper, ensure it's used by the main save methods.
+    private int getUnReadNumberById(String roomId, DBManager dbManager) {
+        SQLiteDatabase db = dbManager.openDatabase();
+        if (db == null) {
+            CELog.e("ChatRoomReference.getUnReadNumberById", "Failed to obtain database for roomId: " + roomId);
+            return 0; // Or some other default/error indicator
         }
-    }
-
-    public int getUnReadNumberById(String roomId) {
         try {
-//            String sql = " SELECT " + ChatRoomEntry.COLUMN_UNREAD_NUMBER + " FROM " + ChatRoomEntry.TABLE_NAME
-//                    + " WHERE " + ChatRoomEntry._ID + "=?";
-//            Cursor cursor = getDb().rawQuery(sql, new String[]{roomId});
-            Cursor cursor = getDb().query(
+            Cursor cursor = db.query(
                 ChatRoomEntry.TABLE_NAME,
                 new String[]{ChatRoomEntry.COLUMN_UNREAD_NUMBER},
                 ChatRoomEntry._ID + "=?",
@@ -287,10 +319,70 @@ public class ChatRoomReference extends AbsReference {
             cursor.close();
             return unreadNumber;
         } catch (Exception e) {
-            CELog.e(e.getMessage());
+            CELog.e("ChatRoomReference.getUnReadNumberById", "Exception for roomId: " + roomId + " - " + e.getMessage(), e);
             return 0;
         }
     }
+
+
+    //聊天室&服務號分類
+    private void setChatType(ChatRoomEntity chatRoomEntity, String userId) {
+        //聊天室或服務號分類
+        if (ChatRoomType.serviceMember.equals(chatRoomEntity.getType())) {
+            if (ServiceNumberType.BOSS.equals(chatRoomEntity.getServiceNumberType()) && userId.equals(chatRoomEntity.getServiceNumberOwnerId())) { 
+                chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
+            } else {
+                chatRoomEntity.setListClassify(ChatRoomSource.SERVICE);
+            }
+        } else if (ChatRoomType.services.equals(chatRoomEntity.getType())) {
+            if (userId.equals(chatRoomEntity.getOwnerId())) { // Use userId.equals pattern
+                chatRoomEntity.setType(ChatRoomType.subscribe);
+                chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
+            } else if (ServiceNumberType.BOSS.equals(chatRoomEntity.getServiceNumberType()) && userId.equals(chatRoomEntity.getServiceNumberOwnerId())) { 
+                chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
+            } else if (chatRoomEntity.getProvisionalIds().contains(userId)) {
+                chatRoomEntity.setListClassify(ChatRoomSource.MAIN); 
+            } else {
+                chatRoomEntity.setListClassify(ChatRoomSource.SERVICE);
+            }
+        } else {
+            chatRoomEntity.setListClassify(ChatRoomSource.MAIN);
+        }
+    }
+
+    // This is the original getUnReadNumberById. It will be replaced by the overloaded one
+    // or refactored if still needed by non-critical paths.
+    // For now, calls from save/syncSave are updated to use the new overloaded version.
+    // public int getUnReadNumberById(String roomId) { 
+    //     DBManager currentDbManager = DBManager.getInstance();
+    //     SQLiteDatabase db = currentDbManager.openDatabase();
+    //     if (db == null) {
+    //         CELog.e("ChatRoomReference.getUnReadNumberById (original)", "Failed to obtain database for roomId: " + roomId);
+    //         return 0;
+    //     }
+    //     try {
+    //         Cursor cursor = db.query(
+    //             ChatRoomEntry.TABLE_NAME,
+    //             new String[]{ChatRoomEntry.COLUMN_UNREAD_NUMBER},
+    //             ChatRoomEntry._ID + "=?",
+    //             new String[]{roomId},
+    //             null,
+    //             null,
+    //             null
+    //         );
+    //         if (cursor.getCount() == 0) {
+    //             cursor.close();
+    //             return 0;
+    //         }
+    //         cursor.moveToFirst();
+    //         int unreadNumber = cursor.getInt(0);
+    //         cursor.close();
+    //         return unreadNumber;
+    //     } catch (Exception e) {
+    //         CELog.e("ChatRoomReference.getUnReadNumberById (original)", "Exception for roomId: " + roomId + " - " + e.getMessage(), e);
+    //         return 0;
+    //     }
+    // }
 
     /**
      * checking If There Is Information

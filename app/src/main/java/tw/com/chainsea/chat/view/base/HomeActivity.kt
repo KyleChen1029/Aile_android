@@ -317,6 +317,27 @@ class HomeActivity : BaseServiceActivity() {
         binding.toolBar.ivGlobalSearch.setOnClickListener(
             object : NoDoubleClickListener() {
                 override fun onNoDoubleClick(v: View?) {
+                    // Test loop for tenant switching, remove or comment out for production
+                    // CoroutineScope(Dispatchers.IO).launch {
+                    //     for (times in 0 .. 2000) {
+                    //         if (DBManager.getInstance().isChangingTenant()) {
+                    //             Log.d("HomeActivityLoop", "Tenant switch detected. Stopping loop at iteration $times.")
+                    //             break
+                    //         }
+                    //         val roomName = "TestRoom_Tenant${TokenPref.getInstance(this@HomeActivity).getCurrentTenantCode()}_Iter${times}"
+                    //         Log.d("HomeActivityLoop", "Loop iteration $times for tenant: ${TokenPref.getInstance(this@HomeActivity).getCurrentTenantCode()} - Creating room: $roomName")
+                    //         val room = tw.com.chainsea.ce.sdk.bean.room.ChatRoomEntity()
+                    //         room.id = System.currentTimeMillis().toString() + "_" + times
+                    //         room.name = roomName
+                    //         room.type = tw.com.chainsea.ce.sdk.bean.room.ChatRoomType.person
+                    //         room.ownerId = TokenPref.getInstance(this@HomeActivity).getUserId()
+                    //
+                    //         val success = ChatRoomReference.getInstance().save(room)
+                    //         Log.d("HomeActivityLoop", "Save result: $success for room ${room.name}")
+                    //         kotlinx.coroutines.delay(50) // Small delay
+                    //     }
+                    // }
+
                     bottomTabAdapter.getCurrentTab()?.let {
                         startActivity(
                             Intent(this@HomeActivity, GlobalSearchNewActivity::class.java)
